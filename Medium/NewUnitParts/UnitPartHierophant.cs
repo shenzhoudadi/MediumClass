@@ -39,7 +39,8 @@ namespace MediumClass.Medium.NewComponents
 	[AllowMultipleComponents]
 	[AllowedOn(typeof(BlueprintUnit), false)]
 	[AllowedOn(typeof(BlueprintUnitFact), false)]
-	[TypeId("18df8977af254951be0e49854a471953")]
+	// Unique ID: the upstream value duplicated UnitPartArchmage's serialized type ID.
+	[TypeId("0afe477b-82f7-410e-a905-048a80fb3d93")]
 	public class UnitPartHierophant : UnitPart, ISpontaneousConversionHandler
 	{
 		private static readonly ModLogger Logger = Logging.GetLogger(nameof(UnitPartHierophant));

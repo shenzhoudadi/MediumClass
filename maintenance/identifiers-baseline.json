@@ -68,7 +68,7 @@
       "a1a054a6-1218-449c-a97a-c8b96be3eedf"
     ],
     "Medium/NewComponents/AbilitySpecific/MergeMediumSpellbookComponent.cs": [
-      "995fb9e0-f2f5-4dc2-a281-b7959ea95cda"
+      "b18c5744-bb1f-4c61-b769-02a71aa96fbb"
     ],
     "Medium/NewComponents/AbilitySpecific/WildArcanaComponent.cs": [
       "74bb36c4-55e3-4f86-bbcd-bc41c7ec8634"
@@ -83,19 +83,10 @@
       "18df8977af254951be0e49854a471953"
     ],
     "Medium/NewUnitParts/UnitPartHierophant.cs": [
-      "18df8977af254951be0e49854a471953"
+      "0afe477b-82f7-410e-a905-048a80fb3d93"
     ]
   },
-  "known_type_id_collisions": {
-    "995fb9e0f2f54dc2a281b7959ea95cda": [
-      "Medium/NewComponents/AbilitySpecific/MediumContextSpiritBonusComponent.cs",
-      "Medium/NewComponents/AbilitySpecific/MergeMediumSpellbookComponent.cs"
-    ],
-    "18df8977af254951be0e49854a471953": [
-      "Medium/NewUnitParts/UnitPartArchmage.cs",
-      "Medium/NewUnitParts/UnitPartHierophant.cs"
-    ]
-  },
+  "known_type_id_collisions": {},
   "blueprint_guids": [
     "039af4ae-2b4e-44d5-addd-67ba35eae478",
     "01bf5a3d-0986-4e8d-9a33-13ad8d1213ba",
@@ -507,5 +498,27 @@
     "Id": "Medium Class",
     "AssemblyName": "MediumClass.dll",
     "EntryMethod": "MediumClass.Main.Load"
+  },
+  "type_id_migrations": {
+    "Medium/NewUnitParts/UnitPartArchmage.cs": {
+      "old": "18df8977af254951be0e49854a471953",
+      "action": "retained",
+      "reason": "Preserve the legacy identity for the active Archmage UnitPart."
+    },
+    "Medium/NewUnitParts/UnitPartHierophant.cs": {
+      "old": "18df8977af254951be0e49854a471953",
+      "new": "0afe477b-82f7-410e-a905-048a80fb3d93",
+      "reason": "Resolve duplicate registration. Existing Hierophant state restoration must be tested; its fact component can rebuild the UnitPart state when activated."
+    },
+    "Medium/NewComponents/AbilitySpecific/MediumContextSpiritBonusComponent.cs": {
+      "old": "995fb9e0-f2f5-4dc2-a281-b7959ea95cda",
+      "action": "retained",
+      "reason": "Blueprint-mounted component; preserve its existing serialized identity."
+    },
+    "Medium/NewComponents/AbilitySpecific/MergeMediumSpellbookComponent.cs": {
+      "old": "995fb9e0-f2f5-4dc2-a281-b7959ea95cda",
+      "new": "b18c5744-bb1f-4c61-b769-02a71aa96fbb",
+      "reason": "Resolve duplicate registration. No blueprint or code reference to this unused component was found."
+    }
   }
 }

@@ -27,7 +27,8 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 	[AllowedOn(typeof(BlueprintFeature), false)]
 	[AllowedOn(typeof(BlueprintBuff), false)]
 	[AllowMultipleComponents]
-	[TypeId("995fb9e0-f2f5-4dc2-a281-b7959ea95cda")]
+	// Unique ID: the upstream value duplicated MediumContextSpiritBonusComponent's type ID.
+	[TypeId("b18c5744-bb1f-4c61-b769-02a71aa96fbb")]
 	public class MergeMediumSpellbookComponent : UnitFactComponentDelegate
 	{
 		private static readonly ModLogger Logger = Logging.GetLogger(nameof(MergeMediumSpellbookComponent));

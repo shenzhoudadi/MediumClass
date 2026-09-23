@@ -3,7 +3,7 @@
 > **2026-09-23 离线维护分支：尚未编译或游戏测试，不是稳定发布。**
 > 面向 WotR 2.7.0x / UMM 0.33.0 / ModMenu 1.3.2 / TTT-Core 0.7.14a / BlueprintCore 2.8.7。
 > 构建、迁移、已修复内容及剩余阻塞项见 [中文交接说明](maintenance/HANDOFF.zh-CN.md)。
-> 两组旧 TypeId 冲突和存档恢复仍待处理；普通 Build 不会部署到游戏。
+> 已消除源码中的重复 TypeId；Hierophant 旧档状态恢复仍待测试。普通 Build 不会部署到游戏。
 
 ## Maintenance build
 
@@ -14,8 +14,8 @@ Do not package the entire `bin` directory; it contains local reference assemblie
 
 Offline invariants: `python scripts/check_source.py`. Optional C# syntax parsing:
 `python -m pip install -r scripts/requirements-checks.txt`, then `python scripts/check_source.py --syntax`.
-`--strict` deliberately fails on the two unresolved legacy TypeId collisions. No check here substitutes
-for compiling against the installed game or loading save copies in game.
+`--strict` checks that TypeIds are unique. Passing it does not prove old-save migration or game compatibility;
+test save copies in game. No offline check substitutes for compiling against the installed game.
 
 The original feature notes below describe implementation intent, not verified compatibility.
 

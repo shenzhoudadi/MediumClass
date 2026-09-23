@@ -4,11 +4,11 @@
 
 | 检查 | 结果 | 能证明的范围 |
 |---|---|---|
-| `python scripts/check_source.py --syntax` | 0 errors，2 known blockers | GUID/TypeId/本地化键保持；JSON/XML可解析；路径/包版本/显式打包约束；C#语法解析 |
-| C# tree-sitter 解析 | 96份源码无解析错误 | 不代表 C# 类型检查或游戏 ABI 兼容 |
+| `python scripts/check_source.py --strict` | 0 errors，0 known blockers | TypeId唯一性、GUID/本地化键、JSON/XML、路径/包版本/显式打包约束；不代表旧档兼容 |
+| `python scripts/check_source.py --syntax` | 本次环境未执行成功：缺少可选 tree-sitter 依赖 | 需安装 `scripts/requirements-checks.txt` 后重新运行；不代表 C# 类型检查或游戏 ABI 兼容 |
 | UTF-8/JSON | 9份通过 | 修复4份文本损坏；不代表游戏内显示已验收 |
-| 原有标识对照 | 236个 Guids.cs GUID值不变；TypeId 值不变；Mod Id/程序集名/入口不变 | 避免本批直接改动旧档引用身份；不保证旧逻辑和旧档能正常恢复 |
-| 严格发布门禁 | `--strict` 返回1，按预期拒绝 | 两组继承自上游的 TypeId 冲突确实仍阻止“静态发布通过” |
+| 标识核对 | 静态检查通过；Blueprint GUID 保持不变；Mod Id/程序集名/入口不变 | Hierophant UnitPart 和未挂载的合并法术书组件各更换一个重复 TypeId；旧档恢复需要实机验证 |
+| 严格静态门禁 | `python scripts/check_source.py --strict` 通过，0 errors，0 known blockers | 确认源码无重复 TypeId；不代表旧档迁移或游戏加载通过 |
 | `git diff --check` | 通过 | 补丁没有空白错误 |
 | BPC 2.7.5→2.8.7 方法签名检查 | 修正 AddPrerequisiteIsPet 参数及 FeatureSelectionConfigurator 导入；检查其余本项目涉及的签名变更调用 | 对可唯一映射的新旧参数列表，未发现剩余位置实参漂移或已移除命名参数；重载解析、默认行为和引擎 API 仍须编译及实测 |
 | publicizer 输出核对 | 对照原作者 PublicizeTask.cs | 确認产生 `_public.dll` 和 `_public.hash`，保留缓存输出并复制为引用名；缺输出时清旧 hash |
@@ -26,7 +26,7 @@ python scripts/check_source.py --syntax
 python scripts/check_source.py --strict
 ```
 
-最后一个命令当前应失败。不能删除其警告名单或修改基线来宣称已解决冲突；先完成 HANDOFF 中的迁移设计，并将理由与实际游戏/旧档证据一并记录。
+此次 TypeId 修复后，两个检查都应通过且不再报告重复 ID。若 `--strict` 仍失败，先修检查器或基线差异，不要忽略错误。旧档兼容仍必须在测试副本中单独验证。
 
 ## 下一位执行者的任务
 

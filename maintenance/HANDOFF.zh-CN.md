@@ -4,7 +4,7 @@
 上游基线：`Telyl/MediumClass` 的 `e5fd3ba2e35350a218658abde4e093ff743175b7`（0.1.3-beta）。
 
 **这是可继续开发的源码快照，不是已验证可玩的 Mod 安装包。没有编译、运行游戏或测试旧存档。**
-`Info.json` 的 0.1.4 仅用于区分这批维护源码，尚未发布；Mod Id、程序集名、入口、现有 TypeId 和蓝图 GUID 均保留。
+`Info.json` 的 0.1.4 仅用于区分这批维护源码，尚未发布；Mod Id、程序集名、入口和蓝图 GUID 保留。为消除重复注册，Hierophant UnitPart 与未使用的合并法术书组件各更换了 TypeId，旧档影响见下文。
 
 ## 1. 目标环境
 
@@ -43,7 +43,7 @@ UMM 的 Requirements 使用 TTT `0.7.14` 数字最低版本，避免把 a 后缀
 
 这些不是已经解决的问题，不能用“静态检查通过”覆盖。
 
-1. **C03 两组 TypeId 冲突尚未修改**。所有旧标识原样保留，避免无旧档样本时猜映射。Archmage/Hierophant 共享 `18df8977af254951be0e49854a471953`；加值/未挂载的合并组件共享 `995fb9e0-f2f5-4dc2-a281-b7959ea95cda`。先在目标引擎确认类型注册和旧档实际表示，再选保留者、唯一新 ID 和迁移路线。它仍可能阻塞启动。
+1. **C03 TypeId 重复已在源码中消除，但旧档迁移仍待实测**。Archmage 保留旧 ID `18df8977af254951be0e49854a471953`，Hierophant 改用 `0afe477b-82f7-410e-a905-048a80fb3d93`。已挂载的 `MediumContextSpiritBonusComponent` 保留旧 ID `995fb9e0-f2f5-4dc2-a281-b7959ea95cda`；没有任何蓝图引用的 `MergeMediumSpellbookComponent` 改用 `b18c5744-bb1f-4c61-b769-02a71aa96fbb`。目前静态检查不再有重复 TypeId；这**不证明旧存档中的 Hierophant UnitPart 一定能自动恢复**。其转换列表由带唯一 TypeId 的事实组件在启用时重建这一点需通过旧档副本测试。第一次启动仍需看日志，不能仅凭修复 TypeId 断言加载卡顿已解决。
 2. **H04 / H06 读档与升级/洗点**：仍保留旧 OnPostLoad 按显示名识别逻辑。要改成稳定蓝图身份和必要状态持久化，需确认引擎序列化与重建回调顺序。
 3. **C04 / C05 / H05 状态与共享祝福**：整组移除会清空 Part；共享祝福没有持久化受益者及来源。下一批应按来源保存 Fact/Entity 引用，处理离队、双 Medium、独行和重复清理，不能简单删所有同蓝图效果。
 4. **H07 法术书**：先核实 AddSpellbook/ForbidSpellbook 的计数、CL、法术位与读档表现。合并组件未挂载，不应直接启用；不删除永久已知法术。
@@ -57,11 +57,11 @@ UMM 的 Requirements 使用 TTT `0.7.14` 数字最低版本，避免把 a 后缀
 1. 解压源码。安装 Visual Studio 2022 或 Build Tools，包含 MSBuild、.NET 桌面构建工具、.NET Framework 4.7.2 targeting pack 和 SDK。使用 **Developer PowerShell for VS 2022**；此项目的 publicizer 是 net472 MSBuild task，本批未验证 `dotnet build` 路线。
 2. 安装/核对目标依赖。备份现有 Medium 安装目录及测试存档。
 3. 复制配置：`Copy-Item MediumClass.local.props.example MediumClass.local.props`，编辑实际 WrathPath；需要时分别指定 ManagedPath、UMMPath、ModMenuPath、TTTCorePath。
-4. 可选离线检查：`python scripts/check_source.py`。两组旧 TypeId 会显示警告；`--strict` 预期会失败，直到制定并实施迁移。
+4. 可选离线检查：`python scripts/check_source.py --strict`。当前应通过且无重复 TypeId；若失败，保存输出并联系维护者。该检查不验证旧档迁移。
 5. 构建：`./scripts/Build.ps1`。保留完整输出，先修当前游戏 API 的编译差异。没有游戏依赖时应明确报缺失引用，不会用上游旧 DLL 假装通过。
 6. 编译成功后才生成测试安装文件：`./scripts/Build.ps1 -Target StageMod`。输出 `artifacts/Release/MediumClass/`。冷启动测试前停止游戏，手动替换备份后的 Mod 目录；也可以明确执行 `-Target DeployMod`，该操作会复制到配置中的游戏目录。
 7. 若需要本机测试 ZIP：`./scripts/Build.ps1 -Target PackageMod`。该目标只是本机打包，不创建 GitHub Release。
-8. **先冷启动，不读重要旧档**。若 TypeId 冲突/蓝图阶段失败，先定位并解决；新角色通过后才在旧档副本上做迁移。升级验证始终另存，避免覆盖唯一原档。
+8. **先冷启动，不读重要旧档**。若类型注册/蓝图阶段失败，先保存日志定位；新角色通过后才在旧档副本上验证 Hierophant 状态恢复。升级验证始终另存，避免覆盖唯一原档。
 
 只运行 Build 会在本地 bin/obj 写构建产物，不会部署、发布或压缩。StageMod 会重建专用暂存目录，不影响游戏；只分发 stage 内的白名单文件。
 
@@ -79,7 +79,7 @@ UMM 的 Requirements 使用 TTT `0.7.14` 数字最低版本，避免把 a 后缀
 | Archmage | 13/16级列表；传奇七至九环只扣每日资源、不加影响力惩罚 | 待测试 |
 | 共享祝福 | 独行、队友离队再加入、双 Medium、休息和读档 | 待测试 |
 | 法术/生命周期 | 三轮换灵体；升级/洗点完成和取消；15/20级；多职业/神话合书 | 待测试 |
-| 旧档迁移 | 0.1.3原档副本与迁移后另存档；各加载两次，不刷资源、不重复授予 | 待测试 |
+| 旧档迁移 | 0.1.3 原档副本；确认 Hierophant UnitPart/转换列表在读档后重建；另存并二次读取，不刷资源、不重复授予 | 待测试 |
 
 提交问题时附：实际游戏与依赖版本、Medium DLL 哈希、完整 Player.log/UMM 日志、复现步骤和存档副本。没有这些证据，不把卡加载归因到某一个猜测。
 
