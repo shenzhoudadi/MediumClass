@@ -85,27 +85,19 @@ UMM 的 Requirements 使用 TTT `0.7.14` 数字最低版本，避免把 a 后缀
 
 提交问题时附：实际游戏与依赖版本、Medium DLL 哈希、完整 Player.log/UMM 日志、复现步骤和存档副本。没有这些证据，不把卡加载归因到某一个猜测。
 
-## 6. 迁移与个人 GitHub
+## 6. 个人 GitHub 与迁移
 
-源码 ZIP 的 `source/` 可独立打开开发，不含游戏 DLL、构建产物、本机路径或凭据。
-附带 `changes.patch` 是相对上游基线的 Git 补丁；不要把补丁再次应用到已经更新的 source 目录。
-
-若希望保留上游历史：
+个人 Fork：`https://github.com/shenzhoudadi/MediumClass`；维护分支：`maintenance/wotr-2.7-offline`。默认 master 仍为原作者代码，请切换分支。
 
 ```powershell
-git clone https://github.com/Telyl/MediumClass.git MediumClass-maintenance
-cd MediumClass-maintenance
-git switch -c maintenance/wotr-2.7-offline e5fd3ba2e35350a218658abde4e093ff743175b7
-git apply --check ../MediumClass-maintenance-2026-09-23/changes.patch
-git apply --index ../MediumClass-maintenance-2026-09-23/changes.patch
-git commit -m "Prepare WotR 2.7 offline maintenance baseline"
+git clone --branch maintenance/wotr-2.7-offline https://github.com/shenzhoudadi/MediumClass.git
+cd MediumClass
 ```
 
-在 GitHub 上创建自己的 fork 后，将其添加为 personal remote，并推送维护分支：
+根目录提供 `AGENT-HANDOFF.zh-CN.md`、`TEST-GUIDE.zh-CN.md` 和 `REVIEW-PROMPT.zh-CN.md`。此次上传通过 GitHub API 重建三批维护提交，源码树逐一核对一致，原提交与 GitHub 提交的映射见 `maintenance/github-import.json`。之后的文档提交没有修改职业机制。
 
-```powershell
-git remote add personal https://github.com/shenzhoudadi/MediumClass.git
-git push -u personal maintenance/wotr-2.7-offline
-```
+维护分支当前文件列表不再包含上游的旧游戏 DLL/hash；构建始终使用实际游戏安装目录。Fork 继承的上游历史仍包含原文件，未改写历史。
 
-上述推送地址是用户账号下**待创建的目标**，不是声称已经存在或已经上传。当前 GitHub 连接可识别账号，但没有创建仓库/fork 的操作，因此本轮采用用户授权的可迁移文件交付。未对上游提 PR，未发布版本。
+此前的便携 ZIP 仍可使用，其 `source/` 是已维护源码，`changes.patch` 仅用于原始上游基线；不要再次应用到维护源码。GitHub 下载的 ZIP 与便携 ZIP 的目录布局不同，详见根目录测试手册。
+
+没有提交上游 PR，没有发布 Release，尚未编译或实机测试。

@@ -1,0 +1,26 @@
+{
+  "repository": "shenzhoudadi/MediumClass",
+  "branch": "maintenance/wotr-2.7-offline",
+  "upstream_base": "e5fd3ba2e35350a218658abde4e093ff743175b7",
+  "date": "2026-09-23",
+  "commits": [
+    {
+      "local_commit": "2f2d64b6e8543dcc022554b310192a0a2d1419bb",
+      "github_commit": "5db6c5fcbc8fa05a5ebd51f12c67eaf918b30557",
+      "verified_identical_tree": "ead4fd35e5b253d1a09d9fda49ae033c8cc5be7e"
+    },
+    {
+      "local_commit": "5799f1d719b677699f4451d27d9e5dd6f19518c2",
+      "github_commit": "1309b3a06607e1879a5d9c29f8167870975f772e",
+      "verified_identical_tree": "3ae63893a55e80c086f6298b501dde0e100b1f02"
+    },
+    {
+      "local_commit": "6dcc14c582869513ef1f8c0d4c4027625d0d8535",
+      "github_commit": "141b2ef65120dadd941a1128f42e2f37869eb56a",
+      "verified_identical_tree": "d555d023766c00a6a8aa7f2b365c9e300295d6e9"
+    }
+  ],
+  "note": "GitHub API recreated commit metadata. Each of the three source trees is identical. The following documentation commit adds handoff/test/review instructions and removes inherited obsolete game DLL/hash from the current tree; no gameplay source changes. Game binaries remain in upstream history.",
+  "built": false,
+  "game_tested": false
+}

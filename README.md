@@ -7,6 +7,17 @@
 
 > 原 Mod 内容保留原则和最新修复/未修事项见 [第二轮复查](maintenance/REVIEW-2026-09-23.zh-CN.md)。
 
+## 交接与复查入口
+
+请使用 `maintenance/wotr-2.7-offline` 分支；默认 master 保留上游状态。
+
+- [给其他 Agent 的独立复查 Prompt](REVIEW-PROMPT.zh-CN.md)
+- [新 Agent 交接说明](AGENT-HANDOFF.zh-CN.md)
+- [小白实机测试手册](TEST-GUIDE.zh-CN.md)
+- [本地/GitHub 提交对应关系](maintenance/github-import.json)
+
+维护分支当前树不含旧游戏 DLL/hash；源码包须在具备游戏依赖的 Windows 电脑上构建。
+
 ## Maintenance build
 
 Copy `MediumClass.local.props.example` to `MediumClass.local.props`, set `WrathPath`, and run
