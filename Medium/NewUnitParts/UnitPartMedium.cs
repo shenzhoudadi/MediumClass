@@ -1,4 +1,4 @@
-﻿using BlueprintCore.Utils;
+using BlueprintCore.Utils;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -16,6 +16,8 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using MediumClass.Utilities;
+using MediumClass.Medium.NewActions;
+using Kingmaker.UnitLogic.Abilities.Components;
 using MediumClass.Utils;
 using Newtonsoft.Json;
 using System;
@@ -65,9 +67,12 @@ namespace MediumClass.Medium.NewUnitParts
 			});
         }
 
-		public void RemoveSpiritEntry(EntityFact source)
+		public void RemoveSpiritEntry(EntityFact source, BlueprintCharacterClassReference spiritClass)
 		{
-			Spirits.Clear();
+			// Six components share one channeling fact. Removing one must not erase the others.
+			if (spiritClass == null || !Spirits.TryGetValue(spiritClass, out var entry)
+				|| entry.Source != source) return;
+			Spirits.Remove(spiritClass);
 			TryRemove();
 		}
 
@@ -133,7 +138,9 @@ namespace MediumClass.Medium.NewUnitParts
 
 		public void HandleInfluencePenalty()
 		{
-			if (IsInfluencePenalty()) { base.Owner.Buffs.AddBuff(Spirits[PrimarySpirit].SpiritInfluencePenalty.Get(), base.Owner, new TimeSpan(24, 0, 0)); }
+			// Channeling's influence action can run before a primary spirit has been selected.
+			if (PrimarySpirit == null || !Spirits.TryGetValue(PrimarySpirit, out var entry)) return;
+			if (IsInfluencePenalty()) { base.Owner.Buffs.AddBuff(entry.SpiritInfluencePenalty.Get(), base.Owner, new TimeSpan(24, 0, 0)); }
 		}
 
 		public void AddSpiritFocus(BlueprintCharacterClassReference spirit)
@@ -148,30 +155,23 @@ namespace MediumClass.Medium.NewUnitParts
 
 		public override void OnPostLoad()
 		{
-			foreach (var buff in this.Owner.Buffs)
+			base.OnPostLoad();
+			var channelBuff = Owner.Buffs.Enumerable.FirstOrDefault(buff => buff.Blueprint ==
+				BlueprintTool.Get<BlueprintBuff>(Guids.MediumChannelSpiritPrimarySpiritBuff));
+			if (channelBuff == null)
 			{
-                switch (buff.Name)
-                {
-					case "Archmage":
-						this.PrimarySpirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Archmage);
-						break;
-					case "Champion":
-						this.PrimarySpirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Champion);
-						break;
-					case "Guardian":
-						this.PrimarySpirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Guardian);
-						break;
-					case "Hierophant":
-						this.PrimarySpirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Hierophant);
-						break;
-					case "Marshal":
-						this.PrimarySpirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Marshal);
-						break;
-					case "Trickster":
-						this.PrimarySpirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Trickster);
-						break;
-				}
+				PrimarySpirit = new BlueprintCharacterClassReference();
+				return;
 			}
+
+			// All six spirits use the same buff. Recover the choice from the originating
+			// channel ability's action, not an English/localized display name.
+			var actions = channelBuff.Context?.SourceAbility?.GetComponent<AbilityEffectRunAction>();
+			var channelAction = actions?.Actions?.Actions?.OfType<ContextActionApplySpirit>().FirstOrDefault();
+			if (channelAction?.Spirit?.Get() != null)
+				PrimarySpirit = channelAction.Spirit;
+			else
+				Logger.Log("Primary spirit could not be reconstructed from the saved channel context. Existing state was retained; inspect the save before continuing.");
 		}
 
 		public class SpiritStatEntry

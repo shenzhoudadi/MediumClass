@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Kingmaker;
 using Kingmaker.Blueprints.Classes.Spells;
@@ -39,20 +39,20 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 				PFLog.Default.Error("Caster is missing", Array.Empty<object>());
 				return;
 			}
-			Logger.Log("Getting buffs!");
+			if (maybeCaster == base.Target.Unit) return;
 			List<Buff> list = base.Target.Unit.Buffs.Enumerable.ToTempList<Buff>();
 			foreach (Buff buff in list)
 			{
-				Logger.Log("Adding buffs to list.");
+				// Validate before touching the source. Area effects cannot be transferred.
+				if (!string.IsNullOrEmpty(buff.SourceAreaEffectId) || buff.Context == null) continue;
+				var sourceContext = buff.Context.ParentContext ?? buff.Context;
+				bool permanent = buff.IsPermanent;
+				TimeSpan? duration = permanent ? (TimeSpan?)null : buff.TimeLeft;
+				Buff transferred = maybeCaster.Buffs.AddBuff(buff.Blueprint, sourceContext, duration);
+				if (transferred == null || ReferenceEquals(transferred, buff)) return;
+				if (permanent) transferred.MakePermanent();
+				// A failed AddBuff must never destroy the original effect.
 				base.Target.Unit.Buffs.RemoveFact(buff);
-				if (string.IsNullOrEmpty(buff.SourceAreaEffectId))
-				{
-					Buff buff3 = maybeCaster.Buffs.AddBuff(buff.Blueprint, buff.Context.ParentContext, (!buff.IsPermanent) ? new TimeSpan?(buff.TimeLeft) : null);
-					if (buff3 != null && buff.IsPermanent)
-					{
-						buff3.MakePermanent();
-					}
-				}
 				return;
 			}
 		}

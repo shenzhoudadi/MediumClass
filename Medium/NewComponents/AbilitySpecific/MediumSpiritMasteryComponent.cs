@@ -1,4 +1,4 @@
-﻿using BlueprintCore.Utils;
+using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
@@ -29,8 +29,7 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
         public override void OnTurnOff()
         {
         
-            UnitPartMedium unitPartMedium = base.Owner.Ensure<UnitPartMedium>();
-            unitPartMedium.RemoveSpiritMastery();
+            Owner.Get<UnitPartMedium>()?.RemoveSpiritMastery();
         }
     }
 }

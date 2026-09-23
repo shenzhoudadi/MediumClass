@@ -32,7 +32,7 @@
       "fa7cb9ed3a0d47769375739a2c1cfa1d"
     ],
     "Medium/NewComponents/AbilitySpecific/DecisiveStrikeStandardComponent.cs": [
-      "dc0b7d8176400bd46af14e7ddbf790a3"
+      "b61fefa0-ffda-416f-a405-50f5eaa0094a"
     ],
     "Medium/NewComponents/AbilitySpecific/ImpromptuSurpriseStrike.cs": [
       "a1918204526146b5bb2ad32ab8d95e97"
@@ -519,6 +519,15 @@
       "old": "995fb9e0-f2f5-4dc2-a281-b7959ea95cda",
       "new": "b18c5744-bb1f-4c61-b769-02a71aa96fbb",
       "reason": "Resolve duplicate registration. No blueprint or code reference to this unused component was found."
+    },
+    "Medium/NewComponents/AbilitySpecific/DecisiveStrikeStandardComponent.cs": {
+      "old": "dc0b7d8176400bd46af14e7ddbf790a3",
+      "new": "b61fefa0-ffda-416f-a405-50f5eaa0094a",
+      "reason": "Exact TypeIdAttribute collision with game FreeActionSpell confirmed in upstream Assembly-CSharp.dll metadata. No alias to the game type; old-save testing is required.",
+      "evidence_assembly_sha256": "4793f37f324deb43d7ac3c12fd2079b79c37c56c50312d9b3ae60ef201a837e1"
     }
+  },
+  "reserved_external_type_ids": {
+    "dc0b7d8176400bd46af14e7ddbf790a3": "Kingmaker.UnitLogic.FactLogic.FreeActionSpell"
   }
 }

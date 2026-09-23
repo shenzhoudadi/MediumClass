@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
@@ -37,11 +37,12 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 			// Reapplication must replace this component's modifier, not stack it.
 			stat.RemoveModifiersFrom(base.Runtime);
 			int mediumLevel = base.Owner.Progression.GetClassLevel(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium));
-			int availableRanks = Math.Max(0, base.Owner.Progression.CharacterLevel - stat.BaseValue);
-			int bonusRanks = Math.Min(Math.Max(0, mediumLevel), availableRanks);
-			// The buff already has AddClassSkill. Do not invent a second +3 bonus here.
-			if (bonusRanks > 0)
-				stat.AddModifier(bonusRanks, base.Runtime, ModifierDescriptor.BaseStatBonus);
+			// Preserve the original mod's arithmetic and zero-rank class-skill workaround.
+			// Whether BaseStatBonus represents actual ranks needs in-game verification.
+			int originalValue = stat.BaseValue;
+			int buffValue = mediumLevel - originalValue;
+			if (originalValue == 0) buffValue += 3;
+			stat.AddModifier(buffValue, base.Runtime, ModifierDescriptor.BaseStatBonus);
 		}
 
 		public override void OnTurnOff()

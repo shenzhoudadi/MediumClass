@@ -1,4 +1,5 @@
-﻿using System;
+using System.Linq;
+using System;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -30,8 +31,8 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 		private static readonly ModLogger Logger = Logging.GetLogger(nameof(MediumContextSharedSeanceComponent));
 		public override void OnTurnOn()
 		{
-			UnitPartMedium medium = base.Owner.Ensure<UnitPartMedium>();
-			if (!medium.Spirits.ContainsKey(medium.PrimarySpirit))
+			UnitPartMedium medium = base.Owner.Get<UnitPartMedium>();
+			if (medium?.PrimarySpirit == null || !medium.Spirits.ContainsKey(medium.PrimarySpirit))
 			{
 
 				return;
@@ -47,14 +48,16 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 		// Token: 0x0600BC6A RID: 48234 RVA: 0x00313508 File Offset: 0x00311708
 		public override void OnTurnOff()
 		{
-			UnitPartMedium medium = base.Owner.Ensure<UnitPartMedium>();
-			foreach (UnitEntityData unitEntityData in Game.Instance.Player.ActiveCompanions)
+			UnitPartMedium medium = base.Owner.Get<UnitPartMedium>();
+			if (medium == null) return;
+			// The owner's removal must also run when there are no active companions.
+			foreach (var entry in medium.Spirits.Values.ToArray())
 			{
-				foreach(var spirit in medium.Spirits.Keys)
-                {
-					base.Owner.RemoveFact(medium.Spirits[spirit].SpiritSeanceBoon);
-					unitEntityData.RemoveFact(medium.Spirits[spirit].SpiritSeanceBoon);
-				}
+				var boon = entry.SpiritSeanceBoon?.Get();
+				if (boon == null) continue;
+				base.Owner.RemoveFact(boon);
+				foreach (UnitEntityData companion in Game.Instance.Player.ActiveCompanions)
+					companion.RemoveFact(boon);
 			}
 		}
 		private BlueprintCharacterClassReference spirit;

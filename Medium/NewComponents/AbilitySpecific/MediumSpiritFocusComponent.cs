@@ -1,4 +1,4 @@
-﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic;
 using MediumClass.Medium.NewUnitParts;
@@ -24,8 +24,7 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
         public override void OnTurnOff()
         {
 
-            UnitPartMedium unitPartMedium = base.Owner.Ensure<UnitPartMedium>();
-            unitPartMedium.RemoveSpiritFocus(Spirit);
+            Owner.Get<UnitPartMedium>()?.RemoveSpiritFocus(Spirit);
         }
 
         public BlueprintCharacterClassReference Spirit;

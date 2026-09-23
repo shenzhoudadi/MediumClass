@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using BlueprintCore.Blueprints.References;
@@ -83,12 +83,14 @@ namespace MediumClass.Medium.NewComponents
 			m_CharacterClass = characterClass;
 			m_Spellbook = spellbook;
 			m_Resource = resource;
+			SpellLists.RemoveAll(list => list.Source == fact);
 			SpellLists.Add(new InfluenceSpellLists(spellList, fact));
 		}
 
 		public void RemoveEntry(EntityFact source)
 		{
 			SpellLists.RemoveAll((list) => list.Source == source);
+			if (SpellLists.Count != 0) return;
 			m_Spellbook = new BlueprintSpellbookReference();
 			m_Resource = new BlueprintAbilityResourceReference();
 			m_CharacterClass = new BlueprintCharacterClassReference();

@@ -11,6 +11,8 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--strict', action='store_true', help='Fail for known unresolved TypeId collisions too.')
+parser.add_argument('--typeid-assembly', action='append', default=[], metavar='DLL',
+                    help='Also detect exact TypeId collisions with a game/dependency DLL (repeatable).')
 parser.add_argument('--syntax', action='store_true', help='Also parse C# using optional tree-sitter packages.')
 args = parser.parse_args()
 errors = []
@@ -45,6 +47,49 @@ for identifier, paths in sorted(by_id.items()):
             warnings.append('UNRESOLVED legacy TypeId collision: ' + identifier + ' -> ' + ', '.join(paths))
         else:
             errors.append('NEW TypeId collision: ' + identifier)
+
+# The local uniqueness check cannot detect collisions with the game or other mods.
+for identifier, owner in baseline.get('reserved_external_type_ids', {}).items():
+    require(norm(identifier) not in by_id, 'TypeId reserved by external type: ' + owner)
+for filename in args.typeid_assembly:
+    try:
+        import dnfile
+        assembly = dnfile.dnPE(filename, clr_lazy_load=True)
+        require(assembly.net is not None, 'Not a managed assembly: ' + filename)
+        if assembly.net is None:
+            continue
+        tables = assembly.net.mdtables
+        local_ctors = {method.row_index for typedef in tables.TypeDef.rows
+                       if str(typedef.TypeName) == 'TypeIdAttribute'
+                       for method in typedef.MethodList}
+        for attr in tables.CustomAttribute.rows:
+            if attr.Parent.table.name != 'TypeDef':
+                continue
+            if attr.Type.table.name == 'MethodDef':
+                is_typeid = attr.Type.row_index in local_ctors
+            else:
+                constructor = attr.Type.row
+                cls = getattr(constructor, 'Class', None)
+                is_typeid = cls is not None and str(getattr(cls.row, 'TypeName', '')) == 'TypeIdAttribute'
+            if not is_typeid:
+                continue
+            value = attr.Value.value
+            # GUID strings use one-byte SerString lengths; reject unexpected layouts.
+            require(len(value) >= 3 and value[:2] == b'\x01\x00' and value[2] < 128,
+                    'Unsupported TypeId attribute encoding: ' + filename)
+            if len(value) < 3 or value[:2] != b'\x01\x00' or value[2] >= 128:
+                continue
+            identifier = norm(value[3:3 + value[2]].decode('utf-8'))
+            if identifier in by_id:
+                owner = attr.Parent.row
+                errors.append('EXTERNAL TypeId collision: ' + identifier + ' -> '
+                              + str(owner.TypeNamespace) + '.' + str(owner.TypeName)
+                              + ' (' + filename + ')')
+        assembly.close()
+    except ImportError:
+        errors.append('--typeid-assembly requires dnfile from scripts/requirements-checks.txt')
+    except Exception as exc:
+        errors.append('Could not audit assembly ' + filename + ': ' + str(exc))
 
 guid_text = (ROOT / 'Utilities/Guids.cs').read_text(encoding='utf-8-sig')
 guids = re.findall(r'"([a-fA-F0-9-]{32,36})"', guid_text)
@@ -102,8 +147,8 @@ if args.syntax:
 for message in warnings:
     print('WARNING:', message)
 if args.strict and warnings:
-    errors.append('Strict release gate failed: legacy TypeId collisions are unresolved.')
+    errors.append('Strict source check failed: legacy TypeId collisions are unresolved.')
 for message in errors:
     print('ERROR:', message)
-print(f'Offline checks: {len(errors)} errors, {len(warnings)} known blockers; no compilation or game test was performed.')
+print(f'Offline checks: {len(errors)} errors, {len(warnings)} known TypeId collisions; no compilation or game test was performed.')
 sys.exit(1 if errors else 0)

@@ -3,7 +3,9 @@
 > **2026-09-23 离线维护分支：尚未编译或游戏测试，不是稳定发布。**
 > 面向 WotR 2.7.0x / UMM 0.33.0 / ModMenu 1.3.2 / TTT-Core 0.7.14a / BlueprintCore 2.8.7。
 > 构建、迁移、已修复内容及剩余阻塞项见 [中文交接说明](maintenance/HANDOFF.zh-CN.md)。
-> 已消除源码中的重复 TypeId；Hierophant 旧档状态恢复仍待测试。普通 Build 不会部署到游戏。
+> 已消除源码中的重复 TypeId；Hierophant/Marshal 旧档状态恢复仍待测试。普通 Build 不会部署到游戏。
+
+> 原 Mod 内容保留原则和最新修复/未修事项见 [第二轮复查](maintenance/REVIEW-2026-09-23.zh-CN.md)。
 
 ## Maintenance build
 

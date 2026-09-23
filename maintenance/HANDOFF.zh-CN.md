@@ -4,7 +4,9 @@
 上游基线：`Telyl/MediumClass` 的 `e5fd3ba2e35350a218658abde4e093ff743175b7`（0.1.3-beta）。
 
 **这是可继续开发的源码快照，不是已验证可玩的 Mod 安装包。没有编译、运行游戏或测试旧存档。**
-`Info.json` 的 0.1.4 仅用于区分这批维护源码，尚未发布；Mod Id、程序集名、入口和蓝图 GUID 保留。为消除重复注册，Hierophant UnitPart 与未使用的合并法术书组件各更换了 TypeId，旧档影响见下文。
+`Info.json` 的 0.1.4 仅用于区分这批维护源码，尚未发布；Mod Id、程序集名、入口和蓝图 GUID 保留。为消除重复注册，Hierophant UnitPart、未使用的合并法术书组件及与游戏类型冲突的 DecisiveStrikeStandardComponent 更换了 TypeId，旧档影响见下文。
+
+> **最新状态与原内容保留审计见 [第二轮复查](REVIEW-2026-09-23.zh-CN.md)。** 本次还修复一组与游戏 `FreeActionSpell` 的外部 TypeId 冲突，并撤回 Trickster’s Edge 的推测性公式重写。
 
 ## 1. 目标环境
 
@@ -31,7 +33,7 @@ UMM 的 Requirements 使用 TTT `0.7.14` 数字最低版本，避免把 a 后缀
 | H02 BPC 参数 | AddPrerequisiteIsPet 使用命名参数；Spirit Focus 的 FeatureSelectionConfigurator 导入更新到 CustomConfigurators | 普通角色可选、宠物不可选；其他游戏 API 编译差异 |
 | C06 Surge | d6/d8/d10 修正上界，20级以上沿用 d10 | 最大值、分布、传奇/多职业行为；每个检定的随机值策略未重做 |
 | H08 部分 | 免费 Surge 退款归施法者；零成本 Legendary Marshal 不退款、不消耗免费次数；缺资源对象时不空引用 | 扣费/加惩罚/退款时序和读档后的免费次数仍待修，不能宣称彻底修复 |
-| C07 部分 | Trickster's Edge 按额外 ranks 和总等级上限计算，先撤销自身 modifier，不再手动硬加 +3 | BaseStatBonus 与真实 ranks、职业技能 +3、trained-only、升级刷新必须实测 |
+| C07 部分 | Trickster's Edge 恢复上游算法和零 ranks 的 +3 补偿；仅保留自身 modifier 幂等清理 | BaseStatBonus 与真实 ranks、职业技能 +3、trained-only、升级刷新必须实测 |
 | C08 / H10 | 副 Trickster 骰数改为除法；额外精准伤害从攻击武器获取物理类型，使用单次事件副本；先过滤无武器/无攻击掷骰的伤害 | 主副灵体、多段攻击、物理 DR 与精准免疫；已有 rank 的清理仍未迁移 |
 | C10 | Wild Arcana 先判断16级、再13级，恢复六环分支 | 16级转换列表与实际扣费 |
 | C11 | Legendary Archmage 的每日资源不再走影响力惩罚分支 | 七至九环施法不误加惩罚；旧版已产生的错误 Buff 尚未迁移 |
@@ -43,12 +45,12 @@ UMM 的 Requirements 使用 TTT `0.7.14` 数字最低版本，避免把 a 后缀
 
 这些不是已经解决的问题，不能用“静态检查通过”覆盖。
 
-1. **C03 TypeId 重复已在源码中消除，但旧档迁移仍待实测**。Archmage 保留旧 ID `18df8977af254951be0e49854a471953`，Hierophant 改用 `0afe477b-82f7-410e-a905-048a80fb3d93`。已挂载的 `MediumContextSpiritBonusComponent` 保留旧 ID `995fb9e0-f2f5-4dc2-a281-b7959ea95cda`；没有任何蓝图引用的 `MergeMediumSpellbookComponent` 改用 `b18c5744-bb1f-4c61-b769-02a71aa96fbb`。目前静态检查不再有重复 TypeId；这**不证明旧存档中的 Hierophant UnitPart 一定能自动恢复**。其转换列表由带唯一 TypeId 的事实组件在启用时重建这一点需通过旧档副本测试。第一次启动仍需看日志，不能仅凭修复 TypeId 断言加载卡顿已解决。
-2. **H04 / H06 读档与升级/洗点**：仍保留旧 OnPostLoad 按显示名识别逻辑。要改成稳定蓝图身份和必要状态持久化，需确认引擎序列化与重建回调顺序。
-3. **C04 / C05 / H05 状态与共享祝福**：整组移除会清空 Part；共享祝福没有持久化受益者及来源。下一批应按来源保存 Fact/Entity 引用，处理离队、双 Medium、独行和重复清理，不能简单删所有同蓝图效果。
+1. **C03 TypeId 重复已在源码中消除，但旧档迁移仍待实测**。Archmage 保留旧 ID `18df8977af254951be0e49854a471953`，Hierophant 改用 `0afe477b-82f7-410e-a905-048a80fb3d93`。已挂载的 `MediumContextSpiritBonusComponent` 保留旧 ID `995fb9e0-f2f5-4dc2-a281-b7959ea95cda`；没有任何蓝图引用的 `MergeMediumSpellbookComponent` 改用 `b18c5744-bb1f-4c61-b769-02a71aa96fbb`。第二轮还确认 DecisiveStrikeStandardComponent 与旧游戏 FreeActionSpell 的 ID 重复，现改为 `b61fefa0-ffda-416f-a405-50f5eaa0094a`。Hierophant 和 Marshal/Decisive Strike 旧档都须单独验证。目前静态检查不再有重复 TypeId；这**不证明旧存档中的 Hierophant UnitPart 一定能自动恢复**。其转换列表由带唯一 TypeId 的事实组件在启用时重建这一点需通过旧档副本测试。第一次启动仍需看日志，不能仅凭修复 TypeId 断言加载卡顿已解决。
+2. **H04 / H06 读档与升级/洗点**：主灵体恢复已改为通灵 Buff 来源能力中的灵体引用。完整序列化与重建回调顺序仍待验证，缺少来源上下文时只记录日志并保留已有状态。
+3. **C04 / C05 / H05 状态与共享祝福**：Part 删除已改为按来源事实和灵体键；共享祝福仍没有持久化受益者及来源，独行漏删已修。下一批应按来源保存 Fact/Entity 引用，处理离队、双 Medium、独行和重复清理，不能简单删所有同蓝图效果。
 4. **H07 法术书**：先核实 AddSpellbook/ForbidSpellbook 的计数、CL、法术位与读档表现。合并组件未挂载，不应直接启用；不删除永久已知法术。
 5. **C09 Surprise Strike 冷却**：首次命中而非首次攻击、休息而非24小时、不同攻击者共用冷却，仍待改及实测。
-6. **C12 Transfer Magic**：仍有先删目标 Buff 再尝试转移的风险。测试阶段不要在重要角色/剧情对象上使用；后续实现应先筛选合法最高环无害法术并成功复制，再移除来源。
+6. **C12 Transfer Magic**：已修正为成功添加后才移除来源，完整无害/最高环/随机过滤仍未完成。测试阶段不要在重要角色/剧情对象上使用；后续实现应先筛选合法最高环无害法术并成功复制，再移除来源。
 7. **H08 / H09 费用**：Surge 扣费顺序、Arcane Surge 对 AbilityData 费用的作用范围和恢复仍待测。
 8. C13 无效设置开关、F01–F05 图标/Homebrew/Spirit Focus/草稿功能与文档完善不包含在已修复清单中。Spirit Focus 仅修导入以适配编译，仍未启用。
 
@@ -74,7 +76,7 @@ UMM 的 Requirements 使用 TTT `0.7.14` 数字最低版本，避免把 a 后缀
 | 新角色选职业 | 普通角色可选，宠物不可选；职业入口不重复 | 待测试 |
 | 六灵体逐个 | 通灵、保存、退出进程、读档、休息、重选 | 待测试 |
 | Surge 边界 | 1/9/10/19/20级；免费次数、资源3/2/1；普通队友受益 | 待测试 |
-| Trickster's Edge | Medium10/总15，原 ranks 0/10/12；预期额外10/5/3；技能+3、trained-only另核 | 待测试 |
+| Trickster's Edge | 已恢复上游算法；核实 BaseStatBonus、零 ranks +3、负加值以及 trained-only；暂不指定改写后的预期 | 待测试 |
 | Surprise Strike | 主/副 Trickster；20级副灵体6d6；斩/刺/钝武器；非武器伤害；DR和精准免疫 | 待测试 |
 | Archmage | 13/16级列表；传奇七至九环只扣每日资源、不加影响力惩罚 | 待测试 |
 | 共享祝福 | 独行、队友离队再加入、双 Medium、休息和读档 | 待测试 |

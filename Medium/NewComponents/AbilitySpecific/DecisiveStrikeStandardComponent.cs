@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
@@ -19,7 +19,8 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 {
 	// Token: 0x02001BF2 RID: 7154
 	[AllowedOn(typeof(BlueprintUnitFact), false)]
-	[TypeId("dc0b7d8176400bd46af14e7ddbf790a3")]
+	// The upstream ID belongs to the game's FreeActionSpell component.
+	[TypeId("b61fefa0-ffda-416f-a405-50f5eaa0094a")]
 	public class DecisiveStrikeStandardComponent : UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleCastSpell>, IRulebookHandler<RuleCastSpell>, ISubscriber, IInitiatorRulebookSubscriber
 	{
 		private static readonly ModLogger Logger = Logging.GetLogger(nameof(DecisiveStrikeStandardComponent));
@@ -41,7 +42,7 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 		// Token: 0x0600BF1B RID: 48923 RVA: 0x0031D29B File Offset: 0x0031B49B
 		public override void OnTurnOff()
 		{
-			base.Owner.Ensure<UnitPartAbilityModifiers>().RemoveEntry(base.Fact);
+			base.Owner.Get<UnitPartAbilityModifiers>()?.RemoveEntry(base.Fact);
 		}
 
         public void OnEventAboutToTrigger(RuleCastSpell evt) { }

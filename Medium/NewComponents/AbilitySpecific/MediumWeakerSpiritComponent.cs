@@ -1,4 +1,4 @@
-﻿using BlueprintCore.Utils;
+using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
@@ -30,8 +30,7 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
         public override void OnTurnOff()
         {
             Logger.Log("Turning off WeakerSpiritComponent");
-            UnitPartMedium unitPartMedium = base.Owner.Ensure<UnitPartMedium>();
-            unitPartMedium.RemoveWeakerSpiritChannel();
+            Owner.Get<UnitPartMedium>()?.RemoveWeakerSpiritChannel();
         }
     }
 }
