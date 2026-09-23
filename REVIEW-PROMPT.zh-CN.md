@@ -4,6 +4,8 @@
 
 ## 当前增量
 
+另须阅读 [最新自查记录](maintenance/SELF-REVIEW-2026-09-23.zh-CN.md)：当前 ModMenu 目标为 CasDragon/ModMenu 2.0.14；审查新增的角色状态、重复启用及暂存改动。
+
 用户提供了针对 `73b78ab` 的独立报告，维护分支随后追加修正。必须先读 [独立报告复核与后续修正](maintenance/INDEPENDENT-REVIEW-FOLLOWUP.zh-CN.md)，再审查最新 HEAD；不要沿用报告中“UMM 0.33.0 不存在”的错误结论，也不要把 Source 身份失效从假设写成已证实。原提交映射只覆盖最初三批维护。
 
 ## 交接定位

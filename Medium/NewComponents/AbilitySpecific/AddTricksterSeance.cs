@@ -32,6 +32,9 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 		{
 			if (!Skill.IsSkill()) { return; }
 			ModifiableValue stat = base.Owner.Stats.GetStat(Skill);
+			if (stat == null) { return; }
+			// Re-enabling this fact must not accumulate its previous modifier.
+			stat.RemoveModifiersFrom(base.Runtime);
 			int OriginalValue = stat.BaseValue;
 			int BuffValue = 1;
 			if (OriginalValue == 0)

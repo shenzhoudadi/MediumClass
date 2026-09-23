@@ -39,3 +39,14 @@ python scripts/check_source.py --strict
 ## 独立报告后的验证范围
 
 本轮重跑 `python scripts/check_source.py --strict --syntax` 与上述上游范围的 diff 检查。修改与未采纳项见 [复核记录](INDEPENDENT-REVIEW-FOLLOWUP.zh-CN.md)。这两处生命周期改动仍未编译或游戏测试。
+
+## 再次自查后的验证
+
+起点为 GitHub `aea63b6`；范围及证据见 [最新自查记录](SELF-REVIEW-2026-09-23.zh-CN.md)。
+
+- `python scripts/check_source.py --strict --syntax`：退出码 0，`0 errors, 0 known TypeId collisions`。
+- `git diff --check e5fd3ba2e35350a218658abde4e093ff743175b7`：退出码 0。
+- 字节对比上游：成长表、法术书、熟练项、GUID 四个文件不变；本轮相对于起点未改 ChannelSpirit、UnitPartMedium、AddTrickstersEdge。
+- ModMenu 2.0.14 标签源码中，本项目调用的设置 API 签名仍存在。没有还原/引用实际发布 DLL 做类型检查。
+- 检查固定版本 ILRepack task 源码的 ITaskItem[] 输入、去重及 Windows 默认 DebugInfo；修改 Stage 为独立合并目录后显式复制三文件。没有执行任务，不把静态白名单等同于已经验证产物。
+- 未重跑旧游戏 DLL 的 TypeId 扫描；没有目标程序集、编译或游戏/存档验证。

@@ -2,6 +2,10 @@
 
 日期：2026-09-23。先读取本文，再读仓库中的 `maintenance/REVIEW-2026-09-23.zh-CN.md`、`maintenance/HANDOFF.zh-CN.md`、`maintenance/VALIDATION.zh-CN.md`。
 
+## 再次自查增量
+
+先读 [最新自查记录](maintenance/SELF-REVIEW-2026-09-23.zh-CN.md)。ModMenu 目标已更正为现维护者 CasDragon 的 2.0.14；本次修正 ApplySpirits 的 Part 缓存、Decisive Strike 的上下文依赖、Trickster 通灵祝福的重复修正以及暂存白名单。没有改职业数值。
+
 ## 独立复查后的最新增量
 
 先读 [独立报告复核与后续修正](maintenance/INDEPENDENT-REVIEW-FOLLOWUP.zh-CN.md)。`73b78ab` 之后追加两处机制实现修正：六种通灵先选主灵体再检查惩罚；OnPostLoad 找不到 Buff 时保留已有主灵体。未改变规则数值和标识。I01 的 UMM 降级建议被作者页面反证；I04 放宽来源匹配未采纳。以下提交映射记录的是此前交付，实际审查请记录维护分支最新 HEAD。
@@ -15,7 +19,7 @@
 - GitHub API 重建提交时改变了提交号，三批源码树逐一验证相同；完整映射见 `maintenance/github-import.json`。紧随其后的 `73b78ab` 仅整理文档与移除当前树中的旧游戏 DLL/hash；再之后的代码增量见本文开头。
 - 此前提交：`2f2d64b`（第一批维护）、`5799f1d`（两组内部 TypeId 修复）。
 - 仓库：`https://github.com/shenzhoudadi/MediumClass`；请切换维护分支，默认 master 是原作者代码。
-- 最新交付：`MediumClass-maintenance-2026-09-23.zip`；同名文件已更新，核对 `handoff.json` 中的提交。
+- 最新源码以 GitHub 维护分支 HEAD 为准。此前单独交付的 ZIP 不含此后的全部修正，不要当作最新安装包。
 - 当前维护源码及本文随维护分支交付；未发上游 PR 或版本。GitHub 下载包和备用 ZIP 均是源码，不是已编译安装包。
 
 ## 用户最新约束（优先遵守）
@@ -31,7 +35,7 @@
 
 ## 目标环境
 
-WotR PC 2.7.0x、UMM 0.33.0、ModMenu 1.3.2、TTT-Core 0.7.14a、BlueprintCore 2.8.7。版本信息沿用此前核对结果，本轮没有重做最新版本检索；出处和 TTT 版本标签差异见 HANDOFF。组合兼容性均待测试。
+WotR PC 2.7.0x、UMM 0.33.0、ModMenu 2.0.14、TTT-Core 0.7.14a、BlueprintCore 2.8.7。本轮追踪原作者的维护移交并重新查证 ModMenu；其余目标沿用此前核验。出处和 TTT 版本标签差异见 HANDOFF。Info.json 中的版本门槛为选定测试基线，不代表已证明的最低兼容版本。组合兼容性均待测试。
 
 构建：net472、C# 9；从真实安装目录引用游戏/依赖程序集，BlueprintCore 内嵌；普通 Build 不部署。配置 `MediumClass.local.props` 后用 VS Developer PowerShell 运行 `scripts/Build.ps1`；StageMod 输出只有本 Mod DLL、Info.json、单个 `mediumclass_assets` 文件。
 

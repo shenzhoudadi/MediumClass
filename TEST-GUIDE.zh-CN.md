@@ -20,7 +20,7 @@
 1. Windows 版游戏。先记下游戏版本号；Steam 可以在游戏属性/更新页面查看。请记录完整数字。
 2. Unity Mod Manager（UMM）和本 Mod 所需依赖。当前测试目标如下，具体来源和版本记录在源码包的 `maintenance/HANDOFF.zh-CN.md`：
    - UMM 0.33.0
-   - ModMenu 1.3.2
+   - ModMenu 2.0.14
    - TabletopTweaks-Core 0.7.14a
    - BlueprintCore 2.8.7（会随本 Mod 构建嵌入，不需要把它当成单独游戏 Mod 安装）
 3. Visual Studio 2022 或 Build Tools，安装时勾选 **.NET 桌面构建工具 / MSBuild**，并安装 **.NET Framework 4.7.2 targeting pack**。
@@ -139,6 +139,11 @@
 **特别提醒：** 源码层面的重复 TypeId 已消除；Hierophant UnitPart 更换了 TypeId，另外 Marshal 的 Decisive Strike 组件也更换了与游戏冲突的 TypeId。旧存档中的相关状态可能需要重新建立。此恢复行为没有实机验证。旧档测试出现问题时不要继续推进主线；保留原档和错误日志。
 
 ## 本轮新增的重点观察
+
+- ModMenu 请从 [CasDragon 的 2.0.14 发布页](https://github.com/CasDragon/ModMenu/releases/tag/2.0.14) 下载；旧作者仓库已停止维护。关闭游戏后备份并替换旧 ModMenu 文件夹，不要在 Mods 内放两份。
+- 两名 Medium 先后通灵不同灵体，再分别休息；检查每人自己的能力和属性。共享祝福仍有已知多来源风险，出现误删请记录。
+- Marshal 对队友使用 Decisive Strike：队友施法后以及 Buff 到期后，免费动作应撤销；在 Buff 存在时存读也要另测。
+- Trickster 通灵祝福重复启用后不应不断增加同一技能；原单次加值公式没有改变。
 
 - 单人独行时，休息后共享祝福能否正常撤销。
 - 通灵、保存、完全退出后读取，灵体选择是否保留；切换后加值/惩罚是否残留。

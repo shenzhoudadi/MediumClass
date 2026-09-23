@@ -26,14 +26,13 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 		private static readonly ModLogger Logger = Logging.GetLogger(nameof(DecisiveStrikeStandardComponent));
 		public override void OnTurnOn()
 		{
-			TargetWrapper ally = base.Context.MainTarget;
-			var abilitiesList = ally.Unit.Descriptor.Abilities;
+			// The modifier is granted to this buff's owner. Saved casting context may be absent.
+			base.Owner.Get<UnitPartAbilityModifiers>()?.RemoveEntry(base.Fact);
+			var abilitiesList = base.Owner.Descriptor.Abilities;
 			foreach (var ability in abilitiesList)
             {
-				Logger.Log("This is acting up?");
 				if(ability.Blueprint.IsSpell && !ability.Blueprint.IsFullRoundAction)
                 {
-					Logger.Log("In If and changing stuff.");
 					base.Owner.Ensure<UnitPartAbilityModifiers>().AddEntry(new UnitPartAbilityModifiers.ActionEntry(base.Fact, UnitCommand.CommandType.Free, ability.Blueprint));
 				}
             }

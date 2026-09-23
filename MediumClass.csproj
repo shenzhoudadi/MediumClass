@@ -187,15 +187,19 @@
   <Target Name="StageMod" DependsOnTargets="Build">
     <PropertyGroup>
       <ModStageDir>$(MSBuildProjectDirectory)\artifacts\$(Configuration)\MediumClass</ModStageDir>
+      <ModMergeDir>$(MSBuildProjectDirectory)\obj\mod-merge\$(Configuration)</ModMergeDir>
     </PropertyGroup>
     <RemoveDir Directories="$(ModStageDir)" />
     <MakeDir Directories="$(ModStageDir)" />
+    <!-- ILRepack may emit symbols/configuration alongside the DLL. Keep those outside the package. -->
+    <RemoveDir Directories="$(ModMergeDir)" />
+    <MakeDir Directories="$(ModMergeDir)" />
     <Error Condition="!Exists('$(TargetDir)BlueprintCore.dll')" Text="BlueprintCore.dll is missing from build output." />
     <ILRepack OutputType="Dll" MainAssembly="$(TargetPath)"
-              OutputAssembly="$(ModStageDir)\MediumClass.dll"
+              OutputAssembly="$(ModMergeDir)\MediumClass.dll"
               InputAssemblies="$(TargetPath);$(TargetDir)BlueprintCore.dll"
               WorkingDirectory="$(TargetDir)" />
-    <Copy SourceFiles="$(MSBuildProjectDirectory)\Info.json;$(MSBuildProjectDirectory)\mediumclass_assets"
+    <Copy SourceFiles="$(ModMergeDir)\MediumClass.dll;$(MSBuildProjectDirectory)\Info.json;$(MSBuildProjectDirectory)\mediumclass_assets"
           DestinationFolder="$(ModStageDir)" />
   </Target>
 
@@ -206,7 +210,7 @@
                   Overwrite="true" />
   </Target>
   <Target Name="DeployMod" DependsOnTargets="StageMod">
-    <ItemGroup><ModFiles Include="$(ModStageDir)\*" /></ItemGroup>
+    <ItemGroup><ModFiles Include="$(ModStageDir)\MediumClass.dll;$(ModStageDir)\Info.json;$(ModStageDir)\mediumclass_assets" /></ItemGroup>
     <Copy SourceFiles="@(ModFiles)" DestinationFolder="$(WrathPath)\Mods\MediumClass" />
   </Target>
 </Project>

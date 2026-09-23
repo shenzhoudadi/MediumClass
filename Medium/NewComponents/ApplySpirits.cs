@@ -35,11 +35,11 @@ namespace MediumClass.NewComponents
 	public class ApplySpirits : UnitFactComponentDelegate
 	{
 		private static readonly ModLogger Logger = Logging.GetLogger(nameof(ApplySpirits));
-		private UnitPartMedium medium;
+		// Resolve the current runtime owner instead of caching character state on a blueprint component.
+		private UnitPartMedium medium => base.Owner.Get<UnitPartMedium>();
 
 		public override void OnActivate()
 		{
-			medium = base.Owner.Get<UnitPartMedium>();
             if (!HasPrimarySpirit())
             {
                 Logger.Log("Cannot apply spirit: state is missing. Save reconstruction requires investigation.");
@@ -50,7 +50,6 @@ namespace MediumClass.NewComponents
 
 		public override void OnDeactivate()
 		{
-            medium ??= base.Owner.Get<UnitPartMedium>();
             if (!HasPrimarySpirit())
             {
                 Logger.Log("Cannot fully remove spirit: state is missing. No new UnitPart was created.");

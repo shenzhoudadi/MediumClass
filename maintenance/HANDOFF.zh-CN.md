@@ -6,7 +6,9 @@
 **这是可继续开发的源码快照，不是已验证可玩的 Mod 安装包。没有编译、运行游戏或测试旧存档。**
 `Info.json` 的 0.1.4 仅用于区分这批维护源码，尚未发布；Mod Id、程序集名、入口和蓝图 GUID 保留。为消除重复注册，Hierophant UnitPart、未使用的合并法术书组件及与游戏类型冲突的 DecisiveStrikeStandardComponent 更换了 TypeId，旧档影响见下文。
 
-> **最新状态与原内容保留审计见 [第二轮复查](REVIEW-2026-09-23.zh-CN.md)。** 本次还修复一组与游戏 `FreeActionSpell` 的外部 TypeId 冲突，并撤回 Trickster’s Edge 的推测性公式重写。
+> 最新增量见 [再次自查](SELF-REVIEW-2026-09-23.zh-CN.md)，包括 ModMenu 维护者/版本纠正和本次代码修正。
+
+> **此前状态与原内容保留审计见 [第二轮复查](REVIEW-2026-09-23.zh-CN.md)。** 本次还修复一组与游戏 `FreeActionSpell` 的外部 TypeId 冲突，并撤回 Trickster’s Edge 的推测性公式重写。
 
 > 独立报告后的增量见 [复核与后续修正](INDEPENDENT-REVIEW-FOLLOWUP.zh-CN.md)：六种通灵先设主灵体再检查影响力，读档缺 Buff 时保留已有选择；其余尚未实测。
 
@@ -16,7 +18,7 @@
 |---|---|---|
 | WotR Windows/PC | 2.7.0x | [官方公告](https://store.steampowered.com/news/app/1184370/view/822580849468768447) |
 | UMM | 0.33.0 | [作者主页](https://www.nexusmods.com/site/mods/21) / [文件页](https://www.nexusmods.com/site/mods/21?tab=files)；2026-09-23 重查：更新于 2026-08-19 |
-| ModMenu | 1.3.2 | [GitHub Release](https://github.com/WittleWolfie/ModMenu/releases/tag/v1.3.2) |
+| ModMenu | 2.0.14 | [现维护者 GitHub Release](https://github.com/CasDragon/ModMenu/releases/tag/2.0.14)，发布于 2026-09-01；原作者 README 指向此仓库 |
 | TTT-Core | 0.7.14a | [GitHub Release](https://github.com/Vek17/TabletopTweaks-Core/releases/tag/v0.7.14)，标签仍是 v0.7.14 |
 | BlueprintCore | 2.8.7 | [GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/releases/tag/v2.8.7) / [NuGet](https://www.nuget.org/packages/WW-Blueprint-Core/2.8.7) |
 
