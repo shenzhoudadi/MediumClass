@@ -8,12 +8,14 @@
 
 > **最新状态与原内容保留审计见 [第二轮复查](REVIEW-2026-09-23.zh-CN.md)。** 本次还修复一组与游戏 `FreeActionSpell` 的外部 TypeId 冲突，并撤回 Trickster’s Edge 的推测性公式重写。
 
+> 独立报告后的增量见 [复核与后续修正](INDEPENDENT-REVIEW-FOLLOWUP.zh-CN.md)：六种通灵先设主灵体再检查影响力，读档缺 Buff 时保留已有选择；其余尚未实测。
+
 ## 1. 目标环境
 
 | 项目 | 目标 | 来源 |
 |---|---|---|
 | WotR Windows/PC | 2.7.0x | [官方公告](https://store.steampowered.com/news/app/1184370/view/822580849468768447) |
-| UMM | 0.33.0 | [作者主页](https://www.nexusmods.com/site/mods/21)；作者 GitHub README 指向该页 |
+| UMM | 0.33.0 | [作者主页](https://www.nexusmods.com/site/mods/21) / [文件页](https://www.nexusmods.com/site/mods/21?tab=files)；2026-09-23 重查：更新于 2026-08-19 |
 | ModMenu | 1.3.2 | [GitHub Release](https://github.com/WittleWolfie/ModMenu/releases/tag/v1.3.2) |
 | TTT-Core | 0.7.14a | [GitHub Release](https://github.com/Vek17/TabletopTweaks-Core/releases/tag/v0.7.14)，标签仍是 v0.7.14 |
 | BlueprintCore | 2.8.7 | [GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/releases/tag/v2.8.7) / [NuGet](https://www.nuget.org/packages/WW-Blueprint-Core/2.8.7) |

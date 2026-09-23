@@ -138,7 +138,8 @@ namespace MediumClass.Medium.NewUnitParts
 
 		public void HandleInfluencePenalty()
 		{
-			// Channeling's influence action can run before a primary spirit has been selected.
+			// Loading or teardown can still leave no valid primary spirit. Channeling checks
+			// influence only after ContextActionApplySpirit has selected the new spirit.
 			if (PrimarySpirit == null || !Spirits.TryGetValue(PrimarySpirit, out var entry)) return;
 			if (IsInfluencePenalty()) { base.Owner.Buffs.AddBuff(entry.SpiritInfluencePenalty.Get(), base.Owner, new TimeSpan(24, 0, 0)); }
 		}
@@ -160,7 +161,9 @@ namespace MediumClass.Medium.NewUnitParts
 				BlueprintTool.Get<BlueprintBuff>(Guids.MediumChannelSpiritPrimarySpiritBuff));
 			if (channelBuff == null)
 			{
-				PrimarySpirit = new BlueprintCharacterClassReference();
+				// Buff restoration may not have completed yet. Absence here is not proof
+				// that the saved selection is invalid; normal deactivation clears it.
+				Logger.Log("Channel buff was not available during OnPostLoad. Existing primary spirit was retained; verify buff restoration order.");
 				return;
 			}
 

@@ -2,13 +2,17 @@
 
 日期：2026-09-23。先读取本文，再读仓库中的 `maintenance/REVIEW-2026-09-23.zh-CN.md`、`maintenance/HANDOFF.zh-CN.md`、`maintenance/VALIDATION.zh-CN.md`。
 
+## 独立复查后的最新增量
+
+先读 [独立报告复核与后续修正](maintenance/INDEPENDENT-REVIEW-FOLLOWUP.zh-CN.md)。`73b78ab` 之后追加两处机制实现修正：六种通灵先选主灵体再检查惩罚；OnPostLoad 找不到 Buff 时保留已有主灵体。未改变规则数值和标识。I01 的 UMM 降级建议被作者页面反证；I04 放宽来源匹配未采纳。以下提交映射记录的是此前交付，实际审查请记录维护分支最新 HEAD。
+
 ## 当前定位
 
 - 上游：`https://github.com/Telyl/MediumClass`
 - 上游基线：`e5fd3ba2e35350a218658abde4e093ff743175b7`
 - 分支：`maintenance/wotr-2.7-offline`
 - 原本地维护提交：`6dcc14c582869513ef1f8c0d4c4027625d0d8535`；对应 GitHub 代码提交：`141b2ef65120dadd941a1128f42e2f37869eb56a`。
-- GitHub API 重建提交时改变了提交号，三批源码树逐一验证相同；完整映射见 `maintenance/github-import.json`。其后提交仅整理文档与移除当前树中的旧游戏 DLL/hash。
+- GitHub API 重建提交时改变了提交号，三批源码树逐一验证相同；完整映射见 `maintenance/github-import.json`。紧随其后的 `73b78ab` 仅整理文档与移除当前树中的旧游戏 DLL/hash；再之后的代码增量见本文开头。
 - 此前提交：`2f2d64b`（第一批维护）、`5799f1d`（两组内部 TypeId 修复）。
 - 仓库：`https://github.com/shenzhoudadi/MediumClass`；请切换维护分支，默认 master 是原作者代码。
 - 最新交付：`MediumClass-maintenance-2026-09-23.zip`；同名文件已更新，核对 `handoff.json` 中的提交。

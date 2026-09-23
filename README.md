@@ -7,6 +7,8 @@
 
 > 原 Mod 内容保留原则和最新修复/未修事项见 [第二轮复查](maintenance/REVIEW-2026-09-23.zh-CN.md)。
 
+> 2026-09-23 后续：通灵动作顺序与读档保留状态已追加修正；UMM 0.33.0 经作者页面重查仍保留。详见 [独立报告复核与后续修正](maintenance/INDEPENDENT-REVIEW-FOLLOWUP.zh-CN.md)。
+
 ## 交接与复查入口
 
 请使用 `maintenance/wotr-2.7-offline` 分支；默认 master 保留上游状态。

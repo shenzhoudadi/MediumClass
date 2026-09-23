@@ -85,11 +85,11 @@ namespace MediumClass.Medium
                 .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free)
                 .AddAbilityEffectRunAction(
                     actions: ActionsBuilder.New()
-                        .Add<ContextActionSpiritInfluence>()
                         .Add<ContextActionApplySpirit>(c =>
                         {
                             c.Spirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Archmage);
-                        }))
+                        })
+                        .Add<ContextActionSpiritInfluence>())
                 .AddAbilityResourceLogic(requiredResource: BlueprintTool.GetRef<BlueprintAbilityResourceReference>(Guids.MediumInfluenceResource), amount: 1, isSpendResource: true)
                 .Configure();
             #endregion
@@ -104,11 +104,11 @@ namespace MediumClass.Medium
                 .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free)
                 .AddAbilityEffectRunAction(
                     actions: ActionsBuilder.New()
-                        .Add<ContextActionSpiritInfluence>()
                         .Add<ContextActionApplySpirit>(c =>
                         {
                             c.Spirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Champion);
-                        }))
+                        })
+                        .Add<ContextActionSpiritInfluence>())
                 .AddAbilityResourceLogic(requiredResource: BlueprintTool.GetRef<BlueprintAbilityResourceReference>(Guids.MediumInfluenceResource), amount: 1, isSpendResource: true)
                 .Configure();
             #endregion
@@ -123,11 +123,11 @@ namespace MediumClass.Medium
                 .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free)
                 .AddAbilityEffectRunAction(
                     actions: ActionsBuilder.New()
-                        .Add<ContextActionSpiritInfluence>()
                         .Add<ContextActionApplySpirit>(c =>
                         {
                             c.Spirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Guardian);
-                        }))
+                        })
+                        .Add<ContextActionSpiritInfluence>())
                 .AddAbilityResourceLogic(requiredResource: BlueprintTool.GetRef<BlueprintAbilityResourceReference>(Guids.MediumInfluenceResource), amount: 1, isSpendResource: true)
                 .Configure();
             #endregion
@@ -142,11 +142,11 @@ namespace MediumClass.Medium
                 .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free)
                 .AddAbilityEffectRunAction(
                     actions: ActionsBuilder.New()
-                        .Add<ContextActionSpiritInfluence>()
                         .Add<ContextActionApplySpirit>(c =>
                         {
                             c.Spirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Hierophant);
-                        }))
+                        })
+                        .Add<ContextActionSpiritInfluence>())
                 .AddAbilityResourceLogic(requiredResource: BlueprintTool.GetRef<BlueprintAbilityResourceReference>(Guids.MediumInfluenceResource), amount: 1, isSpendResource: true)
                 .Configure();
             #endregion
@@ -161,11 +161,11 @@ namespace MediumClass.Medium
                 .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free)
                 .AddAbilityEffectRunAction(
                     actions: ActionsBuilder.New()
-                        .Add<ContextActionSpiritInfluence>()
                         .Add<ContextActionApplySpirit>(c =>
                         {
                             c.Spirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Marshal);
-                        }))
+                        })
+                        .Add<ContextActionSpiritInfluence>())
                 .AddAbilityResourceLogic(requiredResource: BlueprintTool.GetRef<BlueprintAbilityResourceReference>(Guids.MediumInfluenceResource), amount: 1, isSpendResource: true)
                 .Configure();
             #endregion
@@ -180,11 +180,11 @@ namespace MediumClass.Medium
                 .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free)
                 .AddAbilityEffectRunAction(
                     actions: ActionsBuilder.New()
-                        .Add<ContextActionSpiritInfluence>()
                         .Add<ContextActionApplySpirit>(c =>
                         {
                             c.Spirit = BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Trickster);
-                        }))
+                        })
+                        .Add<ContextActionSpiritInfluence>())
                 .AddAbilityResourceLogic(requiredResource: BlueprintTool.GetRef<BlueprintAbilityResourceReference>(Guids.MediumInfluenceResource), amount: 1, isSpendResource: true)
                 .Configure();
             #endregion

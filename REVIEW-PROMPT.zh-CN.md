@@ -2,6 +2,10 @@
 
 将下面“给 Agent 的任务”全文复制给新 Agent，并给它维护分支访问权，或上传 `MediumClass-maintenance-2026-09-23.zip`。不要让它只检查原作者仓库的 master。
 
+## 当前增量
+
+用户提供了针对 `73b78ab` 的独立报告，维护分支随后追加修正。必须先读 [独立报告复核与后续修正](maintenance/INDEPENDENT-REVIEW-FOLLOWUP.zh-CN.md)，再审查最新 HEAD；不要沿用报告中“UMM 0.33.0 不存在”的错误结论，也不要把 Source 身份失效从假设写成已证实。原提交映射只覆盖最初三批维护。
+
 ## 交接定位
 
 - 原仓库：`https://github.com/Telyl/MediumClass`
@@ -10,7 +14,7 @@
 - 本地源码提交：`6dcc14c582869513ef1f8c0d4c4027625d0d8535`；GitHub 对应代码提交：`141b2ef65120dadd941a1128f42e2f37869eb56a`。
 - 三批维护提交依次为 `2f2d64b`、`5799f1d`、`6dcc14c`。
 - 备用 ZIP SHA256：`d6350345946d00d484bf5568d3f384b01ed5888bbe9d54730fae8ed022c3d310`。
-- 审查入口：[个人维护分支](https://github.com/shenzhoudadi/MediumClass/tree/maintenance/wotr-2.7-offline)。三批 GitHub 提交与本地提交的源码树已逐一核对一致，映射见 `maintenance/github-import.json`；此后为文档整理与当前树移除旧游戏 DLL/hash。请在报告中记录你实际读取的最新 HEAD。
+- 审查入口：[个人维护分支](https://github.com/shenzhoudadi/MediumClass/tree/maintenance/wotr-2.7-offline)。三批 GitHub 提交与本地提交的源码树已逐一核对一致，映射见 `maintenance/github-import.json`；`73b78ab` 为文档整理与当前树移除旧游戏 DLL/hash；更晚的机制实现修正见本提示词开头。请在报告中记录你实际读取的最新 HEAD。
 
 ---
 

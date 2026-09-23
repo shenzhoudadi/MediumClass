@@ -9,7 +9,7 @@
 | UTF-8/JSON | 9份通过 | 修复4份文本损坏；不代表游戏内显示已验收 |
 | 标识核对 | 静态检查通过；Blueprint GUID 保持不变；Mod Id/程序集名/入口不变 | 三个重复 TypeId 已替换（含游戏 FreeActionSpell 外部冲突）；旧档恢复需要实机验证 |
 | 严格静态门禁 | `python scripts/check_source.py --strict` 通过，0 errors，0 known TypeId collisions | 确认源码无重复 TypeId；不代表旧档迁移或游戏加载通过 |
-| `git diff --check` | 通过 | 补丁没有空白错误 |
+| `git diff --check e5fd3ba2e35350a218658abde4e093ff743175b7` | 本轮移除手册行末双空格后通过 | 上游至当前工作树没有 diff 空白错误；此前 `73b78ab` 的手册两行会报错 |
 | BPC 2.7.5→2.8.7 方法签名检查 | 修正 AddPrerequisiteIsPet 参数及 FeatureSelectionConfigurator 导入；检查其余本项目涉及的签名变更调用 | 对可唯一映射的新旧参数列表，未发现剩余位置实参漂移或已移除命名参数；重载解析、默认行为和引擎 API 仍须编译及实测 |
 | publicizer 输出核对 | 对照原作者 PublicizeTask.cs | 确認产生 `_public.dll` 和 `_public.hash`，保留缓存输出并复制为引用名；缺输出时清旧 hash |
 | ILRepack 参数核对 | 对照原作者 ILRepack.cs | 2.0.13 task 未暴露 SearchDirectories 参数，依赖从工作目录解析；本地复制引用供解析，stage只输出白名单 |
@@ -35,3 +35,7 @@ python scripts/check_source.py --strict
 ## 第二轮额外验证
 
 见 [第二轮复查](REVIEW-2026-09-23.zh-CN.md)。新增 `--typeid-assembly` 对程序集的 TypeIdAttribute 做精确检查；在上游附带旧 DLL 上复现 FreeActionSpell 冲突后，修复后通过。目标游戏及 TTT 等依赖尚未提供，未对其做此项验证。Trickster’s Edge 数值公式已恢复原始算法；成长表、法术书、Homebrew 未重做。
+
+## 独立报告后的验证范围
+
+本轮重跑 `python scripts/check_source.py --strict --syntax` 与上述上游范围的 diff 检查。修改与未采纳项见 [复核记录](INDEPENDENT-REVIEW-FOLLOWUP.zh-CN.md)。这两处生命周期改动仍未编译或游戏测试。
