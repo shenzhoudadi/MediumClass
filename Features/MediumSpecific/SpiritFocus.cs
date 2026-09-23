@@ -1,4 +1,4 @@
-﻿using BlueprintCore.Blueprints.Configurators.Classes.Selection;
+﻿using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using MediumClass.Medium.NewComponents.AbilitySpecific;
 using MediumClass.Utilities;

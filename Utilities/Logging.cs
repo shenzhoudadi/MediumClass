@@ -8,7 +8,7 @@ namespace MediumClass.Utils
 {
     internal static class Logging
     {
-        private const string BaseChannel = "COP";
+        private const string BaseChannel = "MediumClass";
 
         private static readonly Dictionary<string, ModLogger> Loggers = new();
 

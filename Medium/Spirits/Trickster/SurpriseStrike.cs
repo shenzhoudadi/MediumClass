@@ -78,10 +78,7 @@ namespace MediumClass.Medium.Spirits.Trickster
                         {
                             Precision = true,
                         },
-                        Physical =
-                        {
-                            Form = PhysicalDamageForm.Slashing & PhysicalDamageForm.Piercing & PhysicalDamageForm.Bludgeoning
-                        }
+                        // The component derives the physical form from each attacking weapon.
                     };
                 })
                 .Configure();

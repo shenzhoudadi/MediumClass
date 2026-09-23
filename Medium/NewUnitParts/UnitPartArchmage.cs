@@ -174,13 +174,13 @@ namespace MediumClass.Medium.NewUnitParts
             #endregion
             #region 5&6 spells
             int j = 0;
-			if (base.Owner.Progression.GetClassLevel(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium)) >= 13)
-			{
-				j = 5;
-			}
-			else if(base.Owner.Progression.GetClassLevel(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium)) >= 16)
+			if (base.Owner.Progression.GetClassLevel(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium)) >= 16)
 			{
 				j = 6;
+			}
+			else if(base.Owner.Progression.GetClassLevel(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium)) >= 13)
+			{
+				j = 5;
             }
 
 			if (ability.Blueprint == BlueprintTool.Get<BlueprintAbility>(Guids.ArchmageGreaterAbility3) && j != 0)
@@ -400,6 +400,8 @@ namespace MediumClass.Medium.NewUnitParts
 
 			public void HandleSpiritInfluence(AbilityData ability)
 			{
+				// Legendary Archmage uses a daily charge, not spirit influence.
+				if (RequiredResource == BlueprintTool.Get<BlueprintAbilityResource>(Guids.ArchmageSupremeResource)) { return; }
 				UnitEntityData unit = ability.Caster.Unit;
 				if (unit.Descriptor.Resources.GetResourceAmount(RequiredResource) > 2) { return; }
 				unit.Descriptor.Buffs.AddBuff(BlueprintTool.Get<BlueprintBuff>(Guids.MediumInfluenceDebuff), unit, new TimeSpan(24, 0, 0));

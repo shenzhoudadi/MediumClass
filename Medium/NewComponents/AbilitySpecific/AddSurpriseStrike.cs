@@ -26,14 +26,23 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 		public void OnEventAboutToTrigger(RulePrepareDamage evt)
 		{
 			
-			if (!evt.ParentRule.AttackRoll.IsTargetFlatFooted || evt.DamageBundle.Weapon == null)// || !evt.DamageBundle.Weapon.Blueprint.IsMelee)
+			// Damage can originate from spells or effects without a weapon attack roll.
+			if (evt.DamageBundle?.Weapon == null || evt.ParentRule?.AttackRoll == null
+				|| !evt.ParentRule.AttackRoll.IsTargetFlatFooted)
 			{
 				return;
 			}
 
 			DamageDescription Damage = new DamageDescription
 			{
-				TypeDescription = DamageType,
+				// Precision damage follows the attacking weapon's physical form.
+				// Build a per-event description; do not mutate the shared blueprint component.
+				TypeDescription = new DamageTypeDescription
+				{
+					Type = DamageType.Type,
+					Common = DamageType.Common,
+					Physical = { Form = evt.DamageBundle.Weapon.Blueprint.DamageType.Physical.Form }
+				},
 				Dice = new DiceFormula(Value.DiceCountValue.Calculate(base.Context), Value.DiceType),
 				Bonus = Value.BonusValue.Calculate(base.Context),
 				SourceFact = base.Fact

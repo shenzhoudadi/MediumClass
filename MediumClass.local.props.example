@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <!-- Copy to MediumClass.local.props and set your actual installation path. -->
+    <WrathPath>C:\Games\Pathfinder Wrath Of The Righteous</WrathPath>
+    <!-- Optional overrides; defaults derive from WrathPath. -->
+    <!-- <ManagedPath>C:\Game\Wrath_Data\Managed</ManagedPath> -->
+    <!-- <ModMenuPath>C:\Game\Mods\ModMenu</ModMenuPath> -->
+    <!-- <TTTCorePath>C:\Game\Mods\TabletopTweaks-Core</TTTCorePath> -->
+    <!-- <UMMPath>C:\Game\Wrath_Data\Managed\UnityModManager</UMMPath> -->
+  </PropertyGroup>
+</Project>

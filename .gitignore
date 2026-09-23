@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Local game paths, generated references and portable source artifacts
+MediumClass.local.props
+lib/*.dll
+lib/*.hash
+*.bundle

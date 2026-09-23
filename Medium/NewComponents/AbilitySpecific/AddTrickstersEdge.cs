@@ -33,16 +33,15 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 			// Check if we have a skill.
 			if(!Skill.IsSkill()) { return; }
 			ModifiableValue stat = base.Owner.Stats.GetStat(Skill);
-			int OriginalValue = stat.BaseValue;
-			int _mediumlevel = base.Owner.Progression.GetClassData(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium)).Level;
-			int BuffValue = _mediumlevel - OriginalValue;
-			
-			if(OriginalValue == 0)
-            {
-				BuffValue += 3; // Class Skill Bonus, because why not.
-            }
-			
-			stat.AddModifier((int)BuffValue, base.Runtime, ModifierDescriptor.BaseStatBonus);
+			if (stat == null) { return; }
+			// Reapplication must replace this component's modifier, not stack it.
+			stat.RemoveModifiersFrom(base.Runtime);
+			int mediumLevel = base.Owner.Progression.GetClassLevel(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium));
+			int availableRanks = Math.Max(0, base.Owner.Progression.CharacterLevel - stat.BaseValue);
+			int bonusRanks = Math.Min(Math.Max(0, mediumLevel), availableRanks);
+			// The buff already has AddClassSkill. Do not invent a second +3 bonus here.
+			if (bonusRanks > 0)
+				stat.AddModifier(bonusRanks, base.Runtime, ModifierDescriptor.BaseStatBonus);
 		}
 
 		public override void OnTurnOff()

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using BlueprintCore.Utils;
@@ -39,20 +39,50 @@ namespace MediumClass.NewComponents
 
 		public override void OnActivate()
 		{
-			medium = base.Owner.Ensure<UnitPartMedium>();
-			this.TryApplySpirit();
+			medium = base.Owner.Get<UnitPartMedium>();
+            if (!HasPrimarySpirit())
+            {
+                Logger.Log("Cannot apply spirit: state is missing. Save reconstruction requires investigation.");
+                return;
+            }
+            this.TryApplySpirit();
 		}
 
 		public override void OnDeactivate()
 		{
-			foreach (var spirit in medium.Spirits.Keys)
-			{
+            medium ??= base.Owner.Get<UnitPartMedium>();
+            if (!HasPrimarySpirit())
+            {
+                Logger.Log("Cannot fully remove spirit: state is missing. No new UnitPart was created.");
+                return;
+            }
+            foreach (var spirit in medium.Spirits.Keys.ToArray())
+            {
 				if (spirit.Get() != medium.PrimarySpirit.Get()) {
 					RemoveSecondarySpirits(spirit); }
 			}
 			this.Revert();
 			
 		}
+
+        private bool HasPrimarySpirit()
+        {
+            return medium != null && medium.PrimarySpirit != null
+                && medium.Spirits.ContainsKey(medium.PrimarySpirit);
+        }
+
+        private void AddPower(BlueprintFeatureReference reference)
+        {
+            // Move/swift/overwrite powers are optional for several spirits.
+            var blueprint = reference?.Get();
+            if (blueprint != null) base.Owner.AddFact(blueprint);
+        }
+
+        private void RemovePower(BlueprintFeatureReference reference)
+        {
+            var blueprint = reference?.Get();
+            if (blueprint != null) base.Owner.RemoveFact(blueprint);
+        }
 
 		private void ApplySpiritSpellbook()
         {
@@ -66,7 +96,7 @@ namespace MediumClass.NewComponents
         {			 
 			int SpiritPowerRank = base.Owner.Progression.Features.GetRank(BlueprintTool.Get<BlueprintFeature>(Guids.SpiritPower)) - medium.ForgonePowers;
 			if ((SpiritPowerRank >= 1))
-				base.Owner.AddFact(medium.Spirits[medium.PrimarySpirit].SpiritLesserPower.Get());
+				AddPower(medium.Spirits[medium.PrimarySpirit].SpiritLesserPower);
 			if ((SpiritPowerRank >= 2))
             {
 				if (medium.PrimarySpirit.Get() == BlueprintTool.Get<BlueprintCharacterClass>(Guids.Trickster))
@@ -74,19 +104,19 @@ namespace MediumClass.NewComponents
 					int val = base.Owner.Progression.GetClassLevel(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium)) / 3;
 					for (int i = 1; i < val; i++)
 					{
-						base.Owner.AddFact(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePower);
+						AddPower(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePower);
 					}
 				}
-				base.Owner.AddFact(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePower.Get());
+				AddPower(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePower);
 			}
 			if ((SpiritPowerRank >= 2))
-				base.Owner.AddFact(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePowerMove.Get());
+				AddPower(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePowerMove);
 			if ((SpiritPowerRank >= 2))
-				base.Owner.AddFact(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePowerSwift.Get());
+				AddPower(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePowerSwift);
 			if ((SpiritPowerRank >= 3))
-				base.Owner.AddFact(medium.Spirits[medium.PrimarySpirit].SpiritGreaterPower.Get());
+				AddPower(medium.Spirits[medium.PrimarySpirit].SpiritGreaterPower);
 			if ((SpiritPowerRank >= 4))
-				base.Owner.AddFact(medium.Spirits[medium.PrimarySpirit].SpiritSupremePower.Get());
+				AddPower(medium.Spirits[medium.PrimarySpirit].SpiritSupremePower);
 		}
 
 		private void TryApplySpirit()
@@ -110,30 +140,30 @@ namespace MediumClass.NewComponents
 		{
 			if(spirit.Get() == BlueprintTool.Get<BlueprintCharacterClass>(Guids.Trickster))
             {
-				int val = base.Owner.Progression.GetClassLevel(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium)) % 3;
+				int val = base.Owner.Progression.GetClassLevel(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium)) / 3;
 				for(int i=1; i < val; i++)
                 {
-					base.Owner.AddFact(medium.Spirits[spirit].SpiritIntermediatePower);
+					AddPower(medium.Spirits[spirit].SpiritIntermediatePower);
 				}
 			}
-			base.Owner.AddFact(medium.Spirits[spirit].SpiritIntermediatePower);
-			base.Owner.AddFact(medium.Spirits[spirit].SpiritIntermediatePowerMove);
-			base.Owner.AddFact(medium.Spirits[spirit].SpiritIntermediatePowerSwift);
-			base.Owner.AddFact(medium.Spirits[spirit].OverwriteIntermediatePower);
-			base.Owner.AddFact(medium.Spirits[spirit].SpiritGreaterPower);
-			base.Owner.AddFact(medium.Spirits[spirit].OverwriteGreaterPower);
-			base.Owner.AddFact(medium.Spirits[spirit].SpiritSupremePower);
+			AddPower(medium.Spirits[spirit].SpiritIntermediatePower);
+			AddPower(medium.Spirits[spirit].SpiritIntermediatePowerMove);
+			AddPower(medium.Spirits[spirit].SpiritIntermediatePowerSwift);
+			AddPower(medium.Spirits[spirit].OverwriteIntermediatePower);
+			AddPower(medium.Spirits[spirit].SpiritGreaterPower);
+			AddPower(medium.Spirits[spirit].OverwriteGreaterPower);
+			AddPower(medium.Spirits[spirit].SpiritSupremePower);
 		}
 
 		private void RemoveSecondarySpirits(BlueprintCharacterClassReference spirit)
 		{
-			base.Owner.RemoveFact(medium.Spirits[spirit].SpiritIntermediatePower);
-			base.Owner.RemoveFact(medium.Spirits[spirit].SpiritIntermediatePowerMove);
-			base.Owner.RemoveFact(medium.Spirits[spirit].SpiritIntermediatePowerSwift);
-			base.Owner.RemoveFact(medium.Spirits[spirit].OverwriteIntermediatePower);
-			base.Owner.RemoveFact(medium.Spirits[spirit].SpiritGreaterPower);
-			base.Owner.RemoveFact(medium.Spirits[spirit].OverwriteGreaterPower);
-			base.Owner.RemoveFact(medium.Spirits[spirit].SpiritSupremePower);
+			RemovePower(medium.Spirits[spirit].SpiritIntermediatePower);
+			RemovePower(medium.Spirits[spirit].SpiritIntermediatePowerMove);
+			RemovePower(medium.Spirits[spirit].SpiritIntermediatePowerSwift);
+			RemovePower(medium.Spirits[spirit].OverwriteIntermediatePower);
+			RemovePower(medium.Spirits[spirit].SpiritGreaterPower);
+			RemovePower(medium.Spirits[spirit].OverwriteGreaterPower);
+			RemovePower(medium.Spirits[spirit].SpiritSupremePower);
 		}
 
 		// Token: 0x0600BDCF RID: 48591 RVA: 0x00318090 File Offset: 0x00316290
@@ -151,12 +181,12 @@ namespace MediumClass.NewComponents
 				}
 			}
 
-			base.Owner.RemoveFact(medium.Spirits[medium.PrimarySpirit].SpiritLesserPower);
-			base.Owner.RemoveFact(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePower);
-			base.Owner.RemoveFact(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePowerMove);
-			base.Owner.RemoveFact(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePowerSwift);
-			base.Owner.RemoveFact(medium.Spirits[medium.PrimarySpirit].SpiritGreaterPower);
-			base.Owner.RemoveFact(medium.Spirits[medium.PrimarySpirit].SpiritSupremePower);
+			RemovePower(medium.Spirits[medium.PrimarySpirit].SpiritLesserPower);
+			RemovePower(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePower);
+			RemovePower(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePowerMove);
+			RemovePower(medium.Spirits[medium.PrimarySpirit].SpiritIntermediatePowerSwift);
+			RemovePower(medium.Spirits[medium.PrimarySpirit].SpiritGreaterPower);
+			RemovePower(medium.Spirits[medium.PrimarySpirit].SpiritSupremePower);
 
 			base.Owner.Progression.Features.AddFact(BlueprintTool.Get<BlueprintFeature>(Guids.MediumSpellcasterFeatProhibitArchmage), Context);
 			base.Owner.Progression.Features.AddFact(BlueprintTool.Get<BlueprintFeature>(Guids.MediumSpellcasterFeatProhibitHierophant), Context);

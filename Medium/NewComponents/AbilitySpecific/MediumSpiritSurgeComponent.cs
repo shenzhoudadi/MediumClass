@@ -28,11 +28,13 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
         public override void OnTurnOn()
         {
             Logger.Log("I am in OnTurnOn of SpiritSurgeComponent");
-            UnitPartMedium unitPartMedium = base.Context.MaybeCaster.Get<UnitPartMedium>();
-            if(unitPartMedium == null) { return; }
+            var caster = base.Context?.MaybeCaster;
+            UnitPartMedium unitPartMedium = caster?.Get<UnitPartMedium>();
+            if (unitPartMedium == null || unitPartMedium.PrimarySpirit == null
+                || !unitPartMedium.Spirits.TryGetValue(unitPartMedium.PrimarySpirit, out var spiritEntry)) { return; }
 
-            Stats = unitPartMedium.Spirits[unitPartMedium.PrimarySpirit].SpiritBonus.Stats;
-            Concentration = unitPartMedium.Spirits[unitPartMedium.PrimarySpirit].SpiritBonus.Concentration;
+            Stats = spiritEntry.SpiritBonus.Stats ?? Array.Empty<StatType>();
+            Concentration = spiritEntry.SpiritBonus.Concentration;
             CharacterLevel = base.Context.MaybeCaster.Progression.GetClassLevel(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium));
             MarshalBonus = 0;
 
@@ -40,23 +42,28 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
             if (unitPartMedium.PrimarySpirit.Get() == BlueprintTool.Get<BlueprintCharacterClass>(Guids.Marshal))
             {
                 if (base.Context.SourceAbility != BlueprintTool.Get<BlueprintAbility>(Guids.MarshalLegendaryMarshalAbility))
-                    MarshalBonus = base.Owner.Progression.Features.GetRank(unitPartMedium.Spirits[unitPartMedium.PrimarySpirit].SpiritBonus.SpiritBonusFeature.Get()) + + unitPartMedium.Spirits[unitPartMedium.PrimarySpirit].SpiritFocus;
+                    MarshalBonus = caster.Progression.Features.GetRank(spiritEntry.SpiritBonus.SpiritBonusFeature.Get()) + spiritEntry.SpiritFocus;
             }
             foreach (StatType statType in Stats)
-                base.Context.MainTarget.Unit.Descriptor.Stats.GetStat(statType).AddModifier((GetBonus() + MarshalBonus), base.Runtime, ModifierDescriptor.UntypedStackable);
-            if(unitPartMedium.FreeSurgeAmount > 0)
+                base.Owner.Stats.GetStat(statType)?.AddModifier((GetBonus() + MarshalBonus), base.Runtime, ModifierDescriptor.UntypedStackable);
+            // Legendary Marshal has no influence cost to refund. Free uses belong to the caster.
+            if (base.Context.SourceAbility != BlueprintTool.Get<BlueprintAbility>(Guids.MarshalLegendaryMarshalAbility)
+                && unitPartMedium.FreeSurgeAmount > 0)
             {
-                var resource = base.Owner.Resources.GetResource(BlueprintTool.Get<BlueprintAbilityResource>(Guids.MediumInfluenceResource));
-                resource.Amount += 1;
-                unitPartMedium.FreeSurgeAmount -= 1;
+                var resource = caster.Resources.GetResource(BlueprintTool.Get<BlueprintAbilityResource>(Guids.MediumInfluenceResource));
+                if (resource != null)
+                {
+                    resource.Amount += 1;
+                    unitPartMedium.FreeSurgeAmount -= 1;
+                }
             }
             
         }
 
         public override void OnTurnOff()
         {
-            foreach (StatType statType in Stats)
-                base.Context.MainTarget.Unit.Descriptor.Stats.GetStat(statType).RemoveModifiersFrom(base.Runtime);
+            foreach (StatType statType in Stats ?? Array.Empty<StatType>())
+                base.Owner.Stats.GetStat(statType)?.RemoveModifiersFrom(base.Runtime);
         }
 
         public int GetStaticConcentrationBonus(EntityFactComponent runtime)
@@ -69,15 +76,15 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 
         public int GetBonus()
         {
-            if(base.Context.SourceAbility == BlueprintTool.Get<BlueprintAbility>(Guids.MarshalLegendaryMarshalAbility)) { return rnd.Next(1, 6); }
+            if(base.Context.SourceAbility == BlueprintTool.Get<BlueprintAbility>(Guids.MarshalLegendaryMarshalAbility)) { return rnd.Next(1, 7); }
             switch (CharacterLevel)
             {
                 case < 10:
-                    return rnd.Next(1, 6);
+                    return rnd.Next(1, 7);
                 case < 20:
-                    return rnd.Next(1, 8);
-                case 20:
-                    return rnd.Next(1, 10);
+                    return rnd.Next(1, 9);
+                case >= 20:
+                    return rnd.Next(1, 11);
             }
             return 0;
         }

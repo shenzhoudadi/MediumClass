@@ -18,7 +18,7 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
         }
         public override void OnTurnOff()
         {
-            Owner.Get<UnitPartHierophant>().RemoveEntry(this.Fact);
+            Owner.Get<UnitPartHierophant>()?.RemoveEntry(this.Fact);
         }
 
         public BlueprintCharacterClassReference m_CharacterClass;

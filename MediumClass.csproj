@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <!--
-			Enables the latest C# language features. Runtime features are limited by the .NET framework version, so some
+            Pins C# language features. Runtime features are limited by the .NET framework version, so some
 			features (e.g. Default Interfaces) are not available.
 		-->
-    <LangVersion>latest</LangVersion>
+    <LangVersion>9.0</LangVersion>
     <!-- Latest .NET version supported by Wrath / Unity -->
     <TargetFramework>net472</TargetFramework>
     <!-- Needed to use publicized assembly -->
@@ -14,6 +14,21 @@
     <AssemblyName>MediumClass</AssemblyName>
     <RootNamespace>MediumClass</RootNamespace>
   </PropertyGroup>
+
+  <!-- Machine-specific paths are intentionally kept outside version control. -->
+  <Import Project="MediumClass.local.props" Condition="Exists('MediumClass.local.props')" />
+  <PropertyGroup>
+    <ManagedPath Condition="'$(ManagedPath)' == ''">$(WrathPath)\Wrath_Data\Managed</ManagedPath>
+    <ModMenuPath Condition="'$(ModMenuPath)' == ''">$(WrathPath)\Mods\ModMenu</ModMenuPath>
+    <TTTCorePath Condition="'$(TTTCorePath)' == ''">$(WrathPath)\Mods\TabletopTweaks-Core</TTTCorePath>
+    <UMMPath Condition="'$(UMMPath)' == ''">$(ManagedPath)\UnityModManager</UMMPath>
+    <PublicizedDir>$(MSBuildProjectDirectory)\obj\publicized</PublicizedDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <!-- ILRepack 2.0.13 resolves references from its working directory.
+         Local build output may contain reference DLLs; StageMod uses an explicit allowlist. -->
+    <Reference><Private>true</Private></Reference>
+  </ItemDefinitionGroup>
 
   <ItemGroup>
     <Compile Remove="lib\**" />
@@ -53,58 +68,62 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AssemblyPublicizer" Version="*">
+    <PackageReference Include="AssemblyPublicizer" Version="1.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="ILRepack.MSBuild.Task" Version="*" />
-    <PackageReference Include="WW-Blueprint-Core" Version="2.7.5" />
+    <PackageReference Include="ILRepack.MSBuild.Task" Version="2.0.13" PrivateAssets="all" />
+    <PackageReference Include="WW-Blueprint-Core" Version="2.8.7" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Main Wrath Assembly, Publicized -->
     <Reference Include="Assembly-CSharp">
-      <HintPath>$(SolutionDir)lib\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(PublicizedDir)\Assembly-CSharp.dll</HintPath>
     </Reference>
 
     <!-- Wrath Assemblies -->
     <Reference Include="Assembly-CSharp-firstpass.dll">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>$(ManagedPath)\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="ModMenu">
-      <HintPath>D:\Steam\steamapps\common\Pathfinder Second Adventure\Mods\ModMenu\ModMenu.dll</HintPath>
+      <HintPath>$(ModMenuPath)\ModMenu.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <HintPath>$(ManagedPath)\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.Core">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</HintPath>
+      <HintPath>$(ManagedPath)\Owlcat.Runtime.Core.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.UI">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</HintPath>
+      <HintPath>$(ManagedPath)\Owlcat.Runtime.UI.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.Validation">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Validation.dll</HintPath>
+      <HintPath>$(ManagedPath)\Owlcat.Runtime.Validation.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.Visual">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll</HintPath>
+      <HintPath>$(ManagedPath)\Owlcat.Runtime.Visual.dll</HintPath>
     </Reference>
     <Reference Include="TabletopTweaks-Core">
-      <HintPath>D:\Steam\steamapps\common\Pathfinder Second Adventure\Mods\TabletopTweaks-Core\TabletopTweaks-Core.dll</HintPath>
+      <HintPath>$(TTTCorePath)\TabletopTweaks-Core.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>$(ManagedPath)\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(ManagedPath)\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(ManagedPath)\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
 
     <!-- UMM & Harmony -->
     <Reference Include="0Harmony">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityModManager\0Harmony.dll</HintPath>
+      <HintPath>$(UMMPath)\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="UnityModManager">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
+      <HintPath>$(UMMPath)\UnityModManager.dll</HintPath>
     </Reference>
   </ItemGroup>
 
@@ -144,61 +163,50 @@
     </None>
   </ItemGroup>
 
-  <!-- Generates Assembly-CSharp_public.dll -->
-  <Target Name="Publicize" AfterTargets="Clean">
-    <ItemGroup>
-      <Assemblies Include="$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll" />
-      <PublicAssembly Include="$(SolutionDir)lib\Assembly-CSharp.dll" />
-      <RenamedAssembly Include="$(SolutionDir)lib\Assembly-CSharp.dll" />
-    </ItemGroup>
-
-    <PublicizeTask InputAssemblies="@(Assemblies)" OutputDir="$(SolutionDir)lib/" />
-    <!-- ILRepack requires the assembly name match the reference so remove _public -->
-    <Move SourceFiles="@(PublicAssembly)" DestinationFiles="@(RenamedAssembly)" />
+  <Target Name="ValidateGameReferences" Condition="'$(DesignTimeBuild)' != 'true'">
+    <Error Condition="'$(WrathPath)' == ''" Text="Set WrathPath in MediumClass.local.props (copy the example first)." />
+    <Error Condition="!Exists('$(ManagedPath)\Assembly-CSharp.dll')" Text="Target game's Assembly-CSharp.dll is missing from $(ManagedPath)." />
+    <Error Condition="'%(Reference.HintPath)' != '' and '%(Reference.Identity)' != 'Assembly-CSharp' and !Exists('%(Reference.HintPath)')"
+           Text="Required reference is missing: %(Reference.HintPath). Check the local path configuration and install the target dependencies." />
   </Target>
 
-  <!-- Merges BlueprintCore.dll into the main DLL -->
-  <Target Name="ILRepack" AfterTargets="Build">
-    <ItemGroup>
-      <InputAssemblies Include="BlueprintCore.dll" />
-      <InputAssemblies Include="$(AssemblyName).dll" />
-      <OutputAssembly Include="$(AssemblyName).dll" />
-    </ItemGroup>
-
-    <Message Text="Merging: @(InputAssemblies) into @(OutputAssembly)" Importance="High" />
-
-    <ILRepack OutputType="Dll" MainAssembly="@(OutputAssembly)" OutputAssembly="@(OutputAssembly)" InputAssemblies="@(InputAssemblies)" WorkingDirectory="$(OutputPath)" />
+  <!-- Always consult the installed game's DLL before resolving references.
+       The pinned task handles content hashes; keep its _public output for its cache. -->
+  <Target Name="Publicize" BeforeTargets="ResolveAssemblyReferences" DependsOnTargets="ValidateGameReferences"
+          Condition="'$(DesignTimeBuild)' != 'true'">
+    <MakeDir Directories="$(PublicizedDir)" />
+    <Delete Files="$(PublicizedDir)\Assembly-CSharp_public.hash"
+            Condition="!Exists('$(PublicizedDir)\Assembly-CSharp_public.dll')" />
+    <PublicizeTask InputAssemblies="$(ManagedPath)\Assembly-CSharp.dll" OutputDir="$(PublicizedDir)" />
+    <Error Condition="!Exists('$(PublicizedDir)\Assembly-CSharp_public.dll')" Text="AssemblyPublicizer did not generate the expected reference DLL." />
+    <Copy SourceFiles="$(PublicizedDir)\Assembly-CSharp_public.dll"
+          DestinationFiles="$(PublicizedDir)\Assembly-CSharp.dll" SkipUnchangedFiles="true" />
   </Target>
 
-  <!-- Automatically deploys the mod on build       <Strings Include="$(OutputPath)\LocalizedStrings.json" />-->
-  <Target Name="Deploy" AfterTargets="ILRepack">
-    <ItemGroup>
-      <Assembly Include="$(OutputPath)\$(AssemblyName).dll" />
-      <ModConfig Include="$(OutputPath)\Info.json" />
-      <Assets Include="$(OutputPath)\*_assets" />
-    </ItemGroup>
-
-    <Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
-    <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
-    <Copy SourceFiles="@(Strings)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
-    <Copy SourceFiles="@(Assets)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+  <!-- Keep the compiler output intact. Merge into a separate staging directory. -->
+  <Target Name="StageMod" DependsOnTargets="Build">
+    <PropertyGroup>
+      <ModStageDir>$(MSBuildProjectDirectory)\artifacts\$(Configuration)\MediumClass</ModStageDir>
+    </PropertyGroup>
+    <RemoveDir Directories="$(ModStageDir)" />
+    <MakeDir Directories="$(ModStageDir)" />
+    <Error Condition="!Exists('$(TargetDir)BlueprintCore.dll')" Text="BlueprintCore.dll is missing from build output." />
+    <ILRepack OutputType="Dll" MainAssembly="$(TargetPath)"
+              OutputAssembly="$(ModStageDir)\MediumClass.dll"
+              InputAssemblies="$(TargetPath);$(TargetDir)BlueprintCore.dll"
+              WorkingDirectory="$(TargetDir)" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\Info.json;$(MSBuildProjectDirectory)\mediumclass_assets"
+          DestinationFolder="$(ModStageDir)" />
   </Target>
 
-  <!-- Automatically creates a release zip -->
-  <Target Name="ZipRelease" AfterTargets="ILRepack" Condition="'$(Configuration)' == 'Release'">
-    <ItemGroup>
-      <Assembly Include="$(OutputPath)\$(AssemblyName).dll" />
-      <ModConfig Include="$(OutputPath)\Info.json" />
-      <!--<Strings Include="$(OutputPath)\LocalizedStrings.json" />-->
-      <Assets Include="$(OutputPath)\*_assets" />
-    </ItemGroup>
-
-    <Copy SourceFiles="@(Assembly)" DestinationFolder="$(OutputPath)\$(AssemblyName)" />
-    <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(OutputPath)\$(AssemblyName)" />
-    <Copy SourceFiles="@(Strings)" DestinationFolder="$(OutputPath)\$(AssemblyName)" />
-    <Copy SourceFiles="@(Assets)" DestinationFolder="$(OutputPath)\$(AssemblyName)" />
-    <ZipDirectory SourceDirectory="$(OutputPath)\$(AssemblyName)" DestinationFile="$(OutputPath)\$(AssemblyName).zip" Overwrite="true" />
+  <!-- Explicit opt-in only. A normal Build/Release build neither deploys nor zips. -->
+  <Target Name="PackageMod" DependsOnTargets="StageMod">
+    <ZipDirectory SourceDirectory="$(ModStageDir)"
+                  DestinationFile="$(MSBuildProjectDirectory)\artifacts\$(Configuration)\MediumClass-maintenance-untested.zip"
+                  Overwrite="true" />
   </Target>
-
+  <Target Name="DeployMod" DependsOnTargets="StageMod">
+    <ItemGroup><ModFiles Include="$(ModStageDir)\*" /></ItemGroup>
+    <Copy SourceFiles="@(ModFiles)" DestinationFolder="$(WrathPath)\Mods\MediumClass" />
+  </Target>
 </Project>
-
