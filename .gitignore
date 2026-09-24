@@ -367,3 +367,6 @@ MediumClass.local.props
 lib/*.dll
 lib/*.hash
 *.bundle
+
+# Private DLL collections produced by the tester helper
+scripts/MediumClass-build-references-*.zip

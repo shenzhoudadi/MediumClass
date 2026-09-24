@@ -2,6 +2,10 @@
 
 日期：2026-09-23。先读取本文，再读仓库中的 `maintenance/REVIEW-2026-09-23.zh-CN.md`、`maintenance/HANDOFF.zh-CN.md`、`maintenance/VALIDATION.zh-CN.md`。
 
+## 2026-09-24：安装测试的实际阻碍
+
+测试者日志显示 UMM 找不到 `Mods/Medium Class/MediumClass.dll`，本 Mod 尚未执行。已提供 [双击收集构建引用](COLLECT-BUILD-REFERENCES.zh-CN.md) 流程；收到参考 ZIP 后，由维护者解决构建和合并并交付真正的 UMM 安装包，普通测试者不需要安装开发环境。禁止把参考 ZIP 中的游戏 DLL 上传 GitHub 或放进 Mod 安装包。
+
 ## 再次自查增量
 
 先读 [最新自查记录](maintenance/SELF-REVIEW-2026-09-23.zh-CN.md)。ModMenu 目标已更正为现维护者 CasDragon 的 2.0.14；本次修正 ApplySpirits 的 Part 缓存、Decisive Strike 的上下文依赖、Trickster 通灵祝福的重复修正以及暂存白名单。没有改职业数值。

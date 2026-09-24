@@ -8,10 +8,14 @@
 
 > 后续修正已加入：通灵先设置主灵体再检查影响力；读档暂缺 Buff 时保留已有状态。请以维护分支最新 HEAD 为准，详见 [独立报告复核与后续修正](maintenance/INDEPENDENT-REVIEW-FOLLOWUP.zh-CN.md)。
 
+## 普通测试者的新入口（2026-09-24）
+
+不用自己配置开发环境：先按 [收集构建文件](COLLECT-BUILD-REFERENCES.zh-CN.md) 双击工具并发回生成的 ZIP，由维护者完成编译和打包。下面的构建章节留给负责构建的人。当前尚未提供可直接装进 UMM 的维护版 DLL。
+
 ## 先看这几句话
 
 - 这份维护内容**还没有编译，也没有在游戏里运行过**。手里的压缩包是源码，不是可直接安装的 Mod。
-- 构建需要 Windows、已安装的《Pathfinder: Wrath of the Righteous》、Visual Studio 2022 Build Tools，以及几个 Mod 的 DLL。只熟悉玩游戏、不方便安装开发工具的话，请先把这份手册交给项目维护者，由其另找能构建的人；不要把压缩包直接放进游戏。
+- 构建需要 Windows、已安装的《Pathfinder: Wrath of the Righteous》、Visual Studio 2022 Build Tools，以及几个 Mod 的 DLL。只熟悉玩游戏、不方便安装开发工具的话，请走上面的收集文件流程，由维护者处理构建。
 - 这是测试版。源码中的两组内部 TypeId 重复及一组与游戏 FreeActionSpell 的冲突已修复，但 Hierophant 和 Marshal/Decisive Strike 的 ID 变化可能影响旧存档恢复；游戏是否能正常注册和读取旧档仍未验证。测试前备份 Mod 和存档；不要拿唯一存档试。
 - 不要在测试时更新或覆盖自己唯一的游戏存档。测试过程创建的新存档也请另存为测试档。
 
@@ -47,7 +51,7 @@
 
 1. 打开 [个人仓库维护分支](https://github.com/shenzhoudadi/MediumClass/tree/maintenance/wotr-2.7-offline)。确认页面左上角显示 `maintenance/wotr-2.7-offline`，不要下载默认的 master。
 2. 点击绿色 **Code** → **Download ZIP**，解压到例如 `C:\ModTest\MediumClass`。也可使用维护者提供的备用 ZIP。
-3. 找到含 `MediumClass.csproj`、`MediumClass.local.props.example`、`scripts` 和 `maintenance` 的文件夹，下文称为“源码根目录”。GitHub ZIP 的项目文件就在解压后的项目目录内；备用 ZIP 则在 `source` 子目录内。
+3. 找到含 `MediumClass.csproj`、`MediumClass.local.props.example`、`scripts` 和 `maintenance` 的文件夹，下文称为“源码根目录”。GitHub ZIP 和最新版源码 ZIP 的项目文件在解压后的项目目录内；较早的备用 ZIP 可能在 `source` 子目录内，以实际找到项目文件为准。
 4. 后续命令均在源码根目录运行，不要把源码解压到游戏目录或 `Program Files`。
 
 ## 第三步：告诉构建工具游戏装在哪里

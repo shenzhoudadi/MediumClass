@@ -11,6 +11,8 @@
 
 > 再次自查：ModMenu 已移交 CasDragon，目标更正为 2.0.14；新增角色状态、重复启用和打包修正。详见 [最新自查记录](maintenance/SELF-REVIEW-2026-09-23.zh-CN.md)。这些修改仍未编译、未实机验证。
 
+> **2026-09-24 测试反馈：** 当前源码包没有 MediumClass.dll，直接导入 UMM 会报缺文件。普通测试者可使用 [双击收集工具](COLLECT-BUILD-REFERENCES.zh-CN.md) 提供构建引用，由维护者编译安装包。
+
 ## 交接与复查入口
 
 请使用 `maintenance/wotr-2.7-offline` 分支；默认 master 保留上游状态。

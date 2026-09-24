@@ -50,3 +50,12 @@ python scripts/check_source.py --strict
 - ModMenu 2.0.14 标签源码中，本项目调用的设置 API 签名仍存在。没有还原/引用实际发布 DLL 做类型检查。
 - 检查固定版本 ILRepack task 源码的 ITaskItem[] 输入、去重及 Windows 默认 DebugInfo；修改 Stage 为独立合并目录后显式复制三文件。没有执行任务，不把静态白名单等同于已经验证产物。
 - 未重跑旧游戏 DLL 的 TypeId 扫描；没有目标程序集、编译或游戏/存档验证。
+
+## 2026-09-24：普通测试者的构建文件收集工具
+
+测试者日志显示 `MediumClass.dll not found`，本 Mod 未执行。新增 `scripts/Collect-BuildReferences.cmd` / `.ps1`，让测试者先提供安装目录中的构建引用，由维护者构建真正的 UMM 安装包。
+
+- 在 Linux 的 PowerShell 7.4.6 上，用模拟目录执行 PS1 的显式 GamePath 路径：成功生成 ZIP；按 Mod Id 识别非标准名称的依赖目录；逐文件 SHA-256 一致；原文件不变；不收集存档、日志和其他 Mod。
+- 删除模拟 ModMenu.dll 后：脚本返回 1，不生成新的 ZIP。
+- Windows CMD、Windows PowerShell 5.1、自动查找 Steam 目录及 Windows 文件夹选择窗口尚未运行验证。收集工具没有真实游戏 DLL，模拟运行不等于 Mod 编译或实机测试。
+- 本轮只增加收集工具和文档。当前维护版本仍未编译；没有生成可直接安装的 Mod 包。
