@@ -1,5 +1,7 @@
 # MediumClass 独立复查 Prompt
 
+2026-09-24 更新：另读 `maintenance/REVIEW-2026-09-24.zh-CN.md`。普通玩家文档为 `01-安装与测试说明.md`；构建文档为 `90-维护者编译说明.md`。最新实际测试日志仅证实缺少 DLL，不能写成职业代码已运行。
+
 将下面“给 Agent 的任务”全文复制给新 Agent，并给它维护分支访问权，或上传 `MediumClass-maintenance-2026-09-23.zip`。不要让它只检查原作者仓库的 master。
 
 ## 当前增量

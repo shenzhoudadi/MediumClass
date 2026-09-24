@@ -2,6 +2,10 @@
 
 日期：2026-09-23。先读取本文，再读仓库中的 `maintenance/REVIEW-2026-09-23.zh-CN.md`、`maintenance/HANDOFF.zh-CN.md`、`maintenance/VALIDATION.zh-CN.md`。
 
+## 2026-09-24：玩家交付复查
+
+先读 [本轮复查](maintenance/REVIEW-2026-09-24.zh-CN.md)。玩家入口改为 `00-先看这里.txt`、`01-安装与测试说明.txt` / `.md`；构建步骤移至 `90-维护者编译说明.md`。原 TEST-GUIDE 保留跳转。PackageMod 产物更名为 `MediumClass-UMM-install-untested.zip`，尚未实际构建。收集工具仍采用依赖装齐后运行的原流程，用户明确不需要缺依赖也收集的改版。
+
 ## 2026-09-24：安装测试的实际阻碍
 
 测试者日志显示 UMM 找不到 `Mods/Medium Class/MediumClass.dll`，本 Mod 尚未执行。已提供 [双击收集构建引用](COLLECT-BUILD-REFERENCES.zh-CN.md) 流程；收到参考 ZIP 后，由维护者解决构建和合并并交付真正的 UMM 安装包，普通测试者不需要安装开发环境。禁止把参考 ZIP 中的游戏 DLL 上传 GitHub 或放进 Mod 安装包。

@@ -206,7 +206,7 @@
   <!-- Explicit opt-in only. A normal Build/Release build neither deploys nor zips. -->
   <Target Name="PackageMod" DependsOnTargets="StageMod">
     <ZipDirectory SourceDirectory="$(ModStageDir)"
-                  DestinationFile="$(MSBuildProjectDirectory)\artifacts\$(Configuration)\MediumClass-maintenance-untested.zip"
+                  DestinationFile="$(MSBuildProjectDirectory)\artifacts\$(Configuration)\MediumClass-UMM-install-untested.zip"
                   Overwrite="true" />
   </Target>
   <Target Name="DeployMod" DependsOnTargets="StageMod">

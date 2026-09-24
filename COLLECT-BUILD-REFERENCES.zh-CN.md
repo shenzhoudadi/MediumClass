@@ -4,6 +4,8 @@
 
 目前还没有编译好的维护版。此前约 257 KB 的 ZIP 是源码，不能安装到 UMM。测试日志已确认 UMM 找不到 `MediumClass.dll`，尚未执行本 Mod 的代码。
 
+**第一次安装游戏的玩家：先按 [中文安装说明](01-安装与测试说明.md) 第二部分装好 UMM、ModMenu 和 TTT-Core，再运行工具。**
+
 ## 测试者只需做这几步
 
 1. 关闭游戏。将维护者提供的 **MediumClass-Collect-References.zip** 解压到下载目录或桌面的新文件夹中。不要放进 UMM，也不要只在压缩包预览里运行。
@@ -24,6 +26,8 @@
 只把生成的参考文件交给维护者用于构建，不要提交到 GitHub 或放进最终安装包。
 
 ## 给维护者
+
+新的玩家说明包可双击根目录的 `02-双击收集构建文件.cmd`，生成 ZIP 位于其 scripts 文件夹。原收集工具本身没有更改，仍要求依赖已安装。
 
 源码仓库中入口位于 `scripts/Collect-BuildReferences.cmd`，旁边必须保留同名 PS1。可显式运行 `Collect-BuildReferences.ps1 -GamePath <游戏主目录>` 以选择自定义路径。
 

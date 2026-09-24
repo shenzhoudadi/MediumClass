@@ -59,3 +59,17 @@ python scripts/check_source.py --strict
 - 删除模拟 ModMenu.dll 后：脚本返回 1，不生成新的 ZIP。
 - Windows CMD、Windows PowerShell 5.1、自动查找 Steam 目录及 Windows 文件夹选择窗口尚未运行验证。收集工具没有真实游戏 DLL，模拟运行不等于 Mod 编译或实机测试。
 - 本轮只增加收集工具和文档。当前维护版本仍未编译；没有生成可直接安装的 Mod 包。
+
+## 2026-09-24：玩家说明与交付复查
+
+起点为个人 Fork 提交 `602739c0f095e7175eb464d8632b2d2f8a62bc4a`。详见 [本轮复查](REVIEW-2026-09-24.zh-CN.md)。
+
+- `python scripts/check_source.py --strict --syntax`：退出码 0，`0 errors, 0 known TypeId collisions`；96 份 C# 语法解析通过。
+- 原 `Collect-BuildReferences.cmd`、`.ps1` 与起点逐字节一致；中文入口只调用原 CMD。没有改变用户要求保留的前置依赖检查。
+- 本轮没有修改任何 C# 文件；成长表、法术书、熟练项、GUID 四份文件与上游基线逐字节一致。
+- XML 检查确认 PackageMod 仅更改安装 ZIP 文件名；StageMod 仍只复制 MediumClass.dll、Info.json、mediumclass_assets。
+- 新玩家/维护者说明、旧手册跳转、README、收集说明与本轮复查的相对链接均能定位到文件。
+- 玩家说明与收集工具 ZIP：7 个文件，CRC 检查通过；TXT 和 PS1 保留 UTF-8 BOM，CMD/PS1 使用 CRLF；入口引用的脚本存在。包内没有 Info.json、DLL、职业源码或游戏文件，不能作为 Mod 安装包。
+- `MediumClass-玩家说明与收集工具-2026-09-24.zip`：13148 字节，SHA-256 `eb844637e325aa7a7d2d070f9b790eb0343b59605e3d1675691747a162e57be9`。
+
+本轮没有在 Windows 上执行新增入口；没有重新运行收集工具的模拟测试，也没有编译、合并 DLL 或运行游戏。静态检查与说明包校验不证明加载、职业机制或旧档兼容。

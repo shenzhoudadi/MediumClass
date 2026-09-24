@@ -1,5 +1,9 @@
 # WrathMods-Medium Class
 
+**普通玩家：先打开 [00-先看这里.txt](00-先看这里.txt) 或 [中文安装与测试说明](01-安装与测试说明.md)。** 电脑上可双击 TXT 用记事本阅读。
+
+当前没有编译好的维护版安装包。普通玩家先安装前置并提供构建参考文件；不用自己配置开发环境。源码 ZIP 不可直接导入 UMM。
+
 > **2026-09-23 离线维护分支：尚未编译或游戏测试，不是稳定发布。**
 > 面向 WotR 2.7.0x / UMM 0.33.0 / ModMenu 2.0.14 / TTT-Core 0.7.14a / BlueprintCore 2.8.7。
 > 构建、迁移、已修复内容及剩余阻塞项见 [中文交接说明](maintenance/HANDOFF.zh-CN.md)。
@@ -13,16 +17,19 @@
 
 > **2026-09-24 测试反馈：** 当前源码包没有 MediumClass.dll，直接导入 UMM 会报缺文件。普通测试者可使用 [双击收集工具](COLLECT-BUILD-REFERENCES.zh-CN.md) 提供构建引用，由维护者编译安装包。
 
+> **玩家说明更新：** 新增中文 TXT 手册、双击入口和反馈模板；本轮未改职业代码。交付问题与剩余风险见 [2026-09-24 复查记录](maintenance/REVIEW-2026-09-24.zh-CN.md)。
+
 ## 交接与复查入口
 
 请使用 `maintenance/wotr-2.7-offline` 分支；默认 master 保留上游状态。
 
 - [给其他 Agent 的独立复查 Prompt](REVIEW-PROMPT.zh-CN.md)
 - [新 Agent 交接说明](AGENT-HANDOFF.zh-CN.md)
-- [小白实机测试手册](TEST-GUIDE.zh-CN.md)
+- [普通玩家安装与测试说明](01-安装与测试说明.md)
+- [维护者编译与交付](90-维护者编译说明.md)
 - [本地/GitHub 提交对应关系](maintenance/github-import.json)
 
-维护分支当前树不含旧游戏 DLL/hash；源码包须在具备游戏依赖的 Windows 电脑上构建。
+维护分支当前树不含旧游戏 DLL/hash。由维护者使用目标游戏引用构建安装包，普通测试者提供参考文件后等待成品包。
 
 ## Maintenance build
 
