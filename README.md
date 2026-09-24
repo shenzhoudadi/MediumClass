@@ -1,8 +1,39 @@
 # WrathMods-Medium Class
 
+## 先看这里：需要的版本和更新地址
+
+更新日期：2026-09-24。下表是**本维护包的目标和要求**，尚未完成编译和实机验证。
+
+### 玩游戏的电脑
+
+| 文件 / Mod | 本包要求的版本 | 需要做什么 | 官方下载 / 更新地址 |
+| --- | --- | --- | --- |
+| Pathfinder: Wrath of the Righteous | **PC 2.7.0x** | 在购买游戏的平台更新；Steam 用户在库中更新游戏 | [Steam 游戏页](https://store.steampowered.com/app/1184370/) |
+| Unity Mod Manager（UMM） | **0.33.0** | 游戏内实际加载的 UMM 需达到此版本；如果仍是 0.32.4，更新到 0.33.0 | [Nexus 作者文件页](https://www.nexusmods.com/site/mods/21?tab=files) · [作者提供的 Dropbox 下载](https://www.dropbox.com/s/wz8x8e4onjdfdbm/UnityModManager.zip?dl=1) |
+| ModMenu | **2.0.14** | 2.0.13 需要更新；用 UMM 安装 ModMenu 的 ZIP | [作者发布页](https://github.com/CasDragon/ModMenu/releases/tag/2.0.14) · [直接下载 ModMenu-2.0.14.zip](https://github.com/CasDragon/ModMenu/releases/download/2.0.14/ModMenu-2.0.14.zip) |
+| TabletopTweaks-Core | **0.7.14a** | 已是这个版本就保留；不是则用 UMM 更新 | [作者发布页（标签 v0.7.14，发行版 0.7.14a）](https://github.com/Vek17/TabletopTweaks-Core/releases/tag/v0.7.14) · [直接下载 ZIP](https://github.com/Vek17/TabletopTweaks-Core/releases/download/v0.7.14/TabletopTweaks-Core.zip) |
+| BlueprintCore / WW-Blueprint-Core | **2.8.7** | **玩家不用下载或安装**；构建时自动获取并合并进 MediumClass.dll | [NuGet 版本页（供维护者核对）](https://www.nuget.org/packages/WW-Blueprint-Core/2.8.7) |
+| Medium Class | **0.1.4 维护测试版** | 等 DLL 构建成功后，使用生成的 `MediumClass-UMM-install-untested.zip` 安装 | 本分支源码 ZIP 和私人构建包都不能直接导入 UMM |
+
+**UMM 只下载新版安装器还不够：** 打开安装器，选择 WotR 和游戏根目录（包含 `Wrath_Data` 的那一级），执行安装或更新，再进游戏按 `Ctrl+F10` 核对版本。这里的 0.33.0 是当前 `Info.json` 声明的要求；不代表已经证明 0.32.4 必然无法运行。Dropbox 是[作者 README 提供的镜像](https://github.com/newman55/unity-mod-manager)，镜像里的具体版本未独立核验，下载后请核对版本。
+
+### 只帮忙创建 DLL 的电脑
+
+这台电脑需要可联网的 **64 位 Windows**；无需安装游戏或 UMM。已收到私人构建包的帮忙者，使用包内已有参考 DLL，**无需重新收集或上传**。
+
+| 构建工具 | 版本 / 安装时勾选什么 | 官方下载地址 |
+| --- | --- | --- |
+| Visual Studio / Build Tools | **2022（MSBuild 17.x）**；已有则不必重装 | [Build Tools 2022 安装程序](https://aka.ms/vs/17/release/vs_BuildTools.exe) |
+| .NET SDK | 在上面的安装器中勾选 **“.NET 桌面生成工具”**（完整 VS 中为“.NET 桌面开发”），保留推荐的 .NET SDK、MSBuild 组件 | 使用上面的 Build Tools 2022 安装器一起安装 |
+| .NET Framework 目标包 | **4.7.2 targeting pack**；在“单个组件”中勾选，或安装右侧 **Developer Pack**。仅装 Runtime 不够编译 | [微软 4.7.2 下载页，选 Developer Pack](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472) |
+
+私人构建包：解压后双击 `01-双击尝试构建.cmd`，结束后回传新生成的 `回传给维护者.zip`。脚本自动获取 ModMenu 2.0.14 和 BlueprintCore 2.8.7。仅为玩游戏，不需要安装上述构建工具；也不需要为本次构建更新 Spellbook Merge、Isekai 等其他 Mod。
+
+## 安装与维护说明
+
 **普通玩家：先打开 [00-先看这里.txt](00-先看这里.txt) 或 [中文安装与测试说明](01-安装与测试说明.md)。** 电脑上可双击 TXT 用记事本阅读。
 
-当前没有编译好的维护版安装包。普通玩家先安装前置并提供构建参考文件；不用自己配置开发环境。源码 ZIP 不可直接导入 UMM。
+当前没有编译好的维护版安装包。普通玩家先按上表准备前置，等待构建产物；不用自己配置开发环境。已提供参考文件的本轮测试者不必重复收集。源码 ZIP 不可直接导入 UMM。
 
 > **2026-09-23 离线维护分支：尚未编译或游戏测试，不是稳定发布。**
 > 面向 WotR 2.7.0x / UMM 0.33.0 / ModMenu 2.0.14 / TTT-Core 0.7.14a / BlueprintCore 2.8.7。
