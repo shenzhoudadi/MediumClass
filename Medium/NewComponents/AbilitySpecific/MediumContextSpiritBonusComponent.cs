@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using MediumClass.Utilities;
 using System;
+using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
@@ -28,7 +29,9 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 	public class MediumContextSpiritBonusComponent : UnitFactComponentDelegate<AddContextStatBonus.ComponentData>
 	{
 		private static readonly ModLogger Logger = Logging.GetLogger(nameof(MediumContextSpiritBonusComponent));
-		public override void OnTurnOn()
+		public override void OnTurnOn() => RefreshModifiers();
+
+        internal void RefreshModifiers()
 		{
 			RemoveOwnModifiers();
 			UnitPartMedium medium = base.Owner.Get<UnitPartMedium>();
@@ -36,11 +39,12 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 			{
 				return;
 			}
-			int ranks = base.Owner.Progression.Features.GetRank(medium.Spirits[medium.PrimarySpirit].SpiritBonus.SpiritBonusFeature) + medium.Spirits[medium.PrimarySpirit].SpiritFocus;
-			foreach (StatType stat in medium.Spirits[medium.PrimarySpirit].SpiritBonus.Stats ?? Array.Empty<StatType>())
-			{
-				base.Owner.Stats.GetStat(stat)?.AddModifier(ranks, base.Runtime, ModifierDescriptor.UntypedStackable);
-			}
+            var bonuses = medium.ActiveSpiritClasses.Select(s => medium.Spirits[s])
+                .SelectMany(entry => (entry.SpiritBonus.Stats ?? Array.Empty<StatType>()).Select(stat => new {
+                    Stat = stat, Amount = Owner.Progression.Features.GetRank(entry.SpiritBonus.SpiritBonusFeature) + entry.SpiritFocus
+                }));
+            foreach (var group in bonuses.GroupBy(b => b.Stat))
+                Owner.Stats.GetStat(group.Key)?.AddModifier(group.Max(b => b.Amount), Runtime, ModifierDescriptor.UntypedStackable);
 		}
 
 		// Token: 0x0600BC6A RID: 48234 RVA: 0x00313508 File Offset: 0x00311708

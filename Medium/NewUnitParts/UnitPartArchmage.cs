@@ -43,6 +43,12 @@ namespace MediumClass.Medium.NewUnitParts
 	public class UnitPartArchmage : UnitPart, ISpontaneousConversionHandler
 	{
 		private static readonly ModLogger Logger = Logging.GetLogger(nameof(UnitPartArchmage));
+		private static readonly HashSet<BlueprintGuid> ConversionMenus = new HashSet<BlueprintGuid>
+		{
+			BlueprintGuid.Parse(Guids.ArchmageGreaterAbility1), BlueprintGuid.Parse(Guids.ArchmageGreaterAbility2),
+			BlueprintGuid.Parse(Guids.ArchmageGreaterAbility3), BlueprintGuid.Parse(Guids.ArchmageSupremeAbility7),
+			BlueprintGuid.Parse(Guids.ArchmageSupremeAbility8), BlueprintGuid.Parse(Guids.ArchmageSupremeAbility9)
+		};
 		public BlueprintCharacterClass CharacterClass
 		{
 			get
@@ -98,6 +104,10 @@ namespace MediumClass.Medium.NewUnitParts
 
 		public void HandleGetConversions(AbilityData ability, ref IEnumerable<AbilityData> conversions)
 		{
+			// TTT raises this callback for every ability, including each menu child.
+			// Do not enumerate other providers' conversions for unrelated abilities.
+			if (ability?.Blueprint == null || !ConversionMenus.Contains(ability.Blueprint.AssetGuid)) return;
+			var timer = System.Diagnostics.Stopwatch.StartNew();
 			var conversionList = conversions.ToList();
             #region 1&2 spells
             if (ability.Blueprint == BlueprintTool.Get<BlueprintAbility>(Guids.ArchmageGreaterAbility1))
@@ -111,7 +121,7 @@ namespace MediumClass.Medium.NewUnitParts
 						{
 							foreach (var variant in variantComponent.Variants.AsEnumerable())
 							{
-								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant)
+								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant, i)
 								{
 									OverridenResourceLogic = new InfluenceResourceOverride()
 									{
@@ -123,7 +133,7 @@ namespace MediumClass.Medium.NewUnitParts
 						}
 						else
 						{
-							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData)
+							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData, i)
 							{
 								OverridenResourceLogic = new InfluenceResourceOverride()
 								{
@@ -149,7 +159,7 @@ namespace MediumClass.Medium.NewUnitParts
 						{
 							foreach (var variant in variantComponent.Variants.AsEnumerable())
 							{
-								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant)
+								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant, i)
 								{
 									OverridenResourceLogic = new InfluenceResourceOverride()
 									{
@@ -161,7 +171,7 @@ namespace MediumClass.Medium.NewUnitParts
 						}
 						else
 						{
-							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData)
+							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData, i)
 							{
 								OverridenResourceLogic = new InfluenceResourceOverride()
 								{
@@ -197,7 +207,7 @@ namespace MediumClass.Medium.NewUnitParts
 						{
 							foreach (var variant in variantComponent.Variants.AsEnumerable())
 							{
-								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant)
+								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant, i)
 								{
 									OverridenResourceLogic = new InfluenceResourceOverride()
 									{
@@ -209,7 +219,7 @@ namespace MediumClass.Medium.NewUnitParts
 						}
 						else
 						{
-							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData)
+							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData, i)
 							{
 								OverridenResourceLogic = new InfluenceResourceOverride()
 								{
@@ -234,7 +244,7 @@ namespace MediumClass.Medium.NewUnitParts
 						{
 							foreach (var variant in variantComponent.Variants.AsEnumerable())
 							{
-								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant)
+								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant, i)
 								{
 									OverridenResourceLogic = new InfluenceResourceOverride()
 									{
@@ -246,7 +256,7 @@ namespace MediumClass.Medium.NewUnitParts
 						}
 						else
 						{
-							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData)
+							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData, i)
 							{
 								OverridenResourceLogic = new InfluenceResourceOverride()
 								{
@@ -270,7 +280,7 @@ namespace MediumClass.Medium.NewUnitParts
 						{
 							foreach (var variant in variantComponent.Variants.AsEnumerable())
 							{
-								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant)
+								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant, i)
 								{
 									OverridenResourceLogic = new InfluenceResourceOverride()
 									{
@@ -282,7 +292,7 @@ namespace MediumClass.Medium.NewUnitParts
 						}
 						else
 						{
-							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData)
+							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData, i)
 							{
 								OverridenResourceLogic = new InfluenceResourceOverride()
 								{
@@ -306,7 +316,7 @@ namespace MediumClass.Medium.NewUnitParts
 						{
 							foreach (var variant in variantComponent.Variants.AsEnumerable())
 							{
-								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant)
+								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant, i)
 								{
 									OverridenResourceLogic = new InfluenceResourceOverride()
 									{
@@ -318,7 +328,7 @@ namespace MediumClass.Medium.NewUnitParts
 						}
 						else
 						{
-							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData)
+							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData, i)
 							{
 								OverridenResourceLogic = new InfluenceResourceOverride()
 								{
@@ -331,6 +341,8 @@ namespace MediumClass.Medium.NewUnitParts
 				}
 			}
 			conversions = conversionList;
+			if (timer.ElapsedMilliseconds >= 500)
+				Logger.Log($"Slow spirit menu {ability.Blueprint.AssetGuid}: {conversionList.Count} choices in {timer.ElapsedMilliseconds} ms.");
 		}
 		public IEnumerable<BlueprintAbility> GetConversionSpells(int level)
 		{
@@ -366,9 +378,11 @@ namespace MediumClass.Medium.NewUnitParts
 			{
 			}
 
-			public SpiritAbilityData(AbilityData other, BlueprintAbility replaceBlueprint) : this(replaceBlueprint ?? other.Blueprint, other.Caster, other.Fact, other.SpellbookBlueprint)
+			public SpiritAbilityData(AbilityData other, BlueprintAbility replaceBlueprint, int spellLevel) : this(replaceBlueprint ?? other.Blueprint, other.Caster, other.Fact, other.SpellbookBlueprint)
 			{
 				this.MetamagicData = null;
+				// ConvertedFrom is a menu ability, so its fallback level is not the selected spell level.
+				this.OverrideSpellLevel = spellLevel;
 				this.m_ConvertedFrom = other;
 			}
 		}
@@ -400,16 +414,11 @@ namespace MediumClass.Medium.NewUnitParts
 				HandleSpiritInfluence(ability);
 			}
 
-			public void HandleSpiritInfluence(AbilityData ability)
-			{
-				// Legendary Archmage uses a daily charge, not spirit influence.
-				if (RequiredResource == BlueprintTool.Get<BlueprintAbilityResource>(Guids.ArchmageSupremeResource)) { return; }
-				UnitEntityData unit = ability.Caster.Unit;
-				if (unit.Descriptor.Resources.GetResourceAmount(RequiredResource) > 2) { return; }
-				unit.Descriptor.Buffs.AddBuff(BlueprintTool.Get<BlueprintBuff>(Guids.MediumInfluenceDebuff), unit, new TimeSpan(24, 0, 0));
-
-			}
-
+            public void HandleSpiritInfluence(AbilityData ability)
+            {
+                if (MediumInfluenceRules.IsInfluence(RequiredResource))
+                    MediumInfluenceRules.RefreshPenalty(ability.Caster);
+            }
 			[JsonProperty]
 			public BlueprintAbilityResourceReference m_RequiredResource;
 			[JsonProperty]
@@ -439,3 +448,4 @@ namespace MediumClass.Medium.NewUnitParts
 		public BlueprintAbilityResourceReference m_Resource;
 	}
 }
+

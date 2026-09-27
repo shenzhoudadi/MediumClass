@@ -8,7 +8,6 @@ using UnityModManagerNet;
 using static UnityModManagerNet.UnityModManager.ModEntry;
 using Kingmaker.PubSubSystem;
 using MediumClass.Utils;
-using MediumClass.Features;
 using MediumClass.Features.MediumSpecific;
 
 namespace MediumClass
@@ -29,8 +28,10 @@ namespace MediumClass
                 harmony = new Harmony(modEntry.Info.Id);
                 // Blueprint mutations cannot be safely undone during a running game.
                 modEntry.OnGUI = _ => GUILayout.Label(InitializationFailed
-                    ? "Medium Class initialization FAILED. Read the first MediumClass exception, then restart. Do not save."
-                    : "Maintenance build: game and save compatibility are NOT YET TESTED. Restart after changing mods.");
+                    ? LocalizationText.Get("Medium Class initialization FAILED. Read the first MediumClass exception, then restart. Do not save.",
+                        "通灵者职业初始化失败。请查看首条 MediumClass 异常，然后重启游戏。请勿保存。")
+                    : LocalizationText.Get("Maintenance build: game and save compatibility are NOT YET TESTED. Restart after changing mods.",
+                        "简体中文维护测试版：游戏与存档兼容性尚未验证。更改 Mod 后请重启游戏。"));
                 harmony.PatchAll();
 
                 EventBus.Subscribe(handler);
@@ -92,6 +93,7 @@ namespace MediumClass
                     RunStage("delayed feats", ConfigureFeatsDelayed);
 
                     RunStage("delayed blueprints", () => RootConfigurator.ConfigureDelayedBlueprints());
+                    RunStage("optional TTT Medium capstone", Medium.HardenedSoul.ConfigureOptionalIntegration);
                     delayedState = InitState.Succeeded;
                 }
                 catch (Exception e)
@@ -133,7 +135,8 @@ namespace MediumClass
                       "MediumClass.Strings.Medium.json",
                       "MediumClass.Strings.Settings.json",
                       "MediumClass.Strings.Feats.json",
-                      "MediumClass.Strings.Trickster.json"));
+                      "MediumClass.Strings.Trickster.json",
+                      "MediumClass.Strings.Prowler.json"));
 
                     // Then settings
 
@@ -159,6 +162,7 @@ namespace MediumClass
             {
                 Logger.Log("Configuring Classes.");
                 Medium.MediumClass.ConfigureEnabled();
+                Prowler.ProwlerBuild.ConfigureBlueprints();
             }
             private static void ConfigureClassFeats()
             {
@@ -167,9 +171,10 @@ namespace MediumClass
             private static void ConfigureFeats()
             {   
                 Logger.Log("Configuring features.");
-                //Feint.Feint.ConfigureEnabled();
-                DesnaDivineFightingTechnique.ConfigureEnabled();
                 BackgroundMedium.ConfigureEnabled();
+                Medium.MythicSpirits.Configure();
+                Medium.MythicInfluence.Configure();
+                Medium.HardenedSoul.Configure();
             }
             private static void ConfigureSpells()
             {
@@ -182,3 +187,5 @@ namespace MediumClass
         }
     }
 }
+
+

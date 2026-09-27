@@ -1,4 +1,4 @@
-﻿using BlueprintCore.Utils;
+using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Facts;
@@ -27,7 +27,7 @@ namespace MediumClass.Medium.NewComponents
         private static readonly ModLogger Logger = Logging.GetLogger(nameof(AbilityRequirementSpiritPowerRank));
         public string GetAbilityRestrictionUIText()
         {
-            return $"You have Marshal's Order available.";
+            return LocalizationText.Get("You have Marshal's Order available.", "可供舍弃的英灵之力数量不足。");
         }
          
         public bool IsAbilityRestrictionPassed(AbilityData ability)

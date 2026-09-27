@@ -2,174 +2,210 @@
   {
     "Key": "Trickster.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster"
+    "enGB": "Trickster",
+    "zhCN": "诡术师"
   },
   {
     "Key": "Trickster.Description",
-    "enGB": "A trickster spirit is a savvy and manipulative master of skills.\nSpirit Bonus: When you channel a trickster, your spirit bonus applies on Dexterity checks, skill checks, and Reflex saves.\nSeance Boon: Choose one skill when you gain this seance boon. You gain a +1 bonus on skill checks using that skill, and that skill counts as a class skill for you.\nInfluence Penalty: The time you spend focusing on skills makes you weak of body and mind. You take a penalty to Will, Fortitude, AC, CMD, and CMB.\nTrickster's Edge (Lesser, Su): Choose any one skill. This skill counts as a class skills for you, and you are treated as if you had an additional number of ranks in that skill equal to your medium level (to a maximum of your character level).\nSurprise Strike (Intermediate, Su): When you attack an opponent that's denied its Dexterity bonus to AC, you deal 1d6 points of extra precision damage for every 3 medium levels. Your target counts as flat-footed against the first attack you make against that target in a day, regardless of abilities like uncanny dodge. After your first attack, that target is immune to being made flat-footed by your surprise strike for 24 hours.\nTransfer Magic (Greater, Su): You can allow the trickster to gain 1 point of influence over you to make a melee touch attack against another creature as a standard action. If the attack succeeds, you randomly steal one of the harmless spells active on that creature, ending the effect for the original creature and gaining all remaining duration for yourself. This ability does not work on personal range or instantaneous- or permanent-duration spells.\nLegendary Trickster (Supreme, Su): Once per day, instead of rolling for a skill check, you can choose your d20 result. Additionally, you gain the ability to change form at will as if using greater polymorph and use the ability on others."
+    "enGB": "A trickster spirit is a savvy and manipulative master of skills.\nSpirit Bonus: When you channel a trickster, your spirit bonus applies on Dexterity checks, skill checks, and Reflex saves.\nSeance Boon: Choose one skill when you gain this seance boon. You gain a +1 bonus on skill checks using that skill, and that skill counts as a class skill for you.\nInfluence Penalty: The time you spend focusing on skills makes you weak of body and mind. You take a penalty to Will, Fortitude, AC, CMD, and CMB.\nTrickster's Edge (Lesser, Su): Choose any one skill. This skill counts as a class skills for you, and you are treated as if you had an additional number of ranks in that skill equal to your medium level (to a maximum of your character level).\nSurprise Strike (Intermediate, Su): When you attack an opponent that's denied its Dexterity bonus to AC, you deal 1d6 points of extra precision damage for every 3 medium levels. Your target counts as flat-footed against the first attack you make against that target in a day, regardless of abilities like uncanny dodge. After your first attack, that target is immune to being made flat-footed by your surprise strike for 24 hours.\nTransfer Magic (Greater, Su): You can allow the trickster to gain 1 point of influence over you to make a melee touch attack against another creature as a standard action. If the attack succeeds, you randomly steal one of the harmless spells active on that creature, ending the effect for the original creature and gaining all remaining duration for yourself. This ability does not work on personal range or instantaneous- or permanent-duration spells.\nLegendary Trickster (Supreme, Su): Once per day, instead of rolling for a skill check, you can choose your d20 result. Additionally, you gain the ability to change form at will as if using greater polymorph and use the ability on others.",
+    "zhCN": "诡术师英灵精明老练，善于操纵他人，是各种技能的大师。\n英灵同调：降灵诡术师时，你的英灵同调适用于敏捷检定、技能检定和反射豁免。\n降灵奖励：获得此降灵奖励时，选择一项技能。使用该技能的检定获得+1加值，且该技能视为你的本职技能。\n共鸣惩罚：你过度专注于技能，导致身心变得脆弱。你的意志、强韧、防御等级（AC）、战技防御（CMD）和战技加值（CMB）承受减值。\n诡术师绝技（次级，超自然）：选择任意一项技能。该技能视为你的本职技能，且你视为在该技能上额外拥有等同于通灵者等级的技能等级，最高不超过角色等级。\n诡击（中等，超自然）：攻击无法将敏捷加值计入防御等级（AC）的对手时，每3个通灵者等级额外造成1d6精准伤害。你每天第一次攻击某个目标时，该目标在对抗这次攻击时视为措手不及，即使拥有直觉闪避等能力也不例外。在你的第一次攻击之后，该目标在24小时内免疫由你的诡击造成的措手不及。\n妙手窃法（高等，超自然）：你可以让诡术师对你的共鸣增加1点，以一个标准动作对另一个生物进行近战接触攻击。如果攻击成功，你随机窃取该生物身上一个正在生效的无害法术：结束它对原目标的效果，并使你自己获得全部剩余持续时间。此能力无法窃取作用范围为自身，或持续时间为立即、永久的法术。\n传奇诡术师（至高，超自然）：每天一次，你可以在技能检定时直接选择d20的结果，而不进行掷骰。此外，你可以随意改变形态，如同使用高等变形术，并可将此能力用于他人。"
   },
   {
     "Key": "TricksterSpiritBonus.Name",
     "ProcessTemplates": false,
-    "enGB": "Spirit Bonus - Trickster"
+    "enGB": "Spirit Bonus - Trickster",
+    "zhCN": "英灵同调·诡术师"
   },
   {
     "Key": "TricksterSpiritBonus.Description",
-    "enGB": "When you channel a trickster, your spirit bonus applies on Dexterity checks, skill checks, and Reflex saves."
+    "enGB": "When you channel a trickster, your spirit bonus applies on Dexterity checks, skill checks, and Reflex saves.",
+    "zhCN": "降灵诡术师时，你的英灵同调适用于敏捷检定、技能检定和反射豁免。"
   },
   {
     "Key": "TricksterSeanceBoon.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Trickster"
+    "enGB": "Seance Boon - Trickster",
+    "zhCN": "降灵奖励·诡术师"
   },
   {
     "Key": "TricksterSeanceBoon.Description",
-    "enGB": "Choose one skill when you gain this seance boon. You gain a +1 bonus on skill checks using that skill, and that skill counts as a class skill for you."
+    "enGB": "Choose one skill when you gain this seance boon. You gain a +1 bonus on skill checks using that skill, and that skill counts as a class skill for you.",
+    "zhCN": "获得此降灵奖励时，选择一项技能。使用该技能的检定获得+1加值，且该技能视为你的本职技能。"
   },
   {
     "Key": "TricksterTransferMagic.Name",
     "ProcessTemplates": false,
-    "enGB": "Transfer Magic - Trickster"
+    "enGB": "Transfer Magic - Trickster",
+    "zhCN": "妙手窃法·诡术师"
   },
   {
     "Key": "TricksterTransferMagic.Description",
-    "enGB": "You can allow the trickster to gain 1 point of influence over you to make a melee touch attack against another creature as a standard action. If the attack succeeds, you randomly steal one of the harmless spells of the highest spell level active on that creature, ending the effect for the original creature and gaining all remaining duration for yourself. This ability does not work on personal range or instantaneous- or permanent-duration spells."
+    "enGB": "You can allow the trickster to gain 1 point of influence over you to make a melee touch attack against another creature as a standard action. If the attack succeeds, you randomly steal one of the harmless spells of the highest spell level active on that creature, ending the effect for the original creature and gaining all remaining duration for yourself. This ability does not work on personal range or instantaneous- or permanent-duration spells.",
+    "zhCN": "你可以让诡术师对你的共鸣增加1点，以一个标准动作对另一个生物进行近战接触攻击。如果攻击成功，你会从该生物身上正在生效的无害法术中，随机窃取一个最高环级的法术：结束它对原目标的效果，并使你自己获得全部剩余持续时间。此能力无法窃取作用范围为自身，或持续时间为立即、永久的法术。"
   },
   {
     "Key": "TrickstersEdge.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge"
+    "enGB": "Trickster's Edge",
+    "zhCN": "诡术师绝技"
   },
   {
     "Key": "TrickstersEdge.Description",
-    "enGB": "Choose any one skill. This skill counts as a class skill for you, and you are treated as if you had an additional number of ranks in that skill equal to your medium level (to a maximum of your character level)."
+    "enGB": "Choose any one skill. This skill counts as a class skill for you, and you are treated as if you had an additional number of ranks in that skill equal to your medium level (to a maximum of your character level).",
+    "zhCN": "选择任意一项技能。该技能视为你的本职技能，且你视为在该技能上额外拥有等同于通灵者等级的技能等级，最高不超过角色等级。"
   },
   {
     "Key": "TrickstersEdgeAthletics.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge - Athletics"
+    "enGB": "Trickster's Edge - Athletics",
+    "zhCN": "诡术师绝技·运动"
   },
   {
     "Key": "TrickstersEdgeThievery.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge - Thievery"
+    "enGB": "Trickster's Edge - Thievery",
+    "zhCN": "诡术师绝技·巧手"
   },
   {
     "Key": "TrickstersEdgeMobility.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge - Mobility"
+    "enGB": "Trickster's Edge - Mobility",
+    "zhCN": "诡术师绝技·灵巧"
   },
   {
     "Key": "TrickstersEdgeStealth.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge - Stealth"
+    "enGB": "Trickster's Edge - Stealth",
+    "zhCN": "诡术师绝技·隐匿"
   },
   {
     "Key": "TrickstersEdgeNature.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge - Lore Nature"
+    "enGB": "Trickster's Edge - Lore Nature",
+    "zhCN": "诡术师绝技·学识（自然）"
   },
   {
     "Key": "TrickstersEdgeReligion.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge - Lore Religion"
+    "enGB": "Trickster's Edge - Lore Religion",
+    "zhCN": "诡术师绝技·学识（宗教）"
   },
   {
     "Key": "TrickstersEdgeArcana.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge - Knowledge Arcana"
+    "enGB": "Trickster's Edge - Knowledge Arcana",
+    "zhCN": "诡术师绝技·知识（神秘）"
   },
   {
     "Key": "TrickstersEdgeWorld.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge - Knowledge World"
+    "enGB": "Trickster's Edge - Knowledge World",
+    "zhCN": "诡术师绝技·知识（世界）"
   },
   {
     "Key": "TrickstersEdgePerception.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge - Perception"
+    "enGB": "Trickster's Edge - Perception",
+    "zhCN": "诡术师绝技·察觉"
   },
   {
     "Key": "TrickstersEdgePersuasion.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge - Persuasion"
+    "enGB": "Trickster's Edge - Persuasion",
+    "zhCN": "诡术师绝技·沟通"
   },
   {
     "Key": "TrickstersEdgeUMD.Name",
     "ProcessTemplates": false,
-    "enGB": "Trickster's Edge - Use Magic Device"
+    "enGB": "Trickster's Edge - Use Magic Device",
+    "zhCN": "诡术师绝技·使用魔法装置"
   },
   {
     "Key": "TricksterLegendaryTrickster.Name",
     "ProcessTemplates": false,
-    "enGB": "Legendary Trickster"
+    "enGB": "Legendary Trickster",
+    "zhCN": "传奇诡术师"
   },
   {
     "Key": "TricksterLegendaryTrickster.Description",
-    "enGB": "Once per day, instead of rolling for a skill check, you can choose your d20 result. Additionally, you gain the ability to change form at will as if using greater polymorph."
+    "enGB": "Once per day, instead of rolling for a skill check, you can choose your d20 result. Additionally, you gain the ability to change form at will as if using greater polymorph.",
+    "zhCN": "每天一次，你可以在技能检定时直接选择d20的结果，而不进行掷骰。此外，你可以随意改变形态，如同使用高等变形术。"
   },
   {
     "Key": "SurpriseStrike.Name",
     "ProcessTemplates": false,
-    "enGB": "Surprise Strike - Trickster"
+    "enGB": "Surprise Strike - Trickster",
+    "zhCN": "诡击·诡术师"
   },
   {
     "Key": "SurpriseStrike.Description",
-    "enGB": "When you attack an opponent that's denied its Dexterity bonus to AC, you deal 1d6 points of extra precision damage for every 3 medium levels. Your target counts as flat-footed against the first attack you make against that target in a day, regardless of abilities like uncanny dodge. After your first attack, that target is immune to being made flat-footed by your surprise strike for 24 hours."
+    "enGB": "When you attack an opponent that's denied its Dexterity bonus to AC, you deal 1d6 points of extra precision damage for every 3 medium levels. Your target counts as flat-footed against the first attack you make against that target in a day, regardless of abilities like uncanny dodge. After your first attack, that target is immune to being made flat-footed by your surprise strike for 24 hours.",
+    "zhCN": "攻击无法将敏捷加值计入防御等级（AC）的对手时，每3个通灵者等级额外造成1d6精准伤害。你每天第一次攻击某个目标时，该目标在对抗这次攻击时视为措手不及，即使拥有直觉闪避等能力也不例外。在你的第一次攻击之后，该目标在24小时内免疫由你的诡击造成的措手不及。"
   },
   {
     "Key": "TricksterSeanceBoonAthletics.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Athletics"
+    "enGB": "Seance Boon - Athletics",
+    "zhCN": "降灵奖励·运动"
   },
   {
     "Key": "TricksterSeanceBoonMobility.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Mobility"
+    "enGB": "Seance Boon - Mobility",
+    "zhCN": "降灵奖励·灵巧"
   },
   {
     "Key": "TricksterSeanceBoonStealth.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Stealth"
+    "enGB": "Seance Boon - Stealth",
+    "zhCN": "降灵奖励·隐匿"
   },
   {
     "Key": "TricksterSeanceBoonThievery.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Thievery"
+    "enGB": "Seance Boon - Thievery",
+    "zhCN": "降灵奖励·巧手"
   },
   {
     "Key": "TricksterSeanceBoonArcana.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Arcana"
+    "enGB": "Seance Boon - Arcana",
+    "zhCN": "降灵奖励·知识（神秘）"
   },
   {
     "Key": "TricksterSeanceBoonWorld.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - World"
+    "enGB": "Seance Boon - World",
+    "zhCN": "降灵奖励·知识（世界）"
   },
   {
     "Key": "TricksterSeanceBoonNature.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Nature"
+    "enGB": "Seance Boon - Nature",
+    "zhCN": "降灵奖励·学识（自然）"
   },
   {
     "Key": "TricksterSeanceBoonReligion.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Religion"
+    "enGB": "Seance Boon - Religion",
+    "zhCN": "降灵奖励·学识（宗教）"
   },
   {
     "Key": "TricksterSeanceBoonPerception.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Perception"
+    "enGB": "Seance Boon - Perception",
+    "zhCN": "降灵奖励·察觉"
   },
   {
     "Key": "TricksterSeanceBoonPersuasion.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Persuasion"
+    "enGB": "Seance Boon - Persuasion",
+    "zhCN": "降灵奖励·沟通"
   },
   {
     "Key": "TricksterSeanceBoonUMD.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - UMD"
+    "enGB": "Seance Boon - UMD",
+    "zhCN": "降灵奖励·使用魔法装置"
   }
 ]

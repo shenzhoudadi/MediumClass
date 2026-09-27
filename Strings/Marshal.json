@@ -2,92 +2,112 @@
   {
     "Key": "Marshal.Name",
     "ProcessTemplates": false,
-    "enGB": "Marshal"
+    "enGB": "Marshal",
+    "zhCN": "统帅"
   },
   {
     "Key": "Marshal.Description",
-    "enGB": "A marshal spirit is a towering presence and an inspiration to others.\nSpirit Bonus: When you channel a marshal, your spirit bonus applies on Charisma checks and Charisma-based skill checks, as well as on spirit surge rolls. This allows the bonus to apply twice to the total result if you use a spirit surge on a Charisma check or on a Charisma-based skill check.\nSeance Boon: Choose a seance boon from any of the other legends to benefit from. When using the shared seance class feature, each participant can choose a different boon.\nInfluence Penalty: The time you spend concentrating on your allies prevents you from attending to other important matters. You take a penalty equal to your spirit bonus on Wisdom checks and Wisdom-based skill checks.\nMarshal's Order (Lesser, Su): You can use your spirit surge on attack rolls, saving throws, ability checks, concentration checks, and skill checks rolled by you or any allies who participated in your seance as long as you have line of sight and line of effect, and are within 30 feet of the chosen ally. You can still use spirit surge only once per round.\nInspiring Call (Intermediate, Su): As a standard action, you can grant all allies who can see and hear you a competence bonus equal to your spirit bonus on either saving throws or attack and damage rolls. You choose which bonus to grant each time you use inspiring call. This ability lasts for 1 round. If you have the decisive strike greater spirit power, you can use inspiring call as a move action. If you have the legendary marshal supreme spirit power, you can use inspiring call as a swift action.\nDecisive Strike (Greater, Su): You can allow the marshal to gain 1 point of influence over you as a swift action to allow an ally within 30 feet who can see and hear you to make a single melee or ranged attack during your turn. You can use this ability as a standard action to instead allow the ally to cast any standard action spell as a free action.\nLegendary Marshal (Supreme, Su): You can use a lesser spirit surge without incurring influence. This lesser surge adds a maximum of 1d6 to the roll and does not apply your spirit bonus, regardless of other effects or abilities you have that alter your spirit surge. A lesser surge still counts as a spirit surge for the purpose of the limit of one spirit surge per round, but it does not consume any free uses of spirit surge you may have from effects such as taboo."
+    "enGB": "A marshal spirit is a towering presence and an inspiration to others.\nSpirit Bonus: When you channel a marshal, your spirit bonus applies on Charisma checks and Charisma-based skill checks, as well as on spirit surge rolls. This allows the bonus to apply twice to the total result if you use a spirit surge on a Charisma check or on a Charisma-based skill check.\nSeance Boon: Choose a seance boon from any of the other legends to benefit from. When using the shared seance class feature, each participant can choose a different boon.\nInfluence Penalty: The time you spend concentrating on your allies prevents you from attending to other important matters. You take a penalty equal to your spirit bonus on Wisdom checks and Wisdom-based skill checks.\nMarshal's Order (Lesser, Su): You can use your spirit surge on attack rolls, saving throws, ability checks, concentration checks, and skill checks rolled by you or any allies who participated in your seance as long as you have line of sight and line of effect, and are within 30 feet of the chosen ally. You can still use spirit surge only once per round.\nInspiring Call (Intermediate, Su): As a standard action, you can grant all allies who can see and hear you a competence bonus equal to your spirit bonus on either saving throws or attack and damage rolls. You choose which bonus to grant each time you use inspiring call. This ability lasts for 1 round. If you have the decisive strike greater spirit power, you can use inspiring call as a move action. If you have the legendary marshal supreme spirit power, you can use inspiring call as a swift action.\nDecisive Strike (Greater, Su): You can allow the marshal to gain 1 point of influence over you as a swift action to allow an ally within 30 feet who can see and hear you to make a single melee or ranged attack during your turn. You can use this ability as a standard action to instead allow the ally to cast any standard action spell as a free action.\nLegendary Marshal (Supreme, Su): You can use a lesser spirit surge without incurring influence. This lesser surge adds a maximum of 1d6 to the roll and does not apply your spirit bonus, regardless of other effects or abilities you have that alter your spirit surge. A lesser surge still counts as a spirit surge for the purpose of the limit of one spirit surge per round, but it does not consume any free uses of spirit surge you may have from effects such as taboo.\nIn this mod, Marshal's Order passes only the spirit surge die to an ally. The marshal's spirit bonus remains with the caster.",
+    "zhCN": "统帅英灵气势非凡，能够激励他人。\n英灵同调：降灵统帅时，你的英灵同调适用于魅力检定、基于魅力的技能检定，以及灵力奔涌的掷骰。因此，如果你将灵力奔涌用于魅力检定或基于魅力的技能检定，英灵同调会在最终结果中计算两次。\n降灵奖励：选择任意一种其他职阶的英灵的降灵奖励并获得其效果。使用降灵会职业能力时，每位参与者都可以选择不同的降灵奖励。\n共鸣惩罚：你将精力投入盟友，因而无暇顾及其他要事。你的感知检定和基于感知的技能检定，承受等同于英灵同调的减值。\n统帅之令（次级，超自然）：你可以将灵力奔涌用于自己或参与降灵仪式的盟友所进行的攻击检定、豁免检定、属性检定、专注检定和技能检定。选定盟友必须位于30尺内，且与你之间有视线和效果线。你仍然每轮只能使用一次灵力奔涌。\n振奋呼声（中等，超自然）：以一个标准动作，你可以使所有能看见并听见你的盟友，在豁免检定或攻击检定与伤害掷骰上，获得等同于你英灵同调的表现加值。每次使用振奋呼声时，你都可以选择给予哪种加值。此能力持续1轮。如果你拥有高等英灵之力果断出击，就可以用一个移动动作使用振奋呼声。如果你拥有至高英灵之力传奇统帅，就可以用一个迅捷动作使用振奋呼声。\n果断出击（高等，超自然）：你可以用一个迅捷动作，让统帅对你的共鸣增加1点，使30尺内一名能看见并听见你的盟友，在你的回合内进行一次近战或远程攻击。你也可以用一个标准动作使用此能力，改为让该盟友以一个自由动作施放任意一个通常需要标准动作的法术。\n传奇统帅（至高，超自然）：你可以使用较弱的灵力奔涌，而不增加共鸣。无论你拥有哪些能改变灵力奔涌的效果或能力，这种较弱涌动最多为掷骰增加1d6，且不应用你的英灵同调。就每轮只能使用一次灵力奔涌的限制而言，较弱涌动仍视为灵力奔涌，但不会消耗你通过禁忌等效果获得的免费灵力奔涌次数。\n本模组中，统帅之令给予盟友时只转移灵力奔涌的骰值，统帅英灵同调仍属于施术者。"
   },
   {
     "Key": "MarshalSpiritBonus.Name",
     "ProcessTemplates": false,
-    "enGB": "Spirit Bonus - Marshal"
+    "enGB": "Spirit Bonus - Marshal",
+    "zhCN": "英灵同调·统帅"
   },
   {
     "Key": "MarshalSpiritBonus.Description",
-    "enGB": "When you channel a marshal, your spirit bonus applies on Charisma checks and Charisma-based skill checks, as well as on spirit surge rolls. This allows the bonus to apply twice to the total result if you use a spirit surge on a Charisma check or on a Charisma-based skill check."
+    "enGB": "When you channel a marshal, your spirit bonus applies on Charisma checks and Charisma-based skill checks, as well as on spirit surge rolls. This allows the bonus to apply twice to the total result if you use a spirit surge on a Charisma check or on a Charisma-based skill check. The spirit bonus does not transfer to an ally through Marshal's Order.",
+    "zhCN": "降灵统帅时，你的英灵同调适用于魅力检定、基于魅力的技能检定，以及灵力奔涌的掷骰。因此，如果你将灵力奔涌用于魅力检定或基于魅力的技能检定，英灵同调会在最终结果中计算两次。通过统帅之令将灵力奔涌给予盟友时，你的英灵同调不会一并转移。"
   },
   {
     "Key": "MarshalSeanceBoon.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Marshal"
+    "enGB": "Seance Boon - Marshal",
+    "zhCN": "降灵奖励·统帅"
   },
   {
     "Key": "MarshalSeanceBoon.Description",
-    "enGB": "Choose a seance boon from any of the other legends to benefit from. When using the shared seance class feature, each participant can choose a different boon. "
+    "enGB": "Choose a seance boon from any of the other legends to benefit from. When using the shared seance class feature, each participant can choose a different boon. ",
+    "zhCN": "选择任意一种其他职阶的英灵的降灵奖励并获得其效果。使用降灵会职业能力时，每位参与者都可以选择不同的降灵奖励。"
   },
   {
     "Key": "MarshalInspiringCall.Name",
     "ProcessTemplates": false,
-    "enGB": "Inspiring Call"
+    "enGB": "Inspiring Call",
+    "zhCN": "振奋呼声"
   },
   {
     "Key": "MarshalInspiringCallAttack.Name",
     "ProcessTemplates": false,
-    "enGB": "Inspiring Call - Attack"
+    "enGB": "Inspiring Call - Attack",
+    "zhCN": "振奋呼声·攻击"
   },
   {
     "Key": "MarshalInspiringCallSaves.Name",
     "ProcessTemplates": false,
-    "enGB": "Inspiring Call - Saves"
+    "enGB": "Inspiring Call - Saves",
+    "zhCN": "振奋呼声·豁免"
   },
   {
     "Key": "MarshalInspiringCall.Description",
-    "enGB": "As a standard action, you can grant all allies who can see and hear you a competence bonus equal to your spirit bonus on either saving throws or attack and damage rolls. You choose which bonus to grant each time you use inspiring call. This ability lasts for 1 round. If you have the decisive strike greater spirit power, you can use inspiring call as a move action. If you have the legendary marshal supreme spirit power, you can use inspiring call as a swift action."
+    "enGB": "As a standard action, you can grant all allies who can see and hear you a competence bonus equal to your spirit bonus on either saving throws or attack and damage rolls. You choose which bonus to grant each time you use inspiring call. This ability lasts for 1 round. If you have the decisive strike greater spirit power, you can use inspiring call as a move action. If you have the legendary marshal supreme spirit power, you can use inspiring call as a swift action.",
+    "zhCN": "以一个标准动作，你可以使所有能看见并听见你的盟友，在豁免检定或攻击检定与伤害掷骰上，获得等同于你英灵同调的表现加值。每次使用振奋呼声时，你都可以选择给予哪种加值。此能力持续1轮。如果你拥有高等英灵之力果断出击，就可以用一个移动动作使用振奋呼声。如果你拥有至高英灵之力传奇统帅，就可以用一个迅捷动作使用振奋呼声。"
   },
   {
     "Key": "MarshalLesser.Name",
     "ProcessTemplates": false,
-    "enGB": "Marshal's Order"
+    "enGB": "Marshal's Order",
+    "zhCN": "统帅之令"
   },
   {
     "Key": "MarshalLesser.Description",
-    "enGB": "You can use your spirit surge on attack rolls, saving throws, ability checks, concentration checks, and skill checks rolled by you or any allies who participated in your seance as long as you have line of sight and line of effect, and are within 30 feet of the chosen ally."
+    "enGB": "You can use your spirit surge on attack rolls, saving throws, ability checks, concentration checks, and skill checks rolled by you or any allies who participated in your seance as long as you have line of sight and line of effect, and are within 30 feet of the chosen ally. When you grant this surge to another creature, it receives only the spirit surge die; your marshal spirit bonus is not added. You still add your spirit bonus when using the order on yourself.",
+    "zhCN": "你可以将灵力奔涌用于自己或参与降灵仪式的盟友所进行的攻击检定、豁免检定、属性检定、专注检定和技能检定。选定盟友必须位于30尺内，且与你之间有视线和效果线。 将此奔涌给予其他生物时，只给予灵力奔涌的骰值，不附加你自己的统帅英灵同调；对自己使用时仍附加该同调。"
   },
   {
     "Key": "MarshalGreaterSwift.Name",
     "ProcessTemplates": false,
-    "enGB": "Decisive Strike - Swift"
+    "enGB": "Decisive Strike - Swift",
+    "zhCN": "果断出击·迅捷动作"
   },
   {
     "Key": "MarshalGreaterSwift.Description",
-    "enGB": "You can allow the marshal to gain 1 point of influence over you as a swift action to allow an ally within 30 feet who can see and hear you to make a single melee or ranged attack during your turn."
+    "enGB": "You can allow the marshal to gain 1 point of influence over you as a swift action to allow an ally within 30 feet who can see and hear you to make a single melee or ranged attack during your turn.",
+    "zhCN": "你可以用一个迅捷动作，让统帅对你的共鸣增加1点，使30尺内一名能看见并听见你的盟友，在你的回合内进行一次近战或远程攻击。"
   },
   {
     "Key": "MarshalGreaterStandard.Name",
     "ProcessTemplates": false,
-    "enGB": "Decisive Strike - Standard"
+    "enGB": "Decisive Strike - Standard",
+    "zhCN": "果断出击·标准动作"
   },
   {
     "Key": "MarshalGreaterStandard.Description",
-    "enGB": "You can allow the marshal to gain 1 point of influence over you as a standard action to allow an ally within 30 feet who can see and hear you to make their next standard action spell a free action."
+    "enGB": "You can allow the marshal to gain 1 point of influence over you as a standard action to allow an ally within 30 feet who can see and hear you to make their next standard action spell a free action.",
+    "zhCN": "你可以用一个标准动作，让统帅对你的共鸣增加1点，使30尺内一名能看见并听见你的盟友，将下一次通常需要标准动作的法术施放改为自由动作。"
   },
   {
     "Key": "MarshalGreaterFeat.Name",
     "ProcessTemplates": false,
-    "enGB": "Decisive Strike"
+    "enGB": "Decisive Strike",
+    "zhCN": "果断出击"
   },
   {
     "Key": "MarshalGreaterFeat.Description",
-    "enGB": "You can allow the marshal to gain 1 point of influence over you as a swift action to allow an ally within 30 feet who can see and hear you to make a single melee or ranged attack during your turn. You may use this ability as a standard action to allow an ally to make their next standard action spell a free action."
+    "enGB": "You can allow the marshal to gain 1 point of influence over you as a swift action to allow an ally within 30 feet who can see and hear you to make a single melee or ranged attack during your turn. You may use this ability as a standard action to allow an ally to make their next standard action spell a free action.",
+    "zhCN": "你可以用一个迅捷动作，让统帅对你的共鸣增加1点，使30尺内一名能看见并听见你的盟友，在你的回合内进行一次近战或远程攻击。你也可以用一个标准动作使用此能力，让一名盟友将下一次通常需要标准动作的法术施放改为自由动作。"
   },
   {
     "Key": "MarshalSupreme.Name",
     "ProcessTemplates": false,
-    "enGB": "Legendary Marshal"
+    "enGB": "Legendary Marshal",
+    "zhCN": "传奇统帅"
   },
   {
     "Key": "MarshalSupreme.Description",
-    "enGB": "You can use a lesser spirit surge without incurring influence. This lesser surge adds a maximum of 1d6 to the roll and does not apply your spirit bonus, regardless of other effects or abilities you have that alter your spirit surge."
+    "enGB": "You can use a lesser spirit surge without incurring influence. This lesser surge adds a maximum of 1d6 to the roll and does not apply your spirit bonus, regardless of other effects or abilities you have that alter your spirit surge.",
+    "zhCN": "你可以使用较弱的灵力奔涌，而不增加共鸣。无论你拥有哪些能改变灵力奔涌的效果或能力，这种较弱涌动最多为掷骰增加1d6，且不应用你的英灵同调。"
   }
 ]

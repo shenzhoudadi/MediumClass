@@ -44,27 +44,29 @@ namespace MediumClass.Medium.Spirits.Hierophant
                 .SetUseMax(false)
                 .Configure();
 
+            // Preserve the old fourth blueprint so old saved references still resolve.
+            // It becomes an eighth-circle alias and is no longer granted by the feature.
             AbilityConfigurator.New(FeatName + "Ability4", Guids.HierophantSupremeAbility4)
-                .SetDisplayName(DisplayName)
-                .SetDescription(Description)
+                .SetDisplayName("HierophantSupreme8.Name")
+                .SetDescription("HierophantSupreme8.Description")
                 .SetIcon(AbilityRefs.AngelArmyOfHeaven.Reference.Get().Icon)
                 .Configure();
 
             AbilityConfigurator.New(FeatName + "Ability3", Guids.HierophantSupremeAbility3)
-                .SetDisplayName(DisplayName)
-                .SetDescription(Description)
+                .SetDisplayName("HierophantSupreme9.Name")
+                .SetDescription("HierophantSupreme9.Description")
                 .SetIcon("assets/icons/legendaryhierophant.png")
                 .Configure();
 
             AbilityConfigurator.New(FeatName + "Ability2", Guids.HierophantSupremeAbility2)
-                .SetDisplayName(DisplayName)
-                .SetDescription(Description)
+                .SetDisplayName("HierophantSupreme8.Name")
+                .SetDescription("HierophantSupreme8.Description")
                 .SetIcon(AbilityRefs.Guidance.Reference.Get().Icon)
                 .Configure();
 
             AbilityConfigurator.New(FeatName + "Ability1", Guids.HierophantSupremeAbility1)
-                .SetDisplayName(DisplayName)
-                .SetDescription(Description)
+                .SetDisplayName("HierophantSupreme7.Name")
+                .SetDescription("HierophantSupreme7.Description")
                 .SetIcon("assets/icons/legendaryhierophant1.png")
                 .Configure();
 
@@ -80,7 +82,7 @@ namespace MediumClass.Medium.Spirits.Hierophant
                     c.m_SpellLists = SpellTools.SpellList.ClericSpellList.ToReference<BlueprintSpellListReference>();
                     c.m_Resource = resource.ToReference<BlueprintAbilityResourceReference>();
                 })
-                .AddFacts(new() { Guids.HierophantSupremeAbility1, Guids.HierophantSupremeAbility2, Guids.HierophantSupremeAbility3, Guids.HierophantSupremeAbility4})
+                .AddFacts(new() { Guids.HierophantSupremeAbility1, Guids.HierophantSupremeAbility2, Guids.HierophantSupremeAbility3 })
                 .SetRanks(1)
                 .Configure();
         }

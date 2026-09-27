@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Optimize>false</Optimize>
+    <ProductionPatchesPath Condition="'$(ProductionPatchesPath)' == ''">../../Medium/MediumSpiritSpellbookPatches.cs</ProductionPatchesPath>
+    <IncludeActionBarPatch Condition="'$(IncludeActionBarPatch)' == ''">true</IncludeActionBarPatch>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Lib.Harmony" Version="2.3.6" />
+    <Compile Include="$(ProductionPatchesPath)" Link="Production/MediumSpiritSpellbookPatches.cs" />
+    <Compile Include="../../Medium/MediumSpiritActionBarPatch.cs" Link="Production/MediumSpiritActionBarPatch.cs" Condition="'$(IncludeActionBarPatch)' == 'true'" />
+    <Compile Include="../../Medium/NewUnitParts/UnitPartMediumPreparedSpells.cs" Link="Production/UnitPartMediumPreparedSpells.cs" />
+    <Compile Include="../../Medium/SpiritSpellcastingMath.cs" Link="Production/SpiritSpellcastingMath.cs" />
+  </ItemGroup>
+</Project>

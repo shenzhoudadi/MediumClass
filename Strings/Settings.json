@@ -2,53 +2,55 @@
   {
     "Key": "Settings.Title",
     "ProcessTemplates": false,
-    "enGB": "Occultist Classes"
+    "enGB": "Occultist Classes",
+    "zhCN": "异能职业"
   },
-
   {
     "Key": "Settings.Homebrew.Title",
     "ProcessTemplates": false,
-    "enGB": "Optional Rules"
+    "enGB": "Optional Rules",
+    "zhCN": "可选规则"
   },
-
   {
     "Key": "Settings.Classes.Title",
     "ProcessTemplates": false,
-    "enGB": "Classes"
+    "enGB": "Classes",
+    "zhCN": "职业"
   },
-
   {
     "Key": "Settings.Archetypes.Title",
     "ProcessTemplates": false,
-    "enGB": "Archetypes"
+    "enGB": "Archetypes",
+    "zhCN": "变体"
   },
-
   {
     "Key": "Settings.Feats.Title",
     "ProcessTemplates": false,
-    "enGB": "Feats"
+    "enGB": "Feats",
+    "zhCN": "专长"
   },
-
   {
     "Key": "Settings.Fixes.Title",
     "ProcessTemplates": false,
-    "enGB": "Bug Fixes"
+    "enGB": "Bug Fixes",
+    "zhCN": "问题修复"
   },
-
   {
     "Key": "Settings.Spells.Title",
     "ProcessTemplates": false,
-    "enGB": "Spells"
+    "enGB": "Spells",
+    "zhCN": "法术"
   },
   {
     "Key": "Settings.Spirits.Title",
     "ProcessTemplates": false,
-    "enGB": "Spirits"
+    "enGB": "Spirits",
+    "zhCN": "英灵"
   },
-
   {
     "Key": "Settings.EnableFeature",
     "ProcessTemplates": false,
-    "enGB": "REQUIRES RESTART\n\nTurning this off prevents the feature from working: characters cannot select this feature and characters with it cannot use it. You can still load save games that reference it."
+    "enGB": "REQUIRES RESTART\n\nTurning this off prevents the feature from working: characters cannot select this feature and characters with it cannot use it. You can still load save games that reference it.",
+    "zhCN": "需要重启游戏\n\n关闭此选项会使该能力停止生效：角色将无法选择此能力，已经拥有它的角色也无法使用它。仍然可以读取包含该能力的存档。"
   }
 ]

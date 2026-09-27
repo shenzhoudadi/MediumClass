@@ -31,6 +31,9 @@
     "Medium/NewComponents/AbilitySpecific/AddTrickstersEdge.cs": [
       "fa7cb9ed3a0d47769375739a2c1cfa1d"
     ],
+    "Medium/NewComponents/AbilitySpecific/ArchmageSeanceDamageBonus.cs": [
+      "be4fb120fb1140aeafb908997b01e3f9"
+    ],
     "Medium/NewComponents/AbilitySpecific/DecisiveStrikeStandardComponent.cs": [
       "b61fefa0-ffda-416f-a405-50f5eaa0094a"
     ],
@@ -84,6 +87,18 @@
     ],
     "Medium/NewUnitParts/UnitPartHierophant.cs": [
       "0afe477b-82f7-410e-a905-048a80fb3d93"
+    ],
+    "Medium/NewUnitParts/UnitPartMediumInfluence.cs": [
+      "0b7a8dbe97ac422690a6a2b6020f7e64"
+    ],
+    "Medium/Propitation.cs": [
+      "e6bac4b442b14fbfa5ce644ae791c80e",
+      "0b0d595c016d4833ac3c190907207497"
+    ],
+    "Prowler/ProwlerForms.cs": [
+      "b6c5bc84217e4df2a7ff8f11d61eefac",
+      "b687a0260e91405f9581e0c8b7103da9",
+      "fb6e3135eeb64bedbf2f341c5b5e6087"
     ]
   },
   "known_type_id_collisions": {},
@@ -323,7 +338,35 @@
     "9a7471e7-2666-4721-ad89-e2a211f22384",
     "1da560cd-f770-4e2e-8b26-51cdcd4df04b",
     "ec0b4ec5-2de4-4da7-8ab1-ee1df8272075",
-    "bc78a072-3d0c-4620-ae8a-68e481fc3b7d"
+    "bc78a072-3d0c-4620-ae8a-68e481fc3b7d",
+    "bb6c7a29-ccc6-fb01-707a-3746101dea6b",
+    "0e773cd5-b56b-a25f-7a3c-6724ebde0052",
+    "359b372c-76a6-c260-9ea5-6cdcdcea4289",
+    "fc85141b-fd4a-d70f-6606-b67c4a6676f1",
+    "1bd79899-9dba-a2cf-031d-36957bb9e8b5",
+    "19d0ce64-62d4-d286-63d8-66795303b80d",
+    "606673f2-ed6a-4111-5e05-63523ff4e734",
+    "391eae7e-4b4e-ff16-48b9-1830fead28cb",
+    "937c0aa6-5d17-66c1-24a7-467e7dd3d4af",
+    "2e71294e-6433-4065-b697-6011a7554e39",
+    "32b987c8-feef-d3e0-fb90-10f26b87bc7b",
+    "1a3b7157-772a-07ec-d6cc-f60f636910d4",
+    "e010a111-650a-6c17-42f9-056e732b7a6e",
+    "f4276eee-564d-9ddb-7425-f780318bdb69",
+    "c661e8e5-9baa-2b2f-6d6c-a5f2ae8fd379",
+    "70edd156-21ef-8264-26cf-f49a5e24a2fc",
+    "f0e92755-f389-fef3-1acf-64873be087a5",
+    "85f2b9ce-a489-c733-c4ff-0cc41a828eea",
+    "73704857-9331-9c28-2a76-560b9860c4f5",
+    "45b0253f-139d-e730-74fa-8cd617a09e1d",
+    "eb486ce3-1156-84f8-786f-1dadd62af85e",
+    "c6c36d7b-8e29-0faa-c45c-c742f4e72439",
+    "57656c5b-e1b4-f4a0-99fe-42e47f6f3c96",
+    "8bd8e199-5f56-7b7e-6b79-5c52cf0fcf49",
+    "fff4a23d-014a-b9bc-7298-553648979469",
+    "3c5f9a7b-6a6a-1850-c5a7-2b19ceeb0dc9",
+    "76f3f569-f852-ee78-1922-e0dfc8896431",
+    "6c9c0ccb-c689-4687-dc94-2818d38fb295"
   ],
   "localization_keys": {
     "Strings/Archmage.json": [
@@ -338,7 +381,13 @@
       "ArchmageGreater.Name",
       "ArchmageGreater.Description",
       "ArchmageSupreme.Name",
-      "ArchmageSupreme.Description"
+      "ArchmageSupreme.Description",
+      "ArchmageSupreme7.Name",
+      "ArchmageSupreme7.Description",
+      "ArchmageSupreme8.Name",
+      "ArchmageSupreme8.Description",
+      "ArchmageSupreme9.Name",
+      "ArchmageSupreme9.Description"
     ],
     "Strings/Champion.json": [
       "Champion.Name",
@@ -355,12 +404,14 @@
       "LegendaryChampion.Description"
     ],
     "Strings/Feats.json": [
-      "Feint.Name",
-      "Feint.Description",
-      "DesnaDivineFightingTechnique.Name",
-      "DesnaDivineFightingTechnique.Description",
       "BackgroundMedium.Name",
-      "BackgroundMedium.Description"
+      "BackgroundMedium.Description",
+      "MythicMultipleSpirits.Name",
+      "MythicMultipleSpirits.Description",
+      "HardenedSoul.Name",
+      "HardenedSoul.Description",
+      "MediumAlternateCapstone.Name",
+      "MediumAlternateCapstone.Description"
     ],
     "Strings/Guardian.json": [
       "Guardian.Name",
@@ -388,7 +439,13 @@
       "HierophantOverflowingGrace.Name",
       "HierophantOverflowingGrace.Description",
       "HierophantSupreme.Name",
-      "HierophantSupreme.Description"
+      "HierophantSupreme.Description",
+      "HierophantSupreme7.Name",
+      "HierophantSupreme7.Description",
+      "HierophantSupreme8.Name",
+      "HierophantSupreme8.Description",
+      "HierophantSupreme9.Name",
+      "HierophantSupreme9.Description"
     ],
     "Strings/Marshal.json": [
       "Marshal.Name",
@@ -442,7 +499,9 @@
       "WeakerSpiritChannel3.Name",
       "WeakerSpiritChannel4.Name",
       "AstralBeacon.Name",
-      "AstralBeacon.Description"
+      "AstralBeacon.Description",
+      "MythicExpandedInfluence.Name",
+      "MythicExpandedInfluence.Description"
     ],
     "Strings/Settings.json": [
       "Settings.Title",
@@ -492,6 +551,37 @@
       "TricksterSeanceBoonPerception.Name",
       "TricksterSeanceBoonPersuasion.Name",
       "TricksterSeanceBoonUMD.Name"
+    ],
+    "Strings/Prowler.json": [
+      "ProwlerArchetype.Name",
+      "ProwlerArchetype.Description",
+      "ProwlerSpirit.Name",
+      "ProwlerSpirit.Description",
+      "ProwlerChannelChampion.Name",
+      "ProwlerChannelChampion.Description",
+      "ProwlerChannelGuardian.Name",
+      "ProwlerChannelGuardian.Description",
+      "ProwlerChannelMarshal.Name",
+      "ProwlerChannelMarshal.Description",
+      "ProwlerChannelTrickster.Name",
+      "ProwlerChannelTrickster.Description",
+      "ProwlerIntermediate.Name",
+      "ProwlerIntermediate.Description",
+      "ProwlerGreater.Name",
+      "ProwlerGreater.Description",
+      "ProwlerSupreme.Name",
+      "ProwlerSupreme.Description",
+      "ProwlerChosen.Name",
+      "ProwlerChosen.Description",
+      "ProwlerShapeCasting.Name",
+      "ProwlerShapeCasting.Description",
+      "ProwlerToggleShape.Name",
+      "ProwlerToggleShape.Description",
+      "ProwlerShapeMode.Name",
+      "ProwlerShapeMode.Description",
+      "ProwlerForm.Description",
+      "ProwlerAbility.Duration",
+      "ProwlerAbility.SavingThrow"
     ]
   },
   "mod_identity": {
@@ -500,6 +590,11 @@
     "EntryMethod": "MediumClass.Main.Load"
   },
   "type_id_migrations": {
+    "Medium/NewComponents/AbilitySpecific/ArchmageSeanceDamageBonus.cs": {
+      "new": "be4fb120fb1140aeafb908997b01e3f9",
+      "action": "added",
+      "reason": "New stateless spell-damage component on the existing Archmage seance boon buff; all previous mod component TypeIds and blueprint GUIDs are retained. Native fact reconstruction binds the current blueprint components; no saved resource or spellbook reset is performed."
+    },
     "Medium/NewUnitParts/UnitPartArchmage.cs": {
       "old": "18df8977af254951be0e49854a471953",
       "action": "retained",

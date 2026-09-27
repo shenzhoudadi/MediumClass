@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net9.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>disable</Nullable></PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Mono.Cecil" Version="0.11.6" />
+    <PackageReference Include="Lib.Harmony" Version="2.3.6" />
+    <Compile Include="../../Medium/NewUnitParts/UnitPartMedium.cs" Link="Production/UnitPartMedium.cs" />
+    <Compile Include="../../Medium/MediumChannelRestore.cs" Link="Production/MediumChannelRestore.cs" />
+    <Compile Include="../../Medium/NewComponents/ApplySpirits.cs" Link="Production/ApplySpirits.cs" />
+    <Compile Include="../../Medium/NewComponents/AbilitySpecific/MediumSpiritComponent.cs" Link="Production/MediumSpiritComponent.cs" />
+    <Compile Include="../../Medium/NewComponents/AbilitySpecific/MediumSpiritMasteryComponent.cs" Link="Production/MediumSpiritMasteryComponent.cs" />
+    <Compile Include="../../Medium/NewComponents/AbilitySpecific/MediumWeakerSpiritComponent.cs" Link="Production/MediumWeakerSpiritComponent.cs" />
+    <Compile Include="../../Medium/NewComponents/AbilitySpecific/MediumSpiritFocusComponent.cs" Link="Production/MediumSpiritFocusComponent.cs" />
+    <Compile Include="../../Medium/NewComponents/AbilitySpecific/MediumContextSharedSeanceComponent.cs" Link="Production/MediumContextSharedSeanceComponent.cs" />
+    <Compile Include="../../Medium/NewComponents/AbilitySpecific/MediumContextSpiritBonusComponent.cs" Link="Production/MediumContextSpiritBonusComponent.cs" />
+    <Compile Include="../../Medium/NewComponents/AbilitySpecific/MediumInfluencePenaltyComponent.cs" Link="Production/MediumInfluencePenaltyComponent.cs" />
+    <Compile Include="../../Medium/InfluencePenaltyMath.cs" Link="Production/InfluencePenaltyMath.cs" />
+    <Compile Include="../../Medium/InfluenceMath.cs" Link="Production/InfluenceMath.cs" />
+    <Compile Include="../../Utilities/Guids.cs" Link="Production/Guids.cs" />
+  </ItemGroup>
+</Project>

@@ -1,4 +1,4 @@
-﻿using BlueprintCore.Utils;
+using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Facts;
@@ -26,7 +26,7 @@ namespace MediumClass.Medium.NewComponents
         private static readonly ModLogger Logger = Logging.GetLogger(nameof(AbilityRequirementNotMarshalsOrder));
         public string GetAbilityRestrictionUIText()
         {
-            return $"You have Marshal's Order available.";
+            return LocalizationText.Get("You have Marshal's Order available.", "你已拥有可用的统帅之令。");
         }
 
         public bool IsAbilityRestrictionPassed(AbilityData ability)

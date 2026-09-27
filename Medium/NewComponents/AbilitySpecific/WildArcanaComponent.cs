@@ -19,11 +19,10 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
         public override void OnTurnOn()
         {
             var medium = base.Owner.Ensure<UnitPartMedium>();
-            if(medium.PrimarySpirit.Get() != BlueprintTool.Get<BlueprintCharacterClass>(Guids.Archmage))
-            {
-                m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(Guids.MediumInfluenceResourceArchmage);
-            }
-            base.Owner.Ensure<UnitPartArchmage>().AddSpellList(base.Fact, m_SpellLists, m_CharacterClass, m_Spellbook, m_Resource);
+            // Resource selection is per character; do not mutate the shared blueprint component.
+            var resource = medium.IsActiveSpirit(BlueprintTool.GetRef<BlueprintCharacterClassReference>(Guids.Archmage))
+                ? m_Resource : BlueprintTool.GetRef<BlueprintAbilityResourceReference>(Guids.MediumInfluenceResourceArchmage);
+            base.Owner.Ensure<UnitPartArchmage>().AddSpellList(base.Fact, m_SpellLists, m_CharacterClass, m_Spellbook, resource);
         }
         public override void OnTurnOff()
         {

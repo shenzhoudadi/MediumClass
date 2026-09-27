@@ -2,55 +2,100 @@
   {
     "Key": "Hierophant.Name",
     "ProcessTemplates": false,
-    "enGB": "Hierophant"
+    "enGB": "Hierophant",
+    "zhCN": "大祭司"
   },
   {
     "Key": "Hierophant.Description",
-    "enGB": "A hierophant spirit is a being of true and pure faith.\nSpirit Bonus: When you channel a hierophant, your spirit bonus applies on Wisdom checks, Wisdom-based skill checks, and Will saves.\nSeance Boon: Your healing spells and abilities heal an additional 2 points of damage to each target.\nInfluence Penalty: Whether the spirit hopes to offer a chance for redemption or to sacrifice foes later on a dark altar, You must strike for nonlethal damage in combat whenever possible. You take a penalty equal to your spirit bonus on all Charisma checks and Charisma-based skill checks.\nDivine Surge (Lesser, Su): This power functions as the archmage arcana spirit power, except that you add spells from the cleric/oracle list instead of the sorcerer/wizard list (these spells count as divine), and you need a divine focus if the spell requires one.\nEnergy Font (Intermediate, Su): You can channel energy a number of times per day equal to 1 + your Charisma modifier. add cure and inflict spells of each level you can cast from the cleric list to your medium spell list and spells known. These spells count as divine, as in the divine surge spirit power.\nOverflowing Grace (Greater, Su): When you heal a creature to full hit points or a creature already at full hit points with your positive or negative energy, that creature gains a +1 sacred bonus on attack rolls, skill checks, ability checks, and saving throws for 1 round. The bonus is sacred if you use positive energy and profane if you use negative energy. If you destroy or kill one or more creatures with positive or negative energy, you gain a +1 bonus of the same type on attack rolls, skill checks, ability checks, and saving throws for 1 round.\nLegendary Hierophant (Supreme, Su): Once per day, You can request a minor miracle. This request must be in line with the options for miracle that don't cost powdered diamond."
+    "enGB": "A hierophant spirit is a being of true and pure faith.\nSpirit Bonus: When you channel a hierophant, your spirit bonus applies on Wisdom checks, Wisdom-based skill checks, and Will saves.\nSeance Boon: Your healing spells and abilities heal an additional 2 points of damage to each target.\nInfluence Penalty: Whether the spirit hopes to offer a chance for redemption or to sacrifice foes later on a dark altar, You must strike for nonlethal damage in combat whenever possible. You take a penalty equal to your spirit bonus on all Charisma checks and Charisma-based skill checks.\nDivine Surge (Lesser, Su): This power functions as the archmage arcana spirit power, except that you add spells from the cleric/oracle list instead of the sorcerer/wizard list (these spells count as divine), and you need a divine focus if the spell requires one.\nEnergy Font (Intermediate, Su): You can channel energy a number of times per day equal to 1 + your Charisma modifier. add cure and inflict spells of each level you can cast from the cleric list to your medium spell list and spells known. These spells count as divine, as in the divine surge spirit power.\nOverflowing Grace (Greater, Su): When you heal a creature to full hit points or a creature already at full hit points with your positive or negative energy, that creature gains a +1 sacred bonus on attack rolls, skill checks, ability checks, and saving throws for 1 round. The bonus is sacred if you use positive energy and profane if you use negative energy. If you destroy or kill one or more creatures with positive or negative energy, you gain a +1 bonus of the same type on attack rolls, skill checks, ability checks, and saving throws for 1 round.\nLegendary Hierophant (Supreme, Su): Once per day, cast a 7th-, 8th-, or 9th-level cleric spell without expending a spell slot or gaining influence. The three spell-level choices share this daily use.",
+    "zhCN": "大祭司英灵是纯粹而虔诚的信仰化身。\n英灵同调：降灵大祭司时，你的英灵同调适用于感知检定、基于感知的技能检定，以及意志豁免。\n降灵奖励：你的治疗法术与能力会为每个目标额外治疗2点伤害。\n共鸣惩罚：无论英灵是希望给敌人一次救赎的机会，还是想将他们留待日后献祭于黑暗祭坛，你都必须在战斗中尽可能造成非致命伤害。你的所有魅力检定和基于魅力的技能检定，承受等同于英灵同调的减值。\n大祭司神力（次级，超自然）：此能力如同大法师魔术英灵之力，但你从牧师／先知法术列表而非术士／法师法术列表中添加法术。这些法术视为神术，且如果法术要求神圣法器，你必须提供。\n能量焦点（中等，超自然）：你每天可以引导能量的次数等于1+魅力调整值。将牧师法术列表中你能够施放的每一环治疗伤口系列与造成伤口系列法术，加入你的通灵者法术列表和已知法术。如同大祭司神力英灵之力，这些法术视为神术。\n恩赐满溢（高等，超自然）：当你的正能量或负能量将一个生物治疗至生命值全满，或治疗一个生命值已经全满的生物时，该生物的攻击检定、技能检定、属性检定与豁免检定获得+1加值，持续1轮。使用正能量时，此加值为神圣加值；使用负能量时，为亵渎加值。如果你以正能量或负能量摧毁或杀死一个或多个生物，你自身的攻击检定、技能检定、属性检定与豁免检定也会获得同类型的+1加值，持续1轮。\n传奇大祭司（至高，超自然）：每天一次，你可以施放任意一个7环、8环或9环牧师法术，不消耗法术位，也不增加共鸣。三个环级入口共享这一次每日使用次数。"
   },
   {
     "Key": "HierophantSpiritBonus.Name",
     "ProcessTemplates": false,
-    "enGB": "Spirit Bonus - Hierophant"
+    "enGB": "Spirit Bonus - Hierophant",
+    "zhCN": "英灵同调·大祭司"
   },
   {
     "Key": "HierophantSpiritBonus.Description",
-    "enGB": "When you channel a hierophant, your spirit bonus applies on Wisdom checks, Wisdom-based skill checks, and Will saves."
+    "enGB": "When you channel a hierophant, your spirit bonus applies on Wisdom checks, Wisdom-based skill checks, and Will saves.",
+    "zhCN": "降灵大祭司时，你的英灵同调适用于感知检定、基于感知的技能检定，以及意志豁免。"
   },
   {
     "Key": "HierophantSeanceBoon.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Hierophant"
+    "enGB": "Seance Boon - Hierophant",
+    "zhCN": "降灵奖励·大祭司"
   },
   {
     "Key": "HierophantSeanceBoon.Description",
-    "enGB": "Your healing spells and abilities heal an additional 2 points of damage to each target. This does not affect healing conferred by magic items, nor does it add to fast healing or similar effects."
+    "enGB": "Your healing spells and abilities heal an additional 2 points of damage to each target. This does not affect healing conferred by magic items, nor does it add to fast healing or similar effects.",
+    "zhCN": "你的治疗法术与能力会为每个目标额外治疗2点伤害。此效果不影响魔法物品提供的治疗，也不会增强快速回复或类似效果。"
   },
   {
     "Key": "HierophantEnergyFont.Name",
     "ProcessTemplates": false,
-    "enGB": "Energy Font - Hierophant"
+    "enGB": "Energy Font - Hierophant",
+    "zhCN": "能量焦点·大祭司"
   },
   {
     "Key": "HierophantEnergyFont.Description",
-    "enGB": "You can channel energy a number of times per day equal to 1 + your Charisma modifier. Add cure and inflict spells of each level you can cast from the cleric list to your medium spell list and spells known. These spells count as divine, as in the divine surge spirit power."
+    "enGB": "You can channel energy a number of times per day equal to 1 + your Charisma modifier. Add cure and inflict spells of each level you can cast from the cleric list to your medium spell list and spells known. These spells count as divine, as in the divine surge spirit power.",
+    "zhCN": "你每天可以引导能量的次数等于1+魅力调整值。将牧师法术列表中你能够施放的每一环治疗伤口系列与造成伤口系列法术，加入你的通灵者法术列表和已知法术。如同大祭司神力英灵之力，这些法术视为神术。"
   },
   {
     "Key": "HierophantOverflowingGrace.Name",
     "ProcessTemplates": false,
-    "enGB": "Overflowing Grace - Hierophant"
+    "enGB": "Overflowing Grace - Hierophant",
+    "zhCN": "恩赐满溢·大祭司"
   },
   {
     "Key": "HierophantOverflowingGrace.Description",
-    "enGB": "When you heal a creature to full hit points or a creature already at full hit points with your positive or negative energy, that creature gains a +1 sacred bonus on attack rolls, skill checks, ability checks, and saving throws for 1 round. The bonus is sacred if you use positive energy and profane if you use negative energy. If you destroy or kill one or more creatures with positive or negative energy, you gain a +1 bonus of the same type on attack rolls, skill checks, ability checks, and saving throws for 1 round."
+    "enGB": "When you heal a creature to full hit points or a creature already at full hit points with your positive or negative energy, that creature gains a +1 sacred bonus on attack rolls, skill checks, ability checks, and saving throws for 1 round. The bonus is sacred if you use positive energy and profane if you use negative energy. If you destroy or kill one or more creatures with positive or negative energy, you gain a +1 bonus of the same type on attack rolls, skill checks, ability checks, and saving throws for 1 round.",
+    "zhCN": "当你的正能量或负能量将一个生物治疗至生命值全满，或治疗一个生命值已经全满的生物时，该生物的攻击检定、技能检定、属性检定与豁免检定获得+1加值，持续1轮。使用正能量时，此加值为神圣加值；使用负能量时，为亵渎加值。如果你以正能量或负能量摧毁或杀死一个或多个生物，你自身的攻击检定、技能检定、属性检定与豁免检定也会获得同类型的+1加值，持续1轮。"
   },
   {
     "Key": "HierophantSupreme.Name",
     "ProcessTemplates": false,
-    "enGB": "Legendary Hierophant"
+    "enGB": "Legendary Hierophant",
+    "zhCN": "传奇大祭司"
   },
   {
     "Key": "HierophantSupreme.Description",
-    "enGB": "Once per day, you may cast any cleric spell up to 8th level without expending a spell slot."
+    "enGB": "Once per day, cast a 7th-, 8th-, or 9th-level cleric spell without expending a spell slot or gaining influence. All three spell-level choices share one daily use.",
+    "zhCN": "每天一次，你可以施放任意一个7环、8环或9环牧师法术，不消耗法术位，也不增加共鸣。三个环级入口共享这一次每日使用次数。"
+  },
+  {
+    "Key": "HierophantSupreme7.Name",
+    "ProcessTemplates": false,
+    "enGB": "Legendary Hierophant — Level 7",
+    "zhCN": "传奇大祭司·7环"
+  },
+  {
+    "Key": "HierophantSupreme7.Description",
+    "enGB": "Choose a level 7 cleric spell. Casting it consumes the shared daily use of Legendary Hierophant, without expending a spell slot or gaining influence. The 7th-, 8th-, and 9th-level choices share one use per day.",
+    "zhCN": "从7环牧师法术中选择一个法术施放。消耗传奇大祭司的每日使用次数，不消耗法术位，也不增加共鸣。7环、8环和9环入口共享每天一次的使用次数。"
+  },
+  {
+    "Key": "HierophantSupreme8.Name",
+    "ProcessTemplates": false,
+    "enGB": "Legendary Hierophant — Level 8",
+    "zhCN": "传奇大祭司·8环"
+  },
+  {
+    "Key": "HierophantSupreme8.Description",
+    "enGB": "Choose a level 8 cleric spell. Casting it consumes the shared daily use of Legendary Hierophant, without expending a spell slot or gaining influence. The 7th-, 8th-, and 9th-level choices share one use per day.",
+    "zhCN": "从8环牧师法术中选择一个法术施放。消耗传奇大祭司的每日使用次数，不消耗法术位，也不增加共鸣。7环、8环和9环入口共享每天一次的使用次数。"
+  },
+  {
+    "Key": "HierophantSupreme9.Name",
+    "ProcessTemplates": false,
+    "enGB": "Legendary Hierophant — Level 9",
+    "zhCN": "传奇大祭司·9环"
+  },
+  {
+    "Key": "HierophantSupreme9.Description",
+    "enGB": "Choose a level 9 cleric spell. Casting it consumes the shared daily use of Legendary Hierophant, without expending a spell slot or gaining influence. The 7th-, 8th-, and 9th-level choices share one use per day.",
+    "zhCN": "从9环牧师法术中选择一个法术施放。消耗传奇大祭司的每日使用次数，不消耗法术位，也不增加共鸣。7环、8环和9环入口共享每天一次的使用次数。"
   }
 ]

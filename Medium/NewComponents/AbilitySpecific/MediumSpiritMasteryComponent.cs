@@ -21,12 +21,12 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
     class MediumSpiritMasteryComponent : UnitFactComponentDelegate
     {
         private static readonly ModLogger Logger = Logging.GetLogger(nameof(MediumSpiritMasteryComponent));
-        public override void OnTurnOn()
+        public override void OnActivate()
         {
             Owner.Ensure<UnitPartMedium>().HandleSpiritMastery();
         }
 
-        public override void OnTurnOff()
+        public override void OnDeactivate()
         {
         
             Owner.Get<UnitPartMedium>()?.RemoveSpiritMastery();

@@ -19,7 +19,7 @@ namespace MediumClass.Medium.NewActions
         private static readonly ModLogger Logger = Logging.GetLogger(nameof(ContextActionSpiritInfluence));
         public override string GetCaption()
         {
-            return string.Format("Adds influence penalty when influence gets too low.");
+            return "Refresh penalties from accumulated influence.";
         }
 
         public override void RunAction()
@@ -33,7 +33,7 @@ namespace MediumClass.Medium.NewActions
             UnitPartMedium unitPartMedium = maybeCaster.Get<UnitPartMedium>();
             if(unitPartMedium != null)
             {
-                unitPartMedium.HandleInfluencePenalty();
+                MediumInfluenceRules.RefreshPenalty(maybeCaster.Descriptor);
             }
         }
     }

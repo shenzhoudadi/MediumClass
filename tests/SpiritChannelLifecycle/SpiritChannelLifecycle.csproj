@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Medium/NewComponents/ApplySpirits.cs" Link="Production/ApplySpirits.cs" />
+    <Compile Include="../../Medium/NewComponents/AbilitySpecific/MediumContextSharedSeanceComponent.cs" Link="Production/MediumContextSharedSeanceComponent.cs" />
+    <Compile Include="../../Medium/NewComponents/AbilitySpecific/MediumTranceOfThreeComponent.cs" Link="Production/MediumTranceOfThreeComponent.cs" />
+    <Compile Include="../../Medium/NewComponents/AbilitySpecific/MediumContextSpiritBonusComponent.cs" Link="Production/MediumContextSpiritBonusComponent.cs" />
+    <Compile Include="../../Medium/NewComponents/AbilitySpecific/MediumInfluencePenaltyComponent.cs" Link="Production/MediumInfluencePenaltyComponent.cs" />
+    <Compile Include="../../Medium/InfluencePenaltyMath.cs" Link="Production/InfluencePenaltyMath.cs" />
+  </ItemGroup>
+</Project>

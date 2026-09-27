@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType><TargetFramework>net472</TargetFramework><LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings><Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony"><HintPath>$(HarmonyReferencePath)</HintPath><Private>true</Private></Reference>
+    <PackageReference Include="Mono.Cecil" Version="0.11.6" Aliases="NativeCecil" />
+    <Compile Include="../../Medium/MediumInfluenceRules.cs" Link="Production/MediumInfluenceRules.cs" />
+    <Compile Include="../../Medium/SpiritSurgeMath.cs" Link="Production/SpiritSurgeMath.cs" />
+    <Compile Include="../../Medium/InfluenceMath.cs" Link="Production/InfluenceMath.cs" />
+    <Compile Include="../../Medium/NewUnitParts/UnitPartMediumInfluence.cs" Link="Production/UnitPartMediumInfluence.cs" />
+  </ItemGroup>
+</Project>
+
+
+

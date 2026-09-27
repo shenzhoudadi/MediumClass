@@ -32,15 +32,12 @@
 
   <ItemGroup>
     <Compile Remove="lib\**" />
+    <Compile Remove="tests\**" />
     <EmbeddedResource Remove="lib\**" />
+    <EmbeddedResource Remove="tests\**" />
     <None Remove="lib\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="ContextActionFeintSkillCheck.cs" />
-    <Compile Remove="Feint.cs" />
-    <Compile Remove="GreaterFeint.cs" />
-    <Compile Remove="ImprovedFeint.cs" />
+    <!-- Prevent test-only .NET 9 DLLs from entering reference resolution for Unity. -->
+    <None Remove="tests\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,6 +50,7 @@
     <None Remove="Strings\Feats.json" />
     <None Remove="Strings\Settings.json" />
     <None Remove="Strings\Hierophant.json" />
+    <None Remove="Strings\Prowler.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +63,7 @@
     <EmbeddedResource Include="Strings\Hierophant.json" />
     <EmbeddedResource Include="Strings\Feats.json" />
     <EmbeddedResource Include="Strings\Settings.json" />
+    <EmbeddedResource Include="Strings\Prowler.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -86,8 +85,10 @@
     <Reference Include="Assembly-CSharp-firstpass.dll">
       <HintPath>$(ManagedPath)\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="ModMenu">
+    <Reference Include="ModMenu, Version=2.0.14.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>$(ModMenuPath)\ModMenu.dll</HintPath>
+      <!-- Use the explicitly supplied Unity-hosted dependency despite its desktop framework label. -->
+      <SpecificVersion>true</SpecificVersion>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(ManagedPath)\Newtonsoft.Json.dll</HintPath>
@@ -104,8 +105,9 @@
     <Reference Include="Owlcat.Runtime.Visual">
       <HintPath>$(ManagedPath)\Owlcat.Runtime.Visual.dll</HintPath>
     </Reference>
-    <Reference Include="TabletopTweaks-Core">
+    <Reference Include="TabletopTweaks-Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>$(TTTCorePath)\TabletopTweaks-Core.dll</HintPath>
+      <SpecificVersion>true</SpecificVersion>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>$(ManagedPath)\UnityEngine.dll</HintPath>
@@ -119,11 +121,13 @@
     </Reference>
 
     <!-- UMM & Harmony -->
-    <Reference Include="0Harmony">
+    <Reference Include="0Harmony, Version=2.3.6.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>$(UMMPath)\0Harmony.dll</HintPath>
+      <SpecificVersion>true</SpecificVersion>
     </Reference>
-    <Reference Include="UnityModManager">
+    <Reference Include="UnityModManager, Version=0.33.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>$(UMMPath)\UnityModManager.dll</HintPath>
+      <SpecificVersion>true</SpecificVersion>
     </Reference>
   </ItemGroup>
 
@@ -195,10 +199,14 @@
     <RemoveDir Directories="$(ModMergeDir)" />
     <MakeDir Directories="$(ModMergeDir)" />
     <Error Condition="!Exists('$(TargetDir)BlueprintCore.dll')" Text="BlueprintCore.dll is missing from build output." />
-    <ILRepack OutputType="Dll" MainAssembly="$(TargetPath)"
+    <ILRepack Condition="'$(MSBuildRuntimeType)' != 'Core'"
+              OutputType="Dll" MainAssembly="$(TargetPath)"
               OutputAssembly="$(ModMergeDir)\MediumClass.dll"
               InputAssemblies="$(TargetPath);$(TargetDir)BlueprintCore.dll"
               WorkingDirectory="$(TargetDir)" />
+    <Exec Condition="'$(MSBuildRuntimeType)' == 'Core'"
+          Command="&quot;$(NuGetPackageRoot)ilrepack.msbuild.task\2.0.13\tools\ilrepack.exe&quot; /target:library /out:&quot;$(ModMergeDir)\MediumClass.dll&quot; &quot;$(TargetPath)&quot; &quot;$(TargetDir)BlueprintCore.dll&quot;"
+          WorkingDirectory="$(TargetDir)" />
     <Copy SourceFiles="$(ModMergeDir)\MediumClass.dll;$(MSBuildProjectDirectory)\Info.json;$(MSBuildProjectDirectory)\mediumclass_assets"
           DestinationFolder="$(ModStageDir)" />
   </Target>

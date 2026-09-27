@@ -2,55 +2,100 @@
   {
     "Key": "Archmage.Name",
     "ProcessTemplates": false,
-    "enGB": "Archmage"
+    "enGB": "Archmage",
+    "zhCN": "大法师"
   },
   {
     "Key": "Archmage.Description",
-    "enGB": "An archmage spirit is a font of knowledge and arcane power.\nSpirit Bonus: When you channel an archmage, your spirit bonus applies on concentration checks, Intelligence checks, and Intelligence-based skill checks.\nSeance Boon: Your damaging spells deal an additional 2 points of damage of the same type that they would normally deal to each target.\nInfluence Penalty: Your body begins to respond as if you were a frail, aged scholar. You take a penalty equal to your spirit bonus on Strength checks, Strength-based skill checks, Constitution checks, attack rolls, and non-spell damage rolls.\nArchmage Arcana (Lesser, Su): Instead of your normal spells per day for your medium level, you use the spells per day from Table: Mesmerist. For each level of spell you can now cast (including level 0), each time you channel an archmage spirit, select a single spell of that level from the sorcerer/wizard spell list to add to your medium spell list and spells known until you lose contact with the archmage. When you cast these spells, they count as arcane (though not for the purpose of fulfilling prerequisites), and thus you must provide verbal and somatic components instead of thought and emotion components.\nArcane Surge (Intermediate, Su): You can allow the archmage spirit to gain 1 point of influence over you in order to cast one of your medium spells known without expending a spell slot. When you do so, the caster level and DC of the spell increase by 1.\nWild Arcana (Greater, Su): You can allow the archmage spirit to gain 1 point of influence over you in order to cast any sorcerer/wizard spell of a level you can cast.\nLegendary Archmage (Supreme, Su): Once per day, you can cast any spell on the sorcerer/wizard spell list as if using the wild arcana ability, except the archmage doesn't gain 1 point of influence over you, the spell doesn't require a spell slot, and you can select a spell of any level."
+    "enGB": "An archmage spirit is a font of knowledge and arcane power.\nSpirit Bonus: When you channel an archmage, your spirit bonus applies on concentration checks, Intelligence checks, and Intelligence-based skill checks.\nSeance Boon: Your damaging spells deal an additional 2 points of damage of the same type that they would normally deal to each target.\nInfluence Penalty: Your body begins to respond as if you were a frail, aged scholar. You take a penalty equal to your spirit bonus on Strength checks, Strength-based skill checks, Constitution checks, attack rolls, and non-spell damage rolls.\nArchmage Arcana (Lesser, Su): Instead of your normal spells per day for your medium level, you use the spells per day from Table: Mesmerist. For each level of spell you can now cast (including level 0), each time you channel an archmage spirit, select a single spell of that level from the sorcerer/wizard spell list to add to your medium spell list and spells known until you lose contact with the archmage. When you cast these spells, they count as arcane (though not for the purpose of fulfilling prerequisites), and thus you must provide verbal and somatic components instead of thought and emotion components.\nArcane Surge (Intermediate, Su): You can allow the archmage spirit to gain 1 point of influence over you in order to cast one of your medium spells known without expending a spell slot. When you do so, the caster level and DC of the spell increase by 1.\nWild Arcana (Greater, Su): You can allow the archmage spirit to gain 1 point of influence over you in order to cast any sorcerer/wizard spell of a level you can cast.\nLegendary Archmage (Supreme, Su): Once per day, cast a 7th-, 8th-, or 9th-level wizard spell without expending a spell slot or gaining influence. The three spell-level choices share this daily use.",
+    "zhCN": "大法师英灵是知识与奥术力量的源泉。\n英灵同调：降灵大法师时，你的英灵同调适用于专注检定、智力检定，以及基于智力的技能检定。\n降灵奖励：你的伤害法术会对每个目标额外造成2点伤害，类型与法术原本造成的伤害相同。\n共鸣惩罚：你的身体开始像年迈体弱的学者一样行动迟缓。你的力量检定、基于力量的技能检定、体质检定、攻击检定和非法术伤害掷骰，承受等同于英灵同调的减值。\n大法师魔术（次级，超自然）：你不再使用通灵者等级通常提供的每日法术次数，而是使用催眠师职业表中的每日法术次数。每次降灵大法师英灵时，对当前能够施放的每一环法术（包括0环），从术士／法师法术列表中选择一个该环法术，加入你的通灵者法术列表和已知法术，直到与大法师失去联系。施放这些法术时，它们视为奥术（但不能用于满足先决条件），因此需要言语和姿势成分，而非思维与情感成分。\n奥法奔涌（中等，超自然）：你可以让大法师英灵对你的共鸣增加1点，施放一个已知的通灵者法术而不消耗法术位。这样做时，该法术的施法者等级和难度等级（DC）均提高1。\n无拘奥法（高等，超自然）：你可以让大法师英灵对你的共鸣增加1点，施放任意一个处于你可施放环级的术士／法师法术。\n传奇大法师（至高，超自然）：每天一次，你可以施放任意一个7环、8环或9环法师法术，不消耗法术位，也不增加共鸣。三个环级入口共享这一次每日使用次数。"
   },
   {
     "Key": "ArchmageSpiritBonus.Name",
     "ProcessTemplates": false,
-    "enGB": "Spirit Bonus - Archmage"
+    "enGB": "Spirit Bonus - Archmage",
+    "zhCN": "英灵同调·大法师"
   },
   {
     "Key": "ArchmageSpiritBonus.Description",
-    "enGB": "When you channel an archmage, your spirit bonus applies on concentration checks, Intelligence checks, and Intelligence-based skill checks."
+    "enGB": "When you channel an archmage, your spirit bonus applies on concentration checks, Intelligence checks, and Intelligence-based skill checks.",
+    "zhCN": "降灵大法师时，你的英灵同调适用于专注检定、智力检定，以及基于智力的技能检定。"
   },
   {
     "Key": "ArchmageSeanceBoon.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Archmage"
+    "enGB": "Seance Boon - Archmage",
+    "zhCN": "降灵奖励·大法师"
   },
   {
     "Key": "ArchmageSeanceBoon.Description",
-    "enGB": "Your damaging spells deal an additional 2 points of damage of the same type that they would normally deal to each target."
+    "enGB": "Your damaging spells deal an additional 2 points of damage of the same type that they would normally deal to each target.",
+    "zhCN": "你的伤害法术会对每个目标额外造成2点伤害，类型与法术原本造成的伤害相同。"
   },
   {
     "Key": "ArchmageIntermediate.Name",
     "ProcessTemplates": false,
-    "enGB": "Arcane Surge"
+    "enGB": "Arcane Surge",
+    "zhCN": "奥法奔涌"
   },
   {
     "Key": "ArchmageIntermediate.Description",
-    "enGB": "You can allow the archmage spirit to gain 1 point of influence over you in order to cast one of your medium spells known without expending a spell slot. When you do so, the caster level and DC of the spell increase by 1."
+    "enGB": "You can allow the archmage spirit to gain 1 point of influence over you in order to cast one of your medium spells known without expending a spell slot. When you do so, the caster level and DC of the spell increase by 1.",
+    "zhCN": "你可以让大法师英灵对你的共鸣增加1点，施放一个已知的通灵者法术而不消耗法术位。这样做时，该法术的施法者等级和难度等级（DC）均提高1。"
   },
   {
     "Key": "ArchmageGreater.Name",
     "ProcessTemplates": false,
-    "enGB": "Wild Arcana"
+    "enGB": "Wild Arcana",
+    "zhCN": "无拘奥法"
   },
   {
     "Key": "ArchmageGreater.Description",
-    "enGB": "You can allow the archmage spirit to gain 1 point of influence over you in order to cast any sorcerer/wizard spell of a level you can cast."
+    "enGB": "You can allow the archmage spirit to gain 1 point of influence over you in order to cast any sorcerer/wizard spell of a level you can cast.",
+    "zhCN": "你可以让大法师英灵对你的共鸣增加1点，施放任意一个处于你可施放环级的术士／法师法术。"
   },
   {
     "Key": "ArchmageSupreme.Name",
     "ProcessTemplates": false,
-    "enGB": "Legendary Archmage"
+    "enGB": "Legendary Archmage",
+    "zhCN": "传奇大法师"
   },
   {
     "Key": "ArchmageSupreme.Description",
-    "enGB": "Once per day, you can cast any 7th, 8th, or 9th level wizard spell for free. This does not accrue influence. "
+    "enGB": "Once per day, cast a 7th-, 8th-, or 9th-level wizard spell without expending a spell slot or gaining influence. All three spell-level choices share one daily use.",
+    "zhCN": "每天一次，你可以施放任意一个7环、8环或9环法师法术，不消耗法术位，也不增加共鸣。三个环级入口共享这一次每日使用次数。"
+  },
+  {
+    "Key": "ArchmageSupreme7.Name",
+    "ProcessTemplates": false,
+    "enGB": "Legendary Archmage — Level 7",
+    "zhCN": "传奇大法师·7环"
+  },
+  {
+    "Key": "ArchmageSupreme7.Description",
+    "enGB": "Choose a level 7 wizard spell. Casting it consumes the shared daily use of Legendary Archmage, without expending a spell slot or gaining influence. The 7th-, 8th-, and 9th-level choices share one use per day.",
+    "zhCN": "从7环法师法术中选择一个法术施放。消耗传奇大法师的每日使用次数，不消耗法术位，也不增加共鸣。7环、8环和9环入口共享每天一次的使用次数。"
+  },
+  {
+    "Key": "ArchmageSupreme8.Name",
+    "ProcessTemplates": false,
+    "enGB": "Legendary Archmage — Level 8",
+    "zhCN": "传奇大法师·8环"
+  },
+  {
+    "Key": "ArchmageSupreme8.Description",
+    "enGB": "Choose a level 8 wizard spell. Casting it consumes the shared daily use of Legendary Archmage, without expending a spell slot or gaining influence. The 7th-, 8th-, and 9th-level choices share one use per day.",
+    "zhCN": "从8环法师法术中选择一个法术施放。消耗传奇大法师的每日使用次数，不消耗法术位，也不增加共鸣。7环、8环和9环入口共享每天一次的使用次数。"
+  },
+  {
+    "Key": "ArchmageSupreme9.Name",
+    "ProcessTemplates": false,
+    "enGB": "Legendary Archmage — Level 9",
+    "zhCN": "传奇大法师·9环"
+  },
+  {
+    "Key": "ArchmageSupreme9.Description",
+    "enGB": "Choose a level 9 wizard spell. Casting it consumes the shared daily use of Legendary Archmage, without expending a spell slot or gaining influence. The 7th-, 8th-, and 9th-level choices share one use per day.",
+    "zhCN": "从9环法师法术中选择一个法术施放。消耗传奇大法师的每日使用次数，不消耗法术位，也不增加共鸣。7环、8环和9环入口共享每天一次的使用次数。"
   }
 ]

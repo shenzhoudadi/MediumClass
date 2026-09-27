@@ -2,56 +2,67 @@
   {
     "Key": "Champion.Name",
     "ProcessTemplates": false,
-    "enGB": "Champion"
+    "enGB": "Champion",
+    "zhCN": "勇士"
   },
   {
     "Key": "Champion.Description",
-    "enGB": "A champion spirit is a paragon of skill at arms.\nSpirit Bonus: When you channel a champion, your spirit bonus applies on attack rolls, non-spell damage rolls, Strength checks, Strength-based skill checks, and Fortitude saves.\nSeance Boon: You gain a +2 bonus on all non-spell damage rolls.\nInfluence Penalty: You take a penalty equal to your spirit bonus on Intelligence checks and Intelligence-based skill checks, and to your caster level (to a minimum of caster level 0); as usual, a reduced caster level may render you unable to cast spells.\nChampion's Prowess (Lesser, Su): You gain proficiency in all martial and exotic weapons.\nSudden Attack (Intermediate, Su): Whenever you take a full-attack action, you gain one additional attack at your highest base attack bonus. This ability stacks with the extra attack from haste, but it doesn't stack with special actions that grant extra attacks, such as flurry of blows or spell combat. Sudden attack works as normal with full-attack options such as twoweapon fighting.\nFleet Charge (Greater, Su): You can take a swift action and a full-round action to move up to your speed and then make a full attack. This special action doesn't combine with sudden attack, but works as normal with effects such as haste and two-weapon fighting. As soon as you begin moving, you are considered to have begun the full-round action, even if circumstances prevent you from attacking at the end of your movement.\nLegendary Champion (Supreme, Su): You gain Armor and Weapon Training as per the fighter."
+    "enGB": "A champion spirit is a paragon of skill at arms.\nSpirit Bonus: When you channel a champion, your spirit bonus applies on attack rolls, non-spell damage rolls, Strength checks, Strength-based skill checks, and Fortitude saves.\nSeance Boon: You gain a +2 bonus on all non-spell damage rolls.\nInfluence Penalty: You take a penalty equal to your spirit bonus on Intelligence checks and Intelligence-based skill checks, and to your caster level (to a minimum of caster level 0); as usual, a reduced caster level may render you unable to cast spells.\nChampion's Prowess (Lesser, Su): You gain proficiency in all martial and exotic weapons.\nSudden Attack (Intermediate, Su): Whenever you take a full-attack action, you gain one additional attack at your highest base attack bonus. This ability stacks with the extra attack from haste, but it doesn't stack with special actions that grant extra attacks, such as flurry of blows or spell combat. Sudden attack works as normal with full-attack options such as twoweapon fighting.\nFleet Charge (Greater, Su): You can take a swift action and a full-round action to move up to your speed and then make a full attack. This special action doesn't combine with sudden attack, but works as normal with effects such as haste and two-weapon fighting. As soon as you begin moving, you are considered to have begun the full-round action, even if circumstances prevent you from attacking at the end of your movement.\nLegendary Champion (Supreme, Su): You gain Armor and Weapon Training as per the fighter.\nIn this mod, Legendary Champion grants two ranks in every fighter weapon-training group available in the game.",
+    "zhCN": "勇士英灵是武艺的典范。\n英灵同调：降灵勇士时，你的英灵同调适用于攻击检定、非法术伤害掷骰、力量检定、基于力量的技能检定，以及强韧豁免。\n降灵奖励：你的所有非法术伤害掷骰获得+2加值。\n共鸣惩罚：你的智力检定、基于智力的技能检定，以及施法者等级承受等同于英灵同调的减值（施法者等级最低降至0）。与通常情况相同，降低施法者等级可能使你无法施法。\n斗士之威（次级，超自然）：你擅长所有军用武器和异种武器。\n瞬袭（中等，超自然）：每当你进行整轮攻击时，你都能以最高基本攻击加值额外攻击一次。此能力可与加速术提供的额外攻击叠加，但不能与疾风连击、法术战斗等提供额外攻击的特殊动作叠加。瞬袭可以正常配合双武器战斗等整轮攻击选项使用。\n狂飙猛进（高等，超自然）：你可以花费一个迅捷动作和一个整轮动作，移动至多等同于自身速度的距离，然后进行一次整轮攻击。此特殊动作不能与瞬袭同时使用，但可以正常配合加速术、双武器战斗等效果。只要开始移动，就视为已经开始该整轮动作，即使某些情况使你在移动结束后无法攻击。\n传奇勇士（至高，超自然）：你获得战士职业的防具训练和武器训练能力。\n本模组中，传奇勇士给予游戏现有全部战士武器训练组各两级。"
   },
   {
     "Key": "ChampionSpiritBonus.Name",
     "ProcessTemplates": false,
-    "enGB": "Spirit Bonus - Champion"
+    "enGB": "Spirit Bonus - Champion",
+    "zhCN": "英灵同调·勇士"
   },
   {
     "Key": "ChampionSpiritBonus.Description",
-    "enGB": "When you channel a champion, your spirit bonus applies on attack rolls, non-spell damage rolls, Strength checks, Strength-based skill checks, and Fortitude saves."
+    "enGB": "When you channel a champion, your spirit bonus applies on attack rolls, non-spell damage rolls, Strength checks, Strength-based skill checks, and Fortitude saves.",
+    "zhCN": "降灵勇士时，你的英灵同调适用于攻击检定、非法术伤害掷骰、力量检定、基于力量的技能检定，以及强韧豁免。"
   },
   {
     "Key": "ChampionSeanceBoon.Name",
     "ProcessTemplates": false,
-    "enGB": "Seance Boon - Champion"
+    "enGB": "Seance Boon - Champion",
+    "zhCN": "降灵奖励·勇士"
   },
   {
     "Key": "ChampionSeanceBoon.Description",
-    "enGB": "You gain a +2 bonus on all non-spell damage rolls."
+    "enGB": "You gain a +2 bonus on all non-spell damage rolls.",
+    "zhCN": "你的所有非法术伤害掷骰获得+2加值。"
   },
   {
     "Key": "ChampionSuddenAttack.Name",
     "ProcessTemplates": false,
-    "enGB": "Sudden Attack - Champion"
+    "enGB": "Sudden Attack - Champion",
+    "zhCN": "瞬袭·勇士"
   },
   {
     "Key": "ChampionSuddenAttack.Description",
-    "enGB": "Whenever you take a full-attack action, you gain one additional attack at your highest base attack bonus. This ability stacks with the extra attack from haste, but it doesn't stack with special actions that grant extra attacks, such as flurry of blows or spell combat. Sudden attack works as normal with full-attack options such as twoweapon fighting."
+    "enGB": "Whenever you take a full-attack action, you gain one additional attack at your highest base attack bonus. This ability stacks with the extra attack from haste, but it doesn't stack with special actions that grant extra attacks, such as flurry of blows or spell combat. Sudden attack works as normal with full-attack options such as twoweapon fighting.",
+    "zhCN": "每当你进行整轮攻击时，你都能以最高基本攻击加值额外攻击一次。此能力可与加速术提供的额外攻击叠加，但不能与疾风连击、法术战斗等提供额外攻击的特殊动作叠加。瞬袭可以正常配合双武器战斗等整轮攻击选项使用。"
   },
   {
     "Key": "ChampionFleetCharge.Name",
     "ProcessTemplates": false,
-    "enGB": "Fleet Charge - Champion"
+    "enGB": "Fleet Charge - Champion",
+    "zhCN": "狂飙猛进·勇士"
   },
   {
     "Key": "ChampionFleetCharge.Description",
-    "enGB": ": You can take a swift action and a full-round action to move up to your speed and then make a full attack. This special action doesn't combine with sudden attack, but works as normal with effects such as haste and two-weapon fighting. As soon as you begin moving, you are considered to have begun the full-round action, even if circumstances prevent you from attacking at the end of your movement."
+    "enGB": ": You can take a swift action and a full-round action to move up to your speed and then make a full attack. This special action doesn't combine with sudden attack, but works as normal with effects such as haste and two-weapon fighting. As soon as you begin moving, you are considered to have begun the full-round action, even if circumstances prevent you from attacking at the end of your movement.",
+    "zhCN": "你可以花费一个迅捷动作和一个整轮动作，移动至多等同于自身速度的距离，然后进行一次整轮攻击。此特殊动作不能与瞬袭同时使用，但可以正常配合加速术、双武器战斗等效果。只要开始移动，就视为已经开始该整轮动作，即使某些情况使你在移动结束后无法攻击。"
   },
   {
     "Key": "LegendaryChampion.Name",
     "ProcessTemplates": false,
-    "enGB": "Legendary Champion"
+    "enGB": "Legendary Champion",
+    "zhCN": "传奇勇士"
   },
   {
     "Key": "LegendaryChampion.Description",
-    "enGB": "The champion spirit gives you some of his strength, granting you armor and weapon training feats."
+    "enGB": "The champion spirit gives you some of his strength, granting you armor and weapon training feats. You gain two ranks in every fighter weapon-training group available in the game, giving a +2 weapon-training bonus to attacks and damage with those weapons.",
+    "zhCN": "勇士英灵将部分力量借给你，赋予你防具训练与武器训练专长。你获得游戏现有的全部战士武器训练组，每组两级，对相应武器的攻击和伤害提供+2武器训练加值。"
   }
-
 ]

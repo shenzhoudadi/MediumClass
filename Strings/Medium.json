@@ -1,161 +1,189 @@
-﻿[
+[
   {
     "Key": "SpiritPower.Name",
     "ProcessTemplates": false,
-    "enGB": "Spirit Powers"
+    "enGB": "Spirit Powers",
+    "zhCN": "英灵之力"
   },
   {
     "Key": "SpiritPower.Description",
-    "enGB": "The medium gains the spirit’s listed seance boon and lesser spirit power for 24 hours. The medium also gains the spirit’s intermediate spirit power at 6th level, its greater spirit power at 11th level, and its supreme spirit power at 17th level. After a day, the medium loses contact with the channeled spirit and can perform another seance."
+    "enGB": "The medium gains the spirit’s listed seance boon and lesser spirit power for 24 hours. The medium also gains the spirit’s intermediate spirit power at 6th level, its greater spirit power at 11th level, and its supreme spirit power at 17th level. After a day, the medium loses contact with the channeled spirit and can perform another seance.",
+    "zhCN": "通灵者获得该英灵所列的降灵奖励与次级英灵之力，持续24小时。通灵者还会在6级获得中等英灵之力，11级获得高等英灵之力，17级获得至高英灵之力。一天之后，通灵者会与所降灵的英灵失去联系，并可再次举行降灵仪式。"
   },
   {
     "Key": "SpiritSurge.Name",
     "ProcessTemplates": false,
-    "enGB": "Spirit Surge"
+    "enGB": "Spirit Surge",
+    "zhCN": "灵力奔涌"
   },
-
   {
     "Key": "SpiritSurge.Description",
     "ProcessTemplates": false,
-    "enGB": "A medium can allow his spirit to gain 1 additional point of influence over him in order to add 1d6 to a value modified by his spirit bonus.\n The medium must be conscious and aware to use this ability. At 10th level, the medium’s spirit surge die increases to 1d8, and at 20th level it increases to 1d10. The bonuses last for 5 rounds (30 seconds)."
+    "enGB": "A medium can allow his spirit to gain 1 additional point of influence over him in order to add 1d6 to a value modified by his spirit bonus.\n The medium must be conscious and aware to use this ability. At 10th level, the medium’s spirit surge die increases to 1d8, and at 20th level it increases to 1d10. The bonuses last for 5 rounds (30 seconds).",
+    "zhCN": "通灵者可以让英灵对自己的共鸣增加1点，使一项能获得英灵同调的数值额外获得1d6加值。\n通灵者必须保持清醒且具有意识才能使用此能力。10级时，灵力奔涌的骰子提升为1d8；20级时提升为1d10。加值持续5轮（30秒）。"
   },
-
   {
     "Key": "MediumClass.Name",
     "ProcessTemplates": false,
-    "enGB": "Medium"
+    "enGB": "Medium",
+    "zhCN": "通灵者"
   },
-
   {
     "Key": "MediumClass.Description",
     "ProcessTemplates": false,
-    "enGB": "Mediums channel spirits into themselves, using their own bodies as vessels for astral entities spawned from myths and legends. A medium balances his need for the spirits' power with the danger of allowing such beings influence over his mind."
+    "enGB": "Mediums channel spirits into themselves, using their own bodies as vessels for astral entities spawned from myths and legends. A medium balances his need for the spirits' power with the danger of allowing such beings influence over his mind.",
+    "zhCN": "通灵者将英灵引入自身，以肉身作为容器，承载诞生于神话与传说的星界存在。通灵者必须在借用英灵力量的需求，与任由这些存在影响自己心智的危险之间保持平衡。"
   },
-
   {
     "Key": "MediumProficiencies.Name",
     "ProcessTemplates": false,
-    "enGB": "Medium Proficiencies"
+    "enGB": "Medium Proficiencies",
+    "zhCN": "通灵者擅长"
   },
-
   {
     "Key": "MediumProficiencies.Description",
     "ProcessTemplates": false,
-    "enGB": "Mediums are proficient with all simple {g|Encyclopedia:Weapon_Proficiency}weapons{/g}, light armor, and medium armor. A medium can cast {g|Encyclopedia:Spell}spells{/g} while wearing armor."
+    "enGB": "Mediums are proficient with all simple {g|Encyclopedia:Weapon_Proficiency}weapons{/g}, light armor, and medium armor. A medium can cast {g|Encyclopedia:Spell}spells{/g} while wearing armor.",
+    "zhCN": "通灵者擅长所有简易{g|Encyclopedia:Weapon_Proficiency}武器{/g}、轻甲和中甲。通灵者可以穿着护甲施放{g|Encyclopedia:Spell}法术{/g}。"
   },
-
   {
     "Key": "MediumSpiritBonus.Name",
     "ProcessTemplates": false,
-    "enGB": "Spirit Bonus"
+    "enGB": "Spirit Bonus",
+    "zhCN": "英灵同调"
   },
-
   {
     "Key": "MediumSpiritBonus.Description",
     "ProcessTemplates": false,
-    "enGB": "When a medium channels a spirit, he gains a bonus on certain checks and abilities, depending on the spirit. A 1st-level medium's spirit bonus is +1; it increases by 1 at 4th level and every 4 levels thereafter."
+    "enGB": "When a medium channels a spirit, he gains a bonus on certain checks and abilities, depending on the spirit. A 1st-level medium's spirit bonus is +1; it increases by 1 at 4th level and every 4 levels thereafter.",
+    "zhCN": "通灵者降灵时，会根据所选英灵，在特定检定和能力上获得加值。1级通灵者的英灵同调为+1；4级时以及此后每4级，该加值再提高1。"
   },
   {
     "Key": "MediumChannelSpirit.Name",
     "ProcessTemplates": false,
-    "enGB": "Channel Spirit"
+    "enGB": "Channel Spirit",
+    "zhCN": "英灵降灵"
   },
-
   {
     "Key": "MediumChannelSpirit.Description",
     "ProcessTemplates": false,
-    "enGB": "A medium serves as a vessel to channel spirits; astral echoes of powerful souls from ages past that live on in myth and legend. Each day, a medium can channel a spirit through a ritual known as a seance. At the end of a seance, the medium invites a local spirit to inhabit him and serve as his spirit for that day.\nThe medium gains the spirit’s listed seance boon and spirit power(s) for 24 hours. A channeled spirit can influence the medium. By channeling a spirit, the medium allows the spirit to gain 1 point of influence over him. If the medium loses that 1 point of influence, he loses contact with the spirit, though he is still unable to perform a new seance until after his next rest. When the spirit leaves after the channeled duration and before the next seance, the spirit’s influence over the medium resets to 0. Certain abilities allow the medium to gain additional power in exchange for allowing the spirit more influence over him.\nWhen a spirit gains at least 3 points of influence over the medium, the dual impulses housed within the same body cause the medium to meld with his spirit’s consciousness.\nThe resulting muddled sense of self and struggle for control causes the medium to take a -2 penalty on initiative checks as well as a specific additional penalty listed in each spirit’s entry. However, the spirit’s mental presence grants the medium a +4 bonus against possession effects and a +2 bonus on saving throws against mind-affecting effects that are not related to possession.\nIf a spirit ever attains 5 or more points of influence over the medium, the medium completely loses control to the spirit."
+    "enGB": "Each day, you channel a spirit and gain its seance boon and spirit powers until you rest. The first spirit adds 1 point of influence. The Mythic Multiple Spirits ability allows additional, different spirits for increasing influence costs. All active spirits share accumulated influence. At 3 points the spirits' penalties take effect. The base influence cap is 5; powers that would exceed your cap cannot be used. Rest ends channeling and resets influence to 0.",
+    "zhCN": "每天，你可以降灵一位英灵，获得其降灵奖励与英灵之力，直到休息。首次降灵增加1点共鸣。选择“神话·多重降灵”后，可用递增的共鸣代价降灵更多不同英灵。所有已降灵英灵共用累计共鸣；共鸣达到3点时，承受这些英灵的共鸣惩罚。基础共鸣上限为5点，不能使用会超过上限的能力。休息结束降灵并将共鸣重置为0。"
   },
   {
     "Key": "MediumInfluence.Name",
     "ProcessTemplates": false,
-    "enGB": "Influence"
+    "enGB": "Influence",
+    "zhCN": "共鸣"
   },
-
   {
     "Key": "MediumInfluence.Description",
     "ProcessTemplates": false,
-    "enGB": "By channeling a spirit, the medium allows the spirit to gain 1 point of influence over him. If the medium loses that 1 point of influence, he loses contact with the spirit, though he is still unable to perform a new seance until the normal 24 hour period has elapsed since his last seance. When the spirit leaves after the 24-hour duration and before the next seance, the spirit’s influence over the medium resets to 0. Certain abilities allow the medium to gain additional power in exchange for allowing the spirit more influence over him.\n\nWhen a spirit gains at least 3 points of influence over the medium, the dual impulses housed within the same body cause the medium to meld with his spirit’s consciousness.\n\nThe resulting muddled sense of self and struggle for control causes the medium to take a –2 penalty on initiative checks as well as a specific additional penalty listed in each spirit’s entry. However, the spirit’s mental presence grants the medium a +4 bonus against possession effects and a +2 bonus on saving throws against mind-affecting effects that are not related to possession.\n\nIf a spirit ever attains 5 or more points of influence over the medium, the medium completely loses control to the spirit. He effectively becomes an NPC under the GM’s control until after he awakens the next day with the spirit gone."
+    "enGB": "Influence starts at 0 and accumulates as you accept a spirit's power. Channeling your first spirit adds 1 point; powers with an influence cost add their listed points instead of spending a pool. All channeled spirits share one counter. The base cap is 5. An ability cannot add more influence than the cap allows; free spirit surges can still be used at the cap. At 3 or more points you suffer a -2 initiative penalty and the penalties of all active spirits; increasing the cap does not move this threshold. The counter resets to 0 when your spirits leave after resting. Ability icons show current influence / cap.",
+    "zhCN": "共鸣从0开始，随接受英灵力量逐步积累。首次降灵增加1点共鸣；有共鸣代价的能力会增加相应点数。所有已降灵英灵共用一个计数器。基础上限为5点；无法使用会使共鸣超出上限的能力，但免费的灵力奔涌仍可使用。共鸣达到3点时，先攻承受-2减值，并承受所有已降灵英灵的共鸣惩罚；提高上限不会改变这一阈值。休息、英灵离去后，共鸣重置为0。能力图标显示“当前共鸣/上限”。"
   },
   {
     "Key": "MediumSharedSeance.Name",
     "ProcessTemplates": false,
-    "enGB": "Shared Seance"
+    "enGB": "Shared Seance",
+    "zhCN": "降灵会"
   },
-
   {
     "Key": "MediumSharedSeance.Description",
     "ProcessTemplates": false,
-    "enGB": "At 2nd level, a medium can share his channeled spirit’s aid with his allies. All allies who participate in the medium’s seance gain the channeled spirit’s seance boon for 24 hours."
+    "enGB": "At 2nd level, a medium can share his channeled spirit’s aid with his allies. All allies who participate in the medium’s seance gain the channeled spirit’s seance boon for 24 hours.",
+    "zhCN": "2级时，通灵者可以与盟友共享所降灵英灵的帮助。所有参与通灵者降灵仪式的盟友都会获得该英灵的降灵奖励，持续24小时。"
   },
   {
     "Key": "MediumPropitation.Name",
     "ProcessTemplates": false,
-    "enGB": "Propitation"
+    "enGB": "Propitation",
+    "zhCN": "慰灵之术"
   },
-
   {
     "Key": "MediumPropitation.Description",
     "ProcessTemplates": false,
-    "enGB": "At 9th level, a medium has learned hidden techniques and rites that allow him to mollify his channeled spirit once per day, increasing the number of influence the spirit can gain over them before any negative effects."
+    "enGB": "At 9th level, once per day as a standard action, you can soothe your channeled spirits and reduce accumulated influence by 1. This cannot reduce influence below 1 while any spirit remains channeled. Penalties end immediately if influence drops below 3.",
+    "zhCN": "9级起，每天一次，以一个标准动作安抚已降灵的英灵，使累计共鸣降低1点。只要仍有英灵降灵，共鸣便不能因此降至1点以下。若共鸣降至3点以下，共鸣惩罚立即解除。"
   },
   {
     "Key": "MediumSpiritMastery.Name",
     "ProcessTemplates": false,
-    "enGB": "Spirit Mastery"
+    "enGB": "Spirit Mastery",
+    "zhCN": "英灵化"
   },
-
   {
     "Key": "MediumSpiritMastery.Description",
-    "enGB": "At 19th level, he medium becomes a legend among spirits, particularly lesser spirits. He can use his spirit surge ability an additional two times per day without incurring influence, regardless of whether he accepts a taboo or channels a weaker spirit. When channeling a weaker spirit, he can use his spirit surge ability an additional four times per day for each power he forgoes, instead of an additional two times."
+    "enGB": "At 19th level, he medium becomes a legend among spirits, particularly lesser spirits. He can use his spirit surge ability an additional two times per day without incurring influence, regardless of whether he accepts a taboo or channels a weaker spirit. When channeling a weaker spirit, he can use his spirit surge ability an additional four times per day for each power he forgoes, instead of an additional two times.",
+    "zhCN": "19级时，通灵者成为英灵之间的传奇人物，对弱小英灵而言尤为如此。无论是否接受禁忌或降灵较弱的英灵，通灵者每天都可以额外使用两次灵力奔涌，而不增加共鸣。降灵较弱的英灵时，每舍弃一种英灵之力，通灵者每天可以额外使用灵力奔涌的次数从两次增加为四次。"
   },
   {
     "Key": "MediumTranceOfThree.Name",
     "ProcessTemplates": false,
-    "enGB": "Trance Of Three"
+    "enGB": "Trance Of Three",
+    "zhCN": "三重降灵"
   },
-
   {
     "Key": "MediumTranceOfThree.Description",
-    "enGB": "At 15th level, as a swift action, a medium can allow his spirit to gain 1 point of influence over him in order to allow a portion of a legendary spirit from another legend to enter him for 1 round per level, granting him the intermediate spirit power from another legend.\nIf that power has a limited number of uses per day, the medium must keep track of the remaining uses even after the secondary spirit is gone; if the medium calls the secondary spirit again that day, it can grant the remaining uses of that power. If the medium uses an ability that incurs influence, the medium’s primary spirit gains that amount of influence over him, not the secondary spirit. The medium doesn’t gain the benefits of his spirit bonus from the secondary spirit.\nThe medium can end the trance of three early as a free action."
+    "enGB": "At 15th level, as a swift action, a medium can allow his spirit to gain 1 point of influence over him in order to allow a portion of a legendary spirit from another legend to enter him for 1 round per level, granting him the intermediate spirit power from another legend.\nIf that power has a limited number of uses per day, the medium must keep track of the remaining uses even after the secondary spirit is gone; if the medium calls the secondary spirit again that day, it can grant the remaining uses of that power. If the medium uses an ability that incurs influence, the medium’s primary spirit gains that amount of influence over him, not the secondary spirit. The medium doesn’t gain the benefits of his spirit bonus from the secondary spirit.\nThe medium can end the trance of three early as a free action.",
+    "zhCN": "15级时，通灵者可以用一个迅捷动作，让当前英灵对自己的共鸣增加1点，邀请另一职阶的英灵的部分力量进入自身，持续每等级1轮，并获得该英灵的中等英灵之力。\n如果该力量有每日使用次数限制，即使次要英灵已经离去，通灵者仍须记录剩余次数；如果当天再次召来该次要英灵，它只能提供该能力的剩余次数。如果通灵者使用会增加共鸣的能力，增加的是主要英灵对通灵者的共鸣，而非次要英灵。通灵者不会从次要英灵获得英灵同调。\n通灵者可以用一个自由动作提前结束三重降灵。"
   },
   {
     "Key": "WeakerSpiritChannel.Name",
     "ProcessTemplates": false,
-    "enGB": "Forego Power(s)"
+    "enGB": "Forego Power(s)",
+    "zhCN": "舍弃英灵之力"
   },
   {
     "Key": "WeakerSpiritChannel1.Name",
     "ProcessTemplates": false,
-    "enGB": "Forego One Power"
+    "enGB": "Forego One Power",
+    "zhCN": "舍弃一种英灵之力"
   },
   {
     "Key": "WeakerSpiritChannel.Description",
-    "enGB": "During his seance, the medium can choose to channel a weaker spirit to gain its help without incurring as much of its influence. If he does so, he can forgo any number of spirit powers, starting with his most powerful spirit power. For each spirit power he forgoes, the medium can use his spirit surge ability twice without incurring influence. If the medium has the Spirit Mastery class feature this value increases to four additional times per power he forgoes."
+    "enGB": "During his seance, the medium can choose to channel a weaker spirit to gain its help without incurring as much of its influence. If he does so, he can forgo any number of spirit powers, starting with his most powerful spirit power. For each spirit power he forgoes, the medium can use his spirit surge ability twice without incurring influence. If the medium has the Spirit Mastery class feature this value increases to four additional times per power he forgoes.",
+    "zhCN": "举行降灵仪式时，通灵者可以选择降灵较弱的英灵，以较少的共鸣换取它的帮助。这样做时，通灵者可以从最强大的英灵之力开始，舍弃任意数量的英灵之力。每舍弃一种英灵之力，通灵者就可以使用两次灵力奔涌，而不增加共鸣。如果通灵者拥有英灵化职业能力，则每舍弃一种英灵之力，额外使用次数提高为四次。"
   },
   {
     "Key": "WeakerSpiritChannel2.Name",
     "ProcessTemplates": false,
-    "enGB": "Forego Two Powers"
+    "enGB": "Forego Two Powers",
+    "zhCN": "舍弃两种英灵之力"
   },
   {
     "Key": "WeakerSpiritChannel3.Name",
     "ProcessTemplates": false,
-    "enGB": "Forego Three Powers"
+    "enGB": "Forego Three Powers",
+    "zhCN": "舍弃三种英灵之力"
   },
   {
     "Key": "WeakerSpiritChannel4.Name",
     "ProcessTemplates": false,
-    "enGB": "Forego Four Powers"
+    "enGB": "Forego Four Powers",
+    "zhCN": "舍弃四种英灵之力"
   },
   {
     "Key": "AstralBeacon.Name",
     "ProcessTemplates": false,
-    "enGB": "Astral Beacon"
+    "enGB": "Astral Beacon",
+    "zhCN": "星界灯塔"
   },
   {
     "Key": "AstralBeacon.Description",
-    "enGB": "At 20th level, a medium is an open connection to the Astral Plane and a shining beacon for spirits. As part of his seance for his primary legend, he channel the spirits of all of the five legends he did not contact via his seance. This ability lasts for the duration of the day and grants access to the intermediate, greater, and supreme spirit powers of the five additional legends."
+    "enGB": "At 20th level, a medium is an open connection to the Astral Plane and a shining beacon for spirits. As part of his seance for his primary legend, he channel the spirits of all of the five legends he did not contact via his seance. This ability lasts for the duration of the day and grants access to the intermediate, greater, and supreme spirit powers of the five additional legends.",
+    "zhCN": "20级时，通灵者成为与星界直接相连的通道，以及吸引英灵的明亮信标。在为主要英灵举行降灵仪式时，通灵者还会同时引导其余五个未选职阶的英灵。此能力持续一整天，赋予通灵者另外五个职阶的英灵的中等、高等与至高英灵之力。"
+  },
+  {
+    "Key": "MythicExpandedInfluence.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mythic Expanded Influence",
+    "zhCN": "神话·共鸣扩容"
+  },
+  {
+    "Key": "MythicExpandedInfluence.Description",
+    "ProcessTemplates": false,
+    "enGB": "Increase your shared influence cap by 1 + one-third your mythic rank, rounded down: +1 at ranks 1-2, +2 at ranks 3-5, +3 at ranks 6-8, and +4 at ranks 9-10. This changes neither current influence nor the 3-point penalty threshold. Numerical penalty reduction from Mythic Multiple Spirits is applied separately.",
+    "zhCN": "共享共鸣上限增加“1＋神话等级的三分之一（向下取整）”：神话1—2阶+1，3—5阶+2，6—8阶+3，9—10阶+4。此能力不会改变当前共鸣，也不会改变3点开始产生共鸣惩罚的阈值；神话多重降灵的数值减罚效果另行计算。"
   }
-
 ]

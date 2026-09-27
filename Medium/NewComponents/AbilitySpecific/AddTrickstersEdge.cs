@@ -15,6 +15,7 @@ using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Class.LevelUp;
 using Kingmaker.Utility;
+using MediumClass.Prowler;
 using MediumClass.Utilities;
 using MediumClass.Utils;
 using static UnityModManagerNet.UnityModManager.ModEntry;
@@ -36,7 +37,7 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 			if (stat == null) { return; }
 			// Reapplication must replace this component's modifier, not stack it.
 			stat.RemoveModifiersFrom(base.Runtime);
-			int mediumLevel = base.Owner.Progression.GetClassLevel(BlueprintTool.Get<BlueprintCharacterClass>(Guids.Medium));
+			int mediumLevel = ProwlerSpiritRules.SpiritClassLevel(base.Owner);
 			// Preserve the original mod's arithmetic and zero-rank class-skill workaround.
 			// Whether BaseStatBonus represents actual ranks needs in-game verification.
 			int originalValue = stat.BaseValue;

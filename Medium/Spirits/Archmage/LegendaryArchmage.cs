@@ -31,8 +31,8 @@ namespace MediumClass.Medium.Spirits.Archmage
     class LegendaryArchmage
     {
         private static readonly string FeatName = "LegendaryArchmage";
-        private static readonly string DisplayName = "LegendaryArchmage.Name";
-        private static readonly string Description = "LegendaryArchmage.Description";
+        private static readonly string DisplayName = "ArchmageSupreme.Name";
+        private static readonly string Description = "ArchmageSupreme.Description";
         private static readonly ModLogger Logger = Logging.GetLogger(nameof(LegendaryArchmage));
 
         public static void ConfigureEnabled()
@@ -40,20 +40,20 @@ namespace MediumClass.Medium.Spirits.Archmage
             Logger.Log("Generating Archmage Supreme Power");
 
             AbilityConfigurator.New(FeatName + "Ability9", Guids.ArchmageSupremeAbility9)
-                .SetDisplayName(DisplayName)
-                .SetDescription(Description)
+                .SetDisplayName("ArchmageSupreme9.Name")
+                .SetDescription("ArchmageSupreme9.Description")
                 .SetIcon("assets/icons/legendaryarchmage9.png")
                 .Configure();
 
             AbilityConfigurator.New(FeatName + "Ability8", Guids.ArchmageSupremeAbility8)
-                .SetDisplayName(DisplayName)
-                .SetDescription(Description)
+                .SetDisplayName("ArchmageSupreme8.Name")
+                .SetDescription("ArchmageSupreme8.Description")
                 .SetIcon("assets/icons/legendaryarchmage8.png")
                 .Configure();
 
             AbilityConfigurator.New(FeatName + "Ability7", Guids.ArchmageSupremeAbility7)
-                .SetDisplayName(DisplayName)
-                .SetDescription(Description)
+                .SetDisplayName("ArchmageSupreme7.Name")
+                .SetDescription("ArchmageSupreme7.Description")
                 .SetIcon("assets/icons/legendaryarchmage7.png")
                 .Configure();
 

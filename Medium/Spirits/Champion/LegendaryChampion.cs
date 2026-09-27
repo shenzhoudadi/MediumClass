@@ -40,11 +40,43 @@ namespace MediumClass.Medium.Spirits.Champion
                 .SetDescription(Description)
                 .Configure();
 
+            // Each AddFacts component owns one rank of every native weapon-training
+            // group. Keeping the grants separate also lets the game remove exactly
+            // these two ranks when the champion spirit is dismissed.
             FeatureConfigurator.New(FeatName, Guids.LegendaryChampion)
                 .SetDisplayName(DisplayName)
                 .SetDescription(Description)
-                .AddFacts(new() { FeatureRefs.ArmorTraining.Reference.Get(), FeatureRefs.ArmorTraining.Reference.Get(), 
-                    FeatureRefs.WeaponTrainingHammers.Reference.Get(), FeatureRefs.WeaponTrainingAxes.Reference.Get(), FeatureRefs.WeaponTrainingBows.Reference.Get() })
+                .AddFacts(new() { FeatureRefs.ArmorTraining.Reference.Get(), FeatureRefs.ArmorTraining.Reference.Get() })
+                .AddFacts(new() {
+                    FeatureRefs.WeaponTrainingAxes.Reference.Get(),
+                    FeatureRefs.WeaponTrainingBows.Reference.Get(),
+                    FeatureRefs.WeaponTrainingClose.Reference.Get(),
+                    FeatureRefs.WeaponTrainingCrossbows.Reference.Get(),
+                    FeatureRefs.WeaponTrainingDouble.Reference.Get(),
+                    FeatureRefs.WeaponTrainingHammers.Reference.Get(),
+                    FeatureRefs.WeaponTrainingHeavyBlades.Reference.Get(),
+                    FeatureRefs.WeaponTrainingLightBlades.Reference.Get(),
+                    FeatureRefs.WeaponTrainingMonkWeapons.Reference.Get(),
+                    FeatureRefs.WeaponTrainingNatural.Reference.Get(),
+                    FeatureRefs.WeaponTrainingPolearms.Reference.Get(),
+                    FeatureRefs.WeaponTrainingSpears.Reference.Get(),
+                    FeatureRefs.WeaponTrainingThrown.Reference.Get()
+                })
+                .AddFacts(new() {
+                    FeatureRefs.WeaponTrainingAxes.Reference.Get(),
+                    FeatureRefs.WeaponTrainingBows.Reference.Get(),
+                    FeatureRefs.WeaponTrainingClose.Reference.Get(),
+                    FeatureRefs.WeaponTrainingCrossbows.Reference.Get(),
+                    FeatureRefs.WeaponTrainingDouble.Reference.Get(),
+                    FeatureRefs.WeaponTrainingHammers.Reference.Get(),
+                    FeatureRefs.WeaponTrainingHeavyBlades.Reference.Get(),
+                    FeatureRefs.WeaponTrainingLightBlades.Reference.Get(),
+                    FeatureRefs.WeaponTrainingMonkWeapons.Reference.Get(),
+                    FeatureRefs.WeaponTrainingNatural.Reference.Get(),
+                    FeatureRefs.WeaponTrainingPolearms.Reference.Get(),
+                    FeatureRefs.WeaponTrainingSpears.Reference.Get(),
+                    FeatureRefs.WeaponTrainingThrown.Reference.Get()
+                })
                 .Configure();
         }
     }

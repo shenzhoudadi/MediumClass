@@ -1,29 +1,46 @@
-﻿[
-  {
-    "Key": "Feint.Name",
-    "ProcessTemplates": false,
-    "enGB": "Feint"
-  },
-  {
-    "Key": "Feint.Description",
-    "enGB": "Feinting is a standard action. To feint, make a Bluff skill check. The DC of this check is equal to 10 + your opponent's base attack bonus + your opponent's Wisdom modifier. If your opponent is trained in Sense Motive, the DC is instead equal to 10 + your opponent's Sense Motive bonus, if higher. If successful, the next melee attack you make against the target does not allow him to use his Dexterity bonus to AC (if any). This attack must be made on or before your next turn.\nWhen feintin against a nonhumanoid you take a -4 penalty. Against a creature of animal Intelligence (1 or 2), you take a –8 penalty. Against a creature lacking an Intelligence score, it's impossible. Feinting in combat does not provoke attacks of opportunity."
-  },
-  {
-    "Key": "DesnaDivineFightingTechnique.Name",
-    "ProcessTemplates": false,
-    "enGB": "Way of the Shooting Star"
-  },
-  {
-    "Key": "DesnaDivineFightingTechnique.Description",
-    "enGB": "You can add your Charisma bonus to attack rolls and damage rolls when wielding a starknife. If you do so, you don't modify attack rolls and damage rolls with your starknife with your Strength modifier, your Dexterity modifier (if you have Weapon Finesse), or any other ability score (if you have an ability that allows you to modify attack rolls and damage rolls with that ability score)."
-  },
+[
   {
     "Key": "BackgroundMedium.Name",
     "ProcessTemplates": false,
-    "enGB": "Favored Class - Medium"
+    "enGB": "Favored Class - Medium",
+    "zhCN": "天赋职业·通灵者"
   },
   {
     "Key": "BackgroundMedium.Description",
-    "enGB": "You've been plagued by spirits for as long as you can remember. Because of this, you have a deeper connection with the Medium spirits that can be channeled. Increase the medium's spirit bonus by 1/6 for every level you take in the medium class."
+    "enGB": "You've been plagued by spirits for as long as you can remember. Because of this, you have a deeper connection with the Medium spirits that can be channeled. Increase the medium's spirit bonus by 1/6 for every level you take in the medium class.",
+    "zhCN": "从记事起，英灵就一直缠绕着你。因此，你与可通过降灵引导的英灵有着更深的联系。每获得一个通灵者职业等级，你的英灵同调提高1/6。"
+  },
+  {
+    "Key": "MythicMultipleSpirits.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mythic Multiple Spirits",
+    "zhCN": "神话多重降灵"
+  },
+  {
+    "Key": "MythicMultipleSpirits.Description",
+    "enGB": "You can channel additional different spirits using your channel spirit abilities. The second spirit adds 1 influence, the third 2, the fourth 3, and so on, to your shared accumulated influence. Only spirits available to your class can be chosen. Each grants powers appropriate to your level. While you formally channel N spirits, divide the magnitude of each numerical influence penalty by N, rounding down; two spirits halve it, three reduce it to one-third. This also reduces the usual -2 initiative penalty. Positive bonuses and the Marshal's forced defensive fighting are unchanged. Temporary Trance spirits and powers granted by Astral Beacon do not increase N. Overlapping spirit bonuses use the highest value. Archmage and Hierophant share the Medium spellbook and daily casts. Additional spirits do not refill spent spell slots. Rest ends all channeling.",
+    "zhCN": "你可以继续使用降灵能力，引导尚未降灵的其他英灵。第二位额外积累1点共鸣，第三位2点，第四位3点，依此类推；所有英灵共用已积累共鸣与上限。只能选择本职业可降灵的英灵，不能重复。每位英灵按当前等级提供能力。同时正式降灵N位英灵时，各项共鸣数值减值的幅度除以N并向下取整：两位时减半，三位时降至三分之一；原本的先攻−2也按此减轻。正面加值与统帅强制防御式战斗不变。临时入神及星界灯塔仅授予能力的副英灵不计入N。同一属性的英灵同调取最高值。大法师与大祭司共用通灵者本体法术书与施法次数，追加降灵不会补满已用法术位。休息结束所有降灵。"
+  },
+  {
+    "Key": "HardenedSoul.Name",
+    "ProcessTemplates": false,
+    "enGB": "Hardened Soul",
+    "zhCN": "坚韧灵魂"
+  },
+  {
+    "Key": "HardenedSoul.Description",
+    "enGB": "At Medium level 20, your hardened soul can withstand greater spirit influence. Your influence limit increases by 3, and your spirit surge rolls 2d8 instead of its normal die. This replaces Astral Beacon. The three-point influence penalty threshold is unchanged. The influence limit increase stacks with Mythic Expanded Influence.",
+    "zhCN": "通灵者达到20级时，你的灵魂已能承受更强的英灵共鸣。共鸣上限额外提高3点，灵力奔涌改为掷2d8，替代通常的奔涌骰。本能力替代星界灯塔；共鸣达到3点时的惩罚阈值不变。上限加值可与神话共鸣扩容叠加。"
+  },
+  {
+    "Key": "MediumAlternateCapstone.Name",
+    "ProcessTemplates": false,
+    "enGB": "Medium Capstone",
+    "zhCN": "通灵者巅峰能力"
+  },
+  {
+    "Key": "MediumAlternateCapstone.Description",
+    "enGB": "At Medium level 20, choose your capstone: Astral Beacon, Hardened Soul, or an available generic alternate capstone from Tabletop Tweaks. Choose one ability only; selecting an alternative replaces Astral Beacon. This choice is enabled only while Tabletop Tweaks Base and its alternate capstone group are enabled. Existing characters retain their previously acquired capstone; retraining permits a new choice.",
+    "zhCN": "通灵者达到20级时，选择一项巅峰能力：星界灯塔、坚韧灵魂，或符合条件的 Tabletop Tweaks 通用替代巅峰能力。只能选择一项，选择替代能力后不再获得星界灯塔。此选择仅在 Tabletop Tweaks Base 及其替代巅峰功能启用时开放。已有角色保留已获得的巅峰能力，重训时可以重新选择。"
   }
 ]

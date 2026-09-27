@@ -97,154 +97,37 @@ namespace MediumClass.Medium.NewComponents
 			this.RemoveSelf();
 		}
 
-		public void HandleGetConversions(AbilityData ability, ref IEnumerable<AbilityData> conversions)
-		{
-			var conversionList = conversions.ToList();
-			if (ability.Blueprint == BlueprintTool.Get<BlueprintAbility>(Guids.HierophantSupremeAbility1))
-			{
-				for (int i = 1; i <= 2; i++)
-				{
-					foreach (var abilityData in SpellTools.SpellList.ClericSpellList.GetSpells(i))
-					{
-						AbilityVariants variantComponent = abilityData.GetComponent<AbilityVariants>();
-						if (variantComponent != null)
-						{
-							foreach (var variant in variantComponent.Variants.AsEnumerable())
-							{
-								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant)
-								{
-									OverridenResourceLogic = new InfluenceResourceOverride()
-									{
-										m_RequiredResource = this.Resource.ToReference<BlueprintAbilityResourceReference>(),
-										cost = 1
-									}
-								});
-							}
-						}
-						else
-						{
-							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData)
-							{
-								OverridenResourceLogic = new InfluenceResourceOverride()
-								{
-									m_RequiredResource = this.Resource.ToReference<BlueprintAbilityResourceReference>(),
-									cost = 1
-								}
-							});
-						}
-					}
-				}
-			}
+        public void HandleGetConversions(AbilityData ability, ref IEnumerable<AbilityData> conversions)
+        {
+            // Keep the old GUIDs: old 1/2, 3/4 and 5/6 groups now select 7, 8 and 9.
+            int circle = ability.Blueprint == BlueprintTool.Get<BlueprintAbility>(Guids.HierophantSupremeAbility1) ? 7
+                : ability.Blueprint == BlueprintTool.Get<BlueprintAbility>(Guids.HierophantSupremeAbility2) ? 8
+                : ability.Blueprint == BlueprintTool.Get<BlueprintAbility>(Guids.HierophantSupremeAbility3) ? 9
+                : ability.Blueprint == BlueprintTool.Get<BlueprintAbility>(Guids.HierophantSupremeAbility4) ? 8 : 0;
+            if (circle == 0) return;
 
-			if (ability.Blueprint == BlueprintTool.Get<BlueprintAbility>(Guids.HierophantSupremeAbility2))
-			{
-				for (int i = 3; i <= 4; i++)
-				{
-					foreach (var abilityData in SpellTools.SpellList.ClericSpellList.GetSpells(i))
-					{
-						AbilityVariants variantComponent = abilityData.GetComponent<AbilityVariants>();
-						if (variantComponent != null)
-						{
-							foreach (var variant in variantComponent.Variants.AsEnumerable())
-							{
-								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant)
-								{
-									OverridenResourceLogic = new InfluenceResourceOverride()
-									{
-										m_RequiredResource = this.Resource.ToReference<BlueprintAbilityResourceReference>(),
-										cost = 1
-									}
-								});
-							}
-						}
-						else
-						{
-							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData)
-							{
-								OverridenResourceLogic = new InfluenceResourceOverride()
-								{
-									m_RequiredResource = this.Resource.ToReference<BlueprintAbilityResourceReference>(),
-									cost = 1
-								}
-							});
-						}
-					}
-				}
-			}
-
-			if (ability.Blueprint == BlueprintTool.Get<BlueprintAbility>(Guids.HierophantSupremeAbility3))
-			{
-				for (int i = 5; i <= 6; i++)
-				{
-					foreach (var abilityData in SpellTools.SpellList.ClericSpellList.GetSpells(i))
-					{
-						AbilityVariants variantComponent = abilityData.GetComponent<AbilityVariants>();
-						if (variantComponent != null)
-						{
-							foreach (var variant in variantComponent.Variants.AsEnumerable())
-							{
-								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant)
-								{
-									OverridenResourceLogic = new InfluenceResourceOverride()
-									{
-										m_RequiredResource = this.Resource.ToReference<BlueprintAbilityResourceReference>(),
-										cost = 1
-									}
-								});
-							}
-						}
-						else
-						{
-							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData)
-							{
-								OverridenResourceLogic = new InfluenceResourceOverride()
-								{
-									m_RequiredResource = this.Resource.ToReference<BlueprintAbilityResourceReference>(),
-									cost = 1
-								}
-							});
-						}
-					}
-				}
-			}
-
-			if (ability.Blueprint == BlueprintTool.Get<BlueprintAbility>(Guids.HierophantSupremeAbility4))
-			{
-				for (int i = 7; i <= 8; i++)
-				{
-					foreach (var abilityData in SpellTools.SpellList.ClericSpellList.GetSpells(i))
-					{
-						AbilityVariants variantComponent = abilityData.GetComponent<AbilityVariants>();
-						if (variantComponent != null)
-						{
-							foreach (var variant in variantComponent.Variants.AsEnumerable())
-							{
-								AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, variant)
-								{
-									OverridenResourceLogic = new InfluenceResourceOverride()
-									{
-										m_RequiredResource = this.Resource.ToReference<BlueprintAbilityResourceReference>(),
-										cost = 1
-									}
-								});
-							}
-						}
-						else
-						{
-							AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, abilityData)
-							{
-								OverridenResourceLogic = new InfluenceResourceOverride()
-								{
-									m_RequiredResource = this.Resource.ToReference<BlueprintAbilityResourceReference>(),
-									cost = 1
-								}
-							});
-						}
-					}
-				}
-			}
-			conversions = conversionList;
-		}
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            var conversionList = conversions.ToList();
+            foreach (var spell in SpellTools.SpellList.ClericSpellList.GetSpells(circle))
+            {
+                var variants = spell.GetComponent<AbilityVariants>();
+                var choices = variants != null ? variants.Variants.ToArray() : new[] { spell };
+                foreach (var choice in choices)
+                {
+                    AbilityData.AddAbilityUnique(ref conversionList, new SpiritAbilityData(ability, choice, circle)
+                    {
+                        OverridenResourceLogic = new InfluenceResourceOverride
+                        {
+                            m_RequiredResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(Guids.HierophantSupremeResource),
+                            cost = 1
+                        }
+                    });
+                }
+            }
+            conversions = conversionList;
+            if (timer.ElapsedMilliseconds >= 500)
+                Logger.Log($"Slow spirit menu {ability.Blueprint.AssetGuid}: {conversionList.Count} choices in {timer.ElapsedMilliseconds} ms.");
+        }
 		public IEnumerable<BlueprintAbility> GetConversionSpells(int level)
 		{
 			return cachedConversions[Math.Max(0, Math.Min(cachedConversions.Length - 1, level))].Select(spell => spell.Get());
@@ -279,9 +162,11 @@ namespace MediumClass.Medium.NewComponents
 			{
 			}
 
-			public SpiritAbilityData(AbilityData other, BlueprintAbility replaceBlueprint) : this(replaceBlueprint ?? other.Blueprint, other.Caster, other.Fact, other.SpellbookBlueprint)
+			public SpiritAbilityData(AbilityData other, BlueprintAbility replaceBlueprint, int spellLevel) : this(replaceBlueprint ?? other.Blueprint, other.Caster, other.Fact, other.SpellbookBlueprint)
 			{
 				this.MetamagicData = null;
+				// ConvertedFrom is a menu ability, so its fallback level is not the selected spell level.
+				this.OverrideSpellLevel = spellLevel;
 				this.m_ConvertedFrom = other;
 			}
 		}

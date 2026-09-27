@@ -1,0 +1,176 @@
+[
+  {
+    "Key": "ProwlerArchetype.Name",
+    "ProcessTemplates": false,
+    "enGB": "Prowler of Worlds' End",
+    "zhCN": "绝境巡行者"
+  },
+  {
+    "Key": "ProwlerArchetype.Description",
+    "ProcessTemplates": false,
+    "enGB": "A bloodrager who walks with four feline creator spirits. The bloodline is fixed to Destined; bloodline powers of both bloodlines are gained at 4th, 9th, 12th, 15th, and 20th level. The spirit system is the medium's: channel a spirit at 1st level, spirit powers at 1st, 8th, 16th, and 20th level, spirit bonus up to +6 at 20th level. Spirit's chosen (shapeshifting) at 11th level, shapeshift casting at 12th level. Compatible with the Primalist archetype.",
+    "zhCN": "与四大猫科创世精魂同行的血怒者。血脉固定为命运血脉；两条血脉的血脉之力在 4/9/12/15/20 级取得。英灵系统沿用通灵者：1 级降灵，英灵之力档位为 1/8/16/20 级，同调加值在 20 级达到 +6。11 级获得精魂之选（化形），12 级获得化形施法。支持与原怒者混合。"
+  },
+  {
+    "Key": "ProwlerSpirit.Name",
+    "ProcessTemplates": false,
+    "enGB": "Spirit Beckoning",
+    "zhCN": "英灵降临"
+  },
+  {
+    "Key": "ProwlerSpirit.Description",
+    "ProcessTemplates": false,
+    "enGB": "Once per day you may channel one of the four feline spirits: tiger (champion), jaguar (guardian), lion (marshal), or leopard (trickster). Channeling a spirit costs 1 point of influence and lasts until you rest. The spirit bonus and spirit powers of the channeled spirit apply immediately.",
+    "zhCN": "每天一次，你可以降灵四大猫科精魂之一：猛虎（勇士）、美洲豹（守护者）、狮子（统帅）或猎豹（诡术师）。降灵消耗 1 点共鸣额度，持续到下次休息。降灵后英灵同调与英灵之力立即生效。"
+  },
+  {
+    "Key": "ProwlerChannelChampion.Name",
+    "ProcessTemplates": false,
+    "enGB": "Tiger - Champion",
+    "zhCN": "猛虎·勇士"
+  },
+  {
+    "Key": "ProwlerChannelChampion.Description",
+    "ProcessTemplates": false,
+    "enGB": "Channel the tiger spirit (champion). Its seance boon, spirit bonus, influence penalty and every spirit power are identical to the medium's champion spirit. Spirit powers unlock at 1st, 8th, 16th, and 20th level.",
+    "zhCN": "降灵猛虎精魂（勇士）。其降灵奖励、英灵同调、共鸣惩罚与各档英灵之力与通灵者的勇士英灵完全一致。英灵之力在 1/8/16/20 级解锁。"
+  },
+  {
+    "Key": "ProwlerChannelGuardian.Name",
+    "ProcessTemplates": false,
+    "enGB": "Jaguar - Guardian",
+    "zhCN": "美洲豹·守护者"
+  },
+  {
+    "Key": "ProwlerChannelGuardian.Description",
+    "ProcessTemplates": false,
+    "enGB": "Channel the jaguar spirit (guardian). Its seance boon, spirit bonus, influence penalty and every spirit power are identical to the medium's guardian spirit. Spirit powers unlock at 1st, 8th, 16th, and 20th level.",
+    "zhCN": "降灵美洲豹精魂（守护者）。其降灵奖励、英灵同调、共鸣惩罚与各档英灵之力与通灵者的守护者英灵完全一致。英灵之力在 1/8/16/20 级解锁。"
+  },
+  {
+    "Key": "ProwlerChannelMarshal.Name",
+    "ProcessTemplates": false,
+    "enGB": "Lion - Marshal",
+    "zhCN": "狮子·统帅"
+  },
+  {
+    "Key": "ProwlerChannelMarshal.Description",
+    "ProcessTemplates": false,
+    "enGB": "Channel the lion spirit (marshal). Its seance boon, spirit bonus, influence penalty and every spirit power are identical to the medium's marshal spirit. Spirit powers unlock at 1st, 8th, 16th, and 20th level.",
+    "zhCN": "降灵狮子精魂（统帅）。其降灵奖励、英灵同调、共鸣惩罚与各档英灵之力与通灵者的统帅英灵完全一致。英灵之力在 1/8/16/20 级解锁。"
+  },
+  {
+    "Key": "ProwlerChannelTrickster.Name",
+    "ProcessTemplates": false,
+    "enGB": "Leopard - Trickster",
+    "zhCN": "猎豹·诡术师"
+  },
+  {
+    "Key": "ProwlerChannelTrickster.Description",
+    "ProcessTemplates": false,
+    "enGB": "Channel the leopard spirit (trickster). Its seance boon, spirit bonus, influence penalty and every spirit power are identical to the medium's trickster spirit. Spirit powers unlock at 1st, 8th, 16th, and 20th level.",
+    "zhCN": "降灵猎豹精魂（诡术师）。其降灵奖励、英灵同调、共鸣惩罚与各档英灵之力与通灵者的诡术师英灵完全一致。英灵之力在 1/8/16/20 级解锁。"
+  },
+  {
+    "Key": "ProwlerIntermediate.Name",
+    "ProcessTemplates": false,
+    "enGB": "Intermediate Spirit Power",
+    "zhCN": "中等英灵之力"
+  },
+  {
+    "Key": "ProwlerIntermediate.Description",
+    "ProcessTemplates": false,
+    "enGB": "You gain the intermediate spirit power of your channeled spirit at 8th level.",
+    "zhCN": "你在 8 级获得所降灵英灵的中等英灵之力。"
+  },
+  {
+    "Key": "ProwlerGreater.Name",
+    "ProcessTemplates": false,
+    "enGB": "Greater Spirit Power",
+    "zhCN": "高等英灵之力"
+  },
+  {
+    "Key": "ProwlerGreater.Description",
+    "ProcessTemplates": false,
+    "enGB": "You gain the greater spirit power of your channeled spirit at 16th level.",
+    "zhCN": "你在 16 级获得所降灵英灵的高等英灵之力。"
+  },
+  {
+    "Key": "ProwlerSupreme.Name",
+    "ProcessTemplates": false,
+    "enGB": "Supreme Spirit Power",
+    "zhCN": "至高英灵之力"
+  },
+  {
+    "Key": "ProwlerSupreme.Description",
+    "ProcessTemplates": false,
+    "enGB": "You gain the supreme spirit power of your channeled spirit at 20th level. (The medium gains it at 17th level; this archetype moves it to 20th.)",
+    "zhCN": "你在 20 级获得所降灵英灵的至高英灵之力。（通灵者在 17 级获得至高英灵之力；本变体将其调整到 20 级。）"
+  },
+  {
+    "Key": "ProwlerChosen.Name",
+    "ProcessTemplates": false,
+    "enGB": "Spirit's Chosen",
+    "zhCN": "精魂之选"
+  },
+  {
+    "Key": "ProwlerChosen.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 11th level, you can adopt a feline aspect when entering bloodrage, transforming into a big cat corresponding to your channeled spirit instead of the normal quickened spell. The shape lasts for the duration of the bloodrage.",
+    "zhCN": "11级起可在进入血怒前选择化形模式，以对应大猫形态替换本次血怒的一次瞬发。模式在本次血怒期间锁定。保留血怒的直接命中、伤害、意志和临时生命成长。"
+  },
+  {
+    "Key": "ProwlerShapeCasting.Name",
+    "ProcessTemplates": false,
+    "enGB": "Shapeshift Casting",
+    "zhCN": "化形施法"
+  },
+  {
+    "Key": "ProwlerShapeCasting.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 12th level, you can cast spells while in feline form as if you had the Natural Spell feat.",
+    "zhCN": "12级起可在精魂之选形态中正常施法；动作与法术位正常消耗。"
+  },
+  {
+    "Key": "ProwlerToggleShape.Name",
+    "ProcessTemplates": false,
+    "enGB": "Spirit's Chosen: Toggle Form",
+    "zhCN": "精魂之选：切换法术／化形"
+  },
+  {
+    "Key": "ProwlerToggleShape.Description",
+    "ProcessTemplates": false,
+    "enGB": "Toggle between normal spellcasting and feline shape for your next bloodrage. Can only be toggled outside of bloodrage while channeled.",
+    "zhCN": "切换下一次血怒的模式。只可在血怒之外切换；需要先降灵。"
+  },
+  {
+    "Key": "ProwlerShapeMode.Name",
+    "ProcessTemplates": false,
+    "enGB": "Spirit's Chosen: Form Mode",
+    "zhCN": "精魂之选：化形模式"
+  },
+  {
+    "Key": "ProwlerShapeMode.Description",
+    "ProcessTemplates": false,
+    "enGB": "Transforms you into the big cat (smilodon) form upon entering bloodrage, replacing the automatic quickened spell. Cannot switch during bloodrage.",
+    "zhCN": "下次血怒时化形为野兽之状IV（剑齿虎）形态，以替换本次血怒的瞬发法术。血怒中不能更换模式。"
+  },
+  {
+    "Key": "ProwlerForm.Description",
+    "ProcessTemplates": false,
+    "enGB": "Smilodon form during bloodrage. Weapon attacks and size are adjusted to this form, while bloodrage direct bonuses are retained.",
+    "zhCN": "血怒持续期间的野兽之状IV（剑齿虎）形态。攻击与体型按此形态配置，血怒的直接命中、伤害加值另行保留。"
+  },
+  {
+    "Key": "ProwlerAbility.Duration",
+    "ProcessTemplates": false,
+    "enGB": "Special",
+    "zhCN": "见说明"
+  },
+  {
+    "Key": "ProwlerAbility.SavingThrow",
+    "ProcessTemplates": false,
+    "enGB": "None",
+    "zhCN": "无"
+  }
+]

@@ -21,13 +21,13 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
     class MediumWeakerSpiritComponent : UnitFactComponentDelegate
     {
         private static readonly ModLogger Logger = Logging.GetLogger(nameof(MediumWeakerSpiritComponent));
-        public override void OnTurnOn()
+        public override void OnActivate()
         {
             Logger.Log("Turning on WeakerSpiritComponent");
             Owner.Ensure<UnitPartMedium>().AddWeakerSpiritChannel(base.Context.SourceAbility);
         }
 
-        public override void OnTurnOff()
+        public override void OnDeactivate()
         {
             Logger.Log("Turning off WeakerSpiritComponent");
             Owner.Get<UnitPartMedium>()?.RemoveWeakerSpiritChannel();

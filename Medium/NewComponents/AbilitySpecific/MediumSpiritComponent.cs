@@ -21,13 +21,20 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
     class MediumSpiritComponent : UnitFactComponentDelegate
     {
         private static readonly ModLogger Logger = Logging.GetLogger(nameof(MediumSpiritComponent));
-        public override void OnTurnOn()
+        public override void OnActivate() => Register();
+        public override void OnPostLoad() => Register();
+        public override void OnTurnOn() => Register();
+
+        internal void Register()
         {
+            if (Fact == null || !Fact.IsActive) return;
             Owner.Ensure<UnitPartMedium>().AddSpiritEntry(SpiritClass, SpiritInfluencePenalty, SpiritInfluence, SpiritBonusFeature, SpiritSeanceBoon, base.Fact, Concentration, Stats, Penalties, 
                 SpiritLesserPower, SpiritIntermediatePower, SpiritOverwriteIntermediate, SpiritGreaterPower, SpiritOverwriteGreater, SpiritSupremePower, SpiritIntermediatePowerMove, SpiritIntermediatePowerSwift);
         }
 
-        public override void OnTurnOff()
+        // TurnOff also runs for saving and scene unloading. Catalogue membership
+        // follows actual ownership of this feature, not whether its owner is on.
+        public override void OnDeactivate()
         {
             Owner.Get<UnitPartMedium>()?.RemoveSpiritEntry(base.Fact, SpiritClass);
         }

@@ -1,0 +1,35 @@
+SuddenAttack verification record, 2026-09-27
+This record preserves results already returned by actual test executions.
+
+Inputs:
+Game: D:/steam/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Managed/Assembly-CSharp.dll
+Game blueprints: D:/steam/steamapps/common/Pathfinder Second Adventure/blueprints.zip
+Delivery DLL: artifacts/Release/MediumClass/MediumClass.dll
+Game DLL SHA256: 2CB7160B7154D4FFACC77B9C51B1EB26199E1294300F04FDFC073367B2EF8953
+Delivery DLL SHA256: 9F975846FF775151A9F9E5036848D82C24328A58C2C2C35C18735FDF5880AD8D
+
+First run: default production source (0.2.5), exit code 0
+PASS: 796 checks, 0 failures. Production component + production blueprint; installed native pool IL executed. Not Unity gameplay.
+
+Old-source control: both ProductionComponentPath and ProductionBlueprintPath overridden
+AddSuddenAttack-0.2.4.cs and SuddenAttack-0.2.4.cs from the task's work/sudden025 backup.
+The binary argument continued to inspect the separate 0.2.5 delivery DLL.
+Exit code 1
+FAIL: default Sudden Attack is independent of haste pool
+FAIL: blueprint explicitly creates independent full-BAB attack
+FAIL: three original attacks + Sudden + Haste, either order: expected 5, got 4
+FAIL: Sudden enters independent full-BAB pool: expected 2, got 1
+FAIL: component passes independent unpenalized native call
+FAIL: three original attacks + Sudden + Haste, either order: expected 5, got 4
+FAIL: Sudden enters independent full-BAB pool: expected 2, got 1
+FAIL: component passes independent unpenalized native call
+FAIL: effect order 0,1,2,3,4 independent sum: expected 4, got 3
+FAIL: effect order 0,1,2,4,3 independent sum: expected 4, got 3
+FAIL: effect order 0,1,3,2,4 independent sum: expected 4, got 3
+FAIL: effect order 0,1,3,4,2 independent sum: expected 4, got 3
+FAIL: 796 checks, 256 failures. Production component + production blueprint; installed native pool IL executed. Not Unity gameplay.
+
+Final run: returned to default production source (0.2.5), exit code 0
+PASS: 796 checks, 0 failures. Production component + production blueprint; installed native pool IL executed. Not Unity gameplay.
+
+Limitations and reproduction commands are in README.md next to this file.

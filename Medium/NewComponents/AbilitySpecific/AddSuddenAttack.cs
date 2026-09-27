@@ -54,7 +54,8 @@ namespace MediumClass.Medium.NewComponents.AbilitySpecific
 		}
 
 		public int Number = 1;
-		public bool Haste =  true;
+		// Haste-type attacks share a non-stacking pool in the native attack rule.
+		public bool Haste = false;
 		public bool Penalized = false;
 	}
 }

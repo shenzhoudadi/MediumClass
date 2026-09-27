@@ -306,6 +306,40 @@ namespace MediumClass.Utilities
         #endregion
 
         #endregion
+        #region Prowler
+        // 绝境巡行者：合并前已存在于 alpha 的蓝图沿用其原派生键 ProwlerWorldsEnd.v1/<key>，
+        // 使 alpha 存档中的同一内容保持同一个 GUID；合并后新增的内容使用 MediumClass.Prowler.v1/<key>。
+        internal const string ProwlerArchetype = "bb6c7a29-ccc6-fb01-707a-3746101dea6b";
+        internal const string ProwlerSpirit = "0e773cd5-b56b-a25f-7a3c-6724ebde0052";
+        internal const string ProwlerIntermediate = "359b372c-76a6-c260-9ea5-6cdcdcea4289";
+        internal const string ProwlerGreater = "fc85141b-fd4a-d70f-6606-b67c4a6676f1";
+        internal const string ProwlerSupreme = "1bd79899-9dba-a2cf-031d-36957bb9e8b5";
+        internal const string ProwlerChosen = "19d0ce64-62d4-d286-63d8-66795303b80d";
+        internal const string ProwlerShapeCasting = "606673f2-ed6a-4111-5e05-63523ff4e734";
+        internal const string ProwlerShapeMode = "391eae7e-4b4e-ff16-48b9-1830fead28cb";
+        internal const string ProwlerRageFormController = "937c0aa6-5d17-66c1-24a7-467e7dd3d4af";
+        internal const string ProwlerToggleShape = "2e71294e-6433-4065-b697-6011a7554e39";
+        internal const string ProwlerReleaseGrapple = "32b987c8-feef-d3e0-fb90-10f26b87bc7b";
+        internal const string ProwlerNaturalSpellScoped = "1a3b7157-772a-07ec-d6cc-f60f636910d4";
+        internal const string ProwlerForm0 = "e010a111-650a-6c17-42f9-056e732b7a6e";
+        internal const string ProwlerForm1 = "f4276eee-564d-9ddb-7425-f780318bdb69";
+        internal const string ProwlerForm2 = "c661e8e5-9baa-2b2f-6d6c-a5f2ae8fd379";
+        internal const string ProwlerForm3 = "70edd156-21ef-8264-26cf-f49a5e24a2fc";
+        internal const string ProwlerBite0 = "f0e92755-f389-fef3-1acf-64873be087a5";
+        internal const string ProwlerBite1 = "85f2b9ce-a489-c733-c4ff-0cc41a828eea";
+        internal const string ProwlerBite2 = "73704857-9331-9c28-2a76-560b9860c4f5";
+        internal const string ProwlerBite3 = "45b0253f-139d-e730-74fa-8cd617a09e1d";
+        internal const string ProwlerClaw0 = "eb486ce3-1156-84f8-786f-1dadd62af85e";
+        internal const string ProwlerClaw1 = "c6c36d7b-8e29-0faa-c45c-c742f4e72439";
+        internal const string ProwlerClaw2 = "57656c5b-e1b4-f4a0-99fe-42e47f6f3c96";
+        internal const string ProwlerClaw3 = "8bd8e199-5f56-7b7e-6b79-5c52cf0fcf49";
+
+        internal const string ProwlerChannelChampion = "fff4a23d-014a-b9bc-7298-553648979469";
+        internal const string ProwlerChannelGuardian = "3c5f9a7b-6a6a-1850-c5a7-2b19ceeb0dc9";
+        internal const string ProwlerChannelMarshal = "76f3f569-f852-ee78-1922-e0dfc8896431";
+        internal const string ProwlerChannelTrickster = "6c9c0ccb-c689-4687-dc94-2818d38fb295";
+        #endregion
+
         internal static readonly (string guid, string displayName)[] Spirits =
           new (string, string)[]
           {

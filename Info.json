@@ -1,10 +1,13 @@
 {
   "Id": "Medium Class",
-  "DisplayName": "Medium Class (maintenance - untested)",
+  "DisplayName": "通灵者 Medium Class（PF术语汉化测试版）",
   "Author": "Telyl",
-  "Version": "0.1.4",
+  "Version": "0.2.5",
   "ManagerVersion": "0.33.0",
-  "Requirements": [ "TabletopTweaks-Core-0.7.14", "ModMenu-2.0.14" ],
+  "Requirements": [
+    "TabletopTweaks-Core-0.7.14",
+    "ModMenu-2.0.14"
+  ],
   "AssemblyName": "MediumClass.dll",
   "EntryMethod": "MediumClass.Main.Load"
 }

@@ -23,7 +23,8 @@ namespace MediumClass.Medium.Spirits.Champion
                 .AddComponent<AddSuddenAttack>(c =>
                 {
                     c.Number = 1;
-                    c.Haste = true;
+                    // Sudden Attack stacks with haste; it is an independent attack.
+                    c.Haste = false;
                     c.Penalized = false;
                 })
                 .AddMechanicsFeature(MechanicsFeatureType.SuppressedManyshot)
